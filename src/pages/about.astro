@@ -1,0 +1,167 @@
+---
+import Base from '../layouts/Base.astro';
+import IndigoBlock from '../components/IndigoBlock.astro';
+import Media from '../components/Media.astro';
+
+const pillars = [
+  { name: 'Attract', line: 'Bring the right people in. Forget cookie-cutter recruitment. We help you attract humans who believe in your mission, not just fill a seat. Extraordinary teams start with people who co-create your culture.' },
+  { name: 'Align', line: 'Get everyone moving in the same direction. Vision only matters if people can feel it. We cut through noise and corporate fluff to align your people around shared purpose, clear strategy, and values that actually mean something.' },
+  { name: 'Lead', line: 'Build leaders who multiply impact. Real leadership isn’t about carrying the weight alone. It’s about building others strong enough to carry it with you. We grow leaders who empower, not control - the kind who lift everyone around them.' },
+  { name: 'Retain', line: 'Keep your best humans thriving. Retention isn’t about beanbags or ping-pong tables. It’s about belonging, strengths and trust. We help you create the kind of environment where people want to stay, and do the best work of their lives.' },
+];
+---
+<Base
+  title="About"
+  description="People aren’t resources - they’re the reason organisations succeed. Meet Radical HR, the Humans First consultancy led by Lisa Shaw."
+  current="about"
+>
+  {/* Hero */}
+  <section class="hero">
+    <div class="container">
+      <p class="eyebrow">About us</p>
+      <h1 class="display hero-h1">
+        You might want to sit down for this. Because here’s the thing…
+      </h1>
+      <p class="body-lg hero-sub">
+        People aren’t “resources.” They’re the reason organisations succeed.
+      </p>
+    </div>
+  </section>
+
+  {/* Narrative */}
+  <section class="section-tight">
+    <div class="container narrative">
+      <p class="body-lg">
+        Somewhere along the way, work got tangled in red tape. HR became about
+        control, not connection. Culture became a poster on the wall instead of
+        a living, breathing heartbeat. We’re not here to play that game.
+      </p>
+      <p class="body-lg">
+        At Radical HR, we help leaders and teams flip the script and design
+        workplaces that actually work - for humans, not just the bottom line.
+        Building extraordinary teams isn’t a fluke. It’s intentional. Strategic.
+        Human.
+      </p>
+      <p class="body-lg narrative-turn">
+        Our work is built around four pillars that shape every piece of mahi
+        (work) we do - from brave conversations to bold culture shifts.
+      </p>
+    </div>
+  </section>
+
+  {/* Four pillars */}
+  <section class="section band-mist">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">The four pillars</p>
+        <h2 class="heading section-title">Attract. Align. Lead. Retain.</h2>
+      </div>
+      <div class="prows">
+        {pillars.map((p) => (
+          <div class="prow">
+            <h3 class="heading prow-name">{p.name}</h3>
+            <p class="body prow-line">{p.line}</p>
+          </div>
+        ))}
+      </div>
+      <p class="body-lg integ">
+        These four pillars work together to attract the right people, align them
+        with purpose, retain them through belonging, and unleash leadership that
+        multiplies impact. We’re here to build teams people actually want to be
+        part of. Because extraordinary teams aren’t born. They’re designed…
+        <span class="accent">radically.</span>
+      </p>
+    </div>
+  </section>
+
+  {/* The human behind it */}
+  <section class="section">
+    <div class="container lisa">
+      <div class="lisa-photo">
+        <Media src="/images/lisa.png" alt="Lisa Shaw, Founder of Radical HR." ratio="4 / 5" caption="Lisa Shaw · Founder · Auckland" />
+      </div>
+      <div class="lisa-body">
+        <p class="eyebrow">The human behind Humans First</p>
+        <h2 class="heading lisa-h">Lisa Shaw</h2>
+        <p class="body-lg">
+          Founder, fractional exec, and a recovering accountant who traded
+          spreadsheets for systems that scale impact. Commercial acuity plus
+          deep people insight - moving fluidly between detail and strategy,
+          boardroom and paddock.
+        </p>
+        <p class="body-lg">
+          Lisa has run businesses, made payroll with no cash in the bank, sat on
+          boards, and made the hard calls. The work is grounded in having
+          actually carried the weight - not theory for hire.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  {/* Social business */}
+  <section class="section band-mist">
+    <div class="container social">
+      <p class="eyebrow">Social business</p>
+      <h2 class="heading social-h">Not just here to do well. Here to do good.</h2>
+      <p class="body-lg">
+        We exist to re-imagine the future of extraordinary teams - to create
+        spaces where people can belong, grow, and lead with courage. We
+        challenge the status quo, amplify human potential, and design futures
+        where every person has the opportunity and support to truly flourish.
+      </p>
+      <p class="body-lg">
+        We’re a social business, which means a share of our energy, mahi, and
+        profit is intentionally reinvested back into people, communities, and
+        causes that matter. Because business should be a force for change, not
+        just a balance sheet.
+      </p>
+      <p class="social-tag">When humans come first, extraordinary happens.</p>
+    </div>
+  </section>
+
+  <IndigoBlock
+    eyebrow="We’re ready when you are"
+    heading="Let’s build your extraordinary team together."
+    ctaHref="/contact"
+    ctaLabel="Start a conversation"
+  />
+</Base>
+
+<style>
+  .hero { padding-block: clamp(56px, 9vw, 116px) clamp(28px, 4vw, 56px); }
+  .hero-h1 { font-size: var(--t-h2); max-width: 20ch; }
+  .hero-sub { margin-top: 24px; max-width: 44ch; color: var(--c-indigo); font-weight: 600; }
+
+  .narrative { display: flex; flex-direction: column; gap: 18px; max-width: 62ch; }
+  .narrative .body-lg { color: var(--c-body); }
+  .narrative-turn { font-weight: 600; color: var(--c-indigo) !important; }
+
+  .section-title { font-size: var(--t-h2); }
+
+  .prows { display: grid; grid-template-columns: repeat(2, 1fr); gap: clamp(20px, 3vw, 40px); }
+  .prow { display: flex; flex-direction: column; gap: 10px; }
+  .prow-name { font-size: var(--t-h4); color: var(--c-purple); }
+  .prow-line { color: var(--c-body); }
+  .integ { margin-top: clamp(32px, 4vw, 56px); max-width: 70ch; color: var(--c-body); }
+
+  .lisa {
+    display: grid;
+    grid-template-columns: 0.85fr 1.15fr;
+    gap: clamp(28px, 5vw, 64px);
+    align-items: center;
+  }
+  .lisa-photo { max-width: 380px; }
+  .lisa-body { display: flex; flex-direction: column; gap: 18px; }
+  .social { max-width: 64ch; display: flex; flex-direction: column; gap: 18px; }
+  .lisa-h, .social-h { font-size: var(--t-h3); margin-bottom: 4px; }
+  .lisa-body .body-lg, .social .body-lg { color: var(--c-body); }
+  @media (max-width: 760px) {
+    .lisa { grid-template-columns: 1fr; gap: 24px; }
+    .lisa-photo { max-width: 320px; }
+  }
+  .social-tag { font-family: var(--f-display); font-weight: 700; color: var(--c-purple); font-size: var(--t-body-lg); margin-top: 4px; }
+
+  @media (max-width: 760px) {
+    .prows { grid-template-columns: 1fr; gap: 28px; }
+  }
+</style>

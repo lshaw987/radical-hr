@@ -1,0 +1,32 @@
+---
+/* Temporary stub for pages not yet built out. Keeps the nav clickable and the
+   brand consistent while we draft each page in turn. Swap each of these for a
+   real page as we go. */
+import Base from '../layouts/Base.astro';
+import IndigoBlock from '../components/IndigoBlock.astro';
+interface Props {
+  title: string;
+  eyebrow: string;
+  blurb: string;
+  current?: string;
+}
+const { title, eyebrow, blurb, current } = Astro.props;
+---
+<Base title={title} current={current}>
+  <section class="stub">
+    <div class="container">
+      <p class="eyebrow">{eyebrow}</p>
+      <h1 class="display stub-h1">{title}</h1>
+      <p class="body-lg stub-blurb">{blurb}</p>
+      <p class="stub-note">This page is being rebuilt. The homepage shows the new direction - the rest follows.</p>
+    </div>
+  </section>
+  <IndigoBlock heading="Want to talk before the site's done?" body="The work doesn't wait on the website. If something here is live for you right now, start a conversation." />
+</Base>
+
+<style>
+  .stub { padding-block: clamp(56px, 9vw, 120px) clamp(32px, 5vw, 64px); }
+  .stub-h1 { font-size: var(--t-h1); margin-top: 20px; max-width: 14ch; }
+  .stub-blurb { margin-top: 24px; max-width: 52ch; color: var(--c-body); }
+  .stub-note { margin-top: 28px; font-size: 14px; color: var(--c-lavender); }
+</style>

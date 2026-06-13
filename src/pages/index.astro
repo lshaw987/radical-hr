@@ -1,0 +1,353 @@
+---
+import Base from '../layouts/Base.astro';
+import IndigoBlock from '../components/IndigoBlock.astro';
+import Media from '../components/Media.astro';
+
+const pillars = [
+  {
+    no: '01',
+    name: 'Attract',
+    line: 'Bring the right people in. Not cookie-cutter recruitment - humans who believe in your mission, not just fill a seat.',
+    href: '/attract',
+  },
+  {
+    no: '02',
+    name: 'Align',
+    line: 'Get everyone moving the same way. Cut through the noise and corporate fluff to shared purpose, clear strategy, and values that actually mean something.',
+    href: '/align',
+  },
+  {
+    no: '03',
+    name: 'Lead',
+    line: 'Build leaders who multiply impact. Not carrying the weight alone - building others strong enough to carry it with you.',
+    href: '/lead-retain',
+  },
+  {
+    no: '04',
+    name: 'Retain',
+    line: 'Keep your best humans thriving. Not beanbags and ping-pong - belonging, strengths and trust, so people want to stay.',
+    href: '/lead-retain',
+  },
+];
+
+const steps = [
+  {
+    name: 'Connect',
+    line: 'We start with a conversation. No jargon, no generic templates - just real korero about where you are, what’s working, and what’s getting in the way.',
+  },
+  {
+    name: 'Co-Design',
+    line: 'Together, we map a clear and practical plan. Strategy, leadership, or culture - we design it with you, not for you. Then we make it real.',
+  },
+  {
+    name: 'Create Impact',
+    line: 'Your people engaged, your leaders equipped, and your culture built to last.',
+  },
+];
+
+const quotes = [
+  {
+    text: 'I have really enjoyed your facilitation. You do an amazing job of making the principals feel comfortable and able to be vulnerable with how they are going. Your amazing list of resources is another highlight for me.',
+    who: 'Ange',
+  },
+  {
+    text: 'I found the course to be highly engaging and your presenting style to be a huge motivator. I enjoyed the way you were able to push us out of our comfort zones in a supportive and caring way. Get comfortable being uncomfortable, right? That’s where the magic happens.',
+    who: 'Richelle',
+  },
+  {
+    text: 'Your little tips and tricks have been amazing for me - efficient ways of being organised overall, and how to streamline admin processes in a school.',
+    who: 'Cindy',
+  },
+];
+---
+<Base
+  title="Radical HR"
+  description="Radical HR is a Humans First consultancy and movement. We help organisations attract, align, lead and retain extraordinary teams - by designing workplaces humans genuinely want to be part of."
+  current="home"
+>
+  {/* ---------- Hero ---------- */}
+  <section class="hero">
+    <div class="container hero-grid">
+      <div class="hero-copy">
+        <p class="eyebrow hero-eyebrow">Humans First</p>
+        <h1 class="display hero-h1">
+          Reimagining the future of <span class="accent">extraordinary</span> teams
+        </h1>
+        <p class="body-lg hero-sub">
+          We help organisations attract, align, lead and retain extraordinary
+          teams by putting humans first. Not policies. Not paperwork. Not
+          buzzwords.
+        </p>
+        <p class="hero-line">
+          When culture becomes wallpaper, great people walk. When leadership
+          stays stuck, potential is lost.
+        </p>
+        <div class="hero-cta">
+          <a href="/contact" class="btn btn-primary">Start a conversation <span class="arr">&rarr;</span></a>
+          <a href="#approach" class="btn btn-ghost">How we work</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <img src="/images/photo-1.png" alt="Concept imagery - teams, alignment and attraction." loading="eager" />
+      </div>
+    </div>
+  </section>
+
+  {/* ---------- Core message ---------- */}
+  <section class="section-tight">
+    <div class="container">
+      <p class="heading lede">
+        When you put humans at the heart of everything, teams work smarter, lead
+        stronger, and deliver lasting impact. Radical HR exists to help
+        organisations design for that future.
+      </p>
+      <p class="lede-tag">Intentionally. Courageously. Together.</p>
+    </div>
+  </section>
+
+  {/* ---------- What's at stake ---------- */}
+  <section class="section band-mist">
+    <div class="container stakes">
+      <div class="stakes-head">
+        <p class="eyebrow">We know what’s at stake</p>
+        <h2 class="heading stakes-h">
+          You’re here because you don’t want to survive the future of work.
+          You want to <span class="accent">shape</span> it.
+        </h2>
+      </div>
+      <div class="stakes-body">
+        <p class="body-lg">
+          You want a culture that’s real, not wallpaper. Leaders who inspire, not
+          just manage. A team that’s aligned, energised and ready for what’s
+          next.
+        </p>
+        <p class="body-lg">
+          But too many organisations are stuck inside systems built for
+          yesterday. Values sit on the wall instead of living in the work.
+          Leaders carry the load alone. Great people burn out instead of
+          thriving.
+        </p>
+        <p class="body-lg stakes-turn">
+          That’s where Radical HR comes in. We’ve led through this, fixed it,
+          and helped teams become extraordinary.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  {/* ---------- Founder strip ---------- */}
+  <section class="section">
+    <div class="container founder">
+      <div class="founder-photo">
+        <Media src="/images/lisa.png" alt="Lisa Shaw, Founder of Radical HR." ratio="4 / 5" caption="Lisa Shaw · Founder · Auckland" />
+      </div>
+      <div class="founder-body">
+        <p class="eyebrow">Lived, not theory</p>
+        <h2 class="heading founder-h">The person behind Humans First.</h2>
+        <p class="body-lg">
+          Radical HR is led by Lisa Shaw - founder, fractional exec, and a
+          recovering accountant who traded spreadsheets for systems that scale
+          impact. She’s run businesses, made payroll with no cash in the bank,
+          sat on boards, and made the hard calls.
+        </p>
+        <p class="body">
+          The work is grounded in having actually carried the weight - comfortable
+          in both the boardroom and the paddock. Not theory for hire.
+        </p>
+        <a href="/about" class="btn btn-ghost founder-cta">Meet Lisa <span class="arr">&rarr;</span></a>
+      </div>
+    </div>
+  </section>
+
+  {/* ---------- Four pillars ---------- */}
+  <section id="pillars" class="section">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">The model</p>
+        <h2 class="heading section-title">Four pillars. One Humans First thread.</h2>
+        <p class="body-lg section-intro">
+          Building extraordinary teams isn’t a fluke. It’s intentional.
+          Strategic. Human. Our work is built around four pillars that shape
+          every piece of mahi we do.
+        </p>
+      </div>
+
+      <div class="pillars">
+        {pillars.map((p) => (
+          <a href={p.href} class="pillar">
+            <span class="pillar-no">{p.no}</span>
+            <h3 class="heading pillar-name">{p.name}</h3>
+            <p class="body pillar-line">{p.line}</p>
+            <span class="pillar-more">Explore <span class="arr">&rarr;</span></span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {/* ---------- Three-step approach ---------- */}
+  <section id="approach" class="section band-mist">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">How we work</p>
+        <h2 class="heading section-title">Our radical approach is simple.</h2>
+      </div>
+      <div class="steps">
+        {steps.map((s, i) => (
+          <div class="step">
+            <span class="step-no">{String(i + 1).padStart(2, '0')}</span>
+            <h3 class="heading step-name">{s.name}</h3>
+            <p class="body step-line">{s.line}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {/* ---------- Provocation ---------- */}
+  <section class="section">
+    <div class="container thesis">
+      <p class="eyebrow">The provocation</p>
+      <h2 class="display thesis-q">
+        What if we got rid of HR departments<br />and made them <span class="accent">HF</span>?
+      </h2>
+      <p class="body-lg thesis-body">
+        Humans First. We’re not here to drown you in policies and processes - in
+        fact we hate the concept of policies. We’re here to build teams people
+        actually want to be part of. Because extraordinary teams aren’t born.
+        They’re designed… radically.
+      </p>
+    </div>
+  </section>
+
+  {/* ---------- Testimonials ---------- */}
+  <section class="section band-mist">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">What leaders are saying</p>
+        <h2 class="heading section-title">The proof is in the room.</h2>
+      </div>
+      <div class="quotes">
+        {quotes.map((q) => (
+          <figure class="quote">
+            <blockquote class="quote-text">{q.text}</blockquote>
+            <figcaption class="quote-who">{q.who}</figcaption>
+          </figure>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {/* ---------- Closer ---------- */}
+  <IndigoBlock
+    eyebrow="We’re ready when you are"
+    heading="Let’s build your extraordinary team together."
+    body="The future you want isn’t out of reach - it’s waiting to be designed. Start with a conversation. No pitch, no jargon. Just where you’re at and where you want to get to."
+    ctaHref="/contact"
+    ctaLabel="Start a conversation"
+  />
+</Base>
+
+<style>
+  /* Hero */
+  .hero { padding-block: clamp(48px, 8vw, 112px) clamp(36px, 5vw, 72px); }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: clamp(32px, 5vw, 72px);
+    align-items: center;
+  }
+  .hero-eyebrow { margin-bottom: 22px; }
+  .hero-h1 { font-size: var(--t-h1); max-width: 16ch; }
+  .hero-sub { margin-top: 28px; max-width: 52ch; color: var(--c-body); }
+  .hero-line { margin-top: 18px; max-width: 50ch; color: var(--c-lavender); font-size: var(--t-body); font-weight: 500; }
+  .hero-cta { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 36px; }
+  .hero-visual img { width: 100%; height: auto; display: block; }
+  @media (max-width: 860px) {
+    .hero-grid { grid-template-columns: 1fr; }
+    .hero-visual { max-width: 380px; }
+  }
+
+  /* Founder strip */
+  .founder {
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr;
+    gap: clamp(28px, 5vw, 64px);
+    align-items: center;
+  }
+  .founder-photo { max-width: 380px; }
+  .founder-body { display: flex; flex-direction: column; gap: 16px; }
+  .founder-h { font-size: var(--t-h3); }
+  .founder-body .body-lg, .founder-body .body { color: var(--c-body); }
+  .founder-cta { align-self: flex-start; margin-top: 8px; }
+  @media (max-width: 760px) {
+    .founder { grid-template-columns: 1fr; gap: 24px; }
+    .founder-photo { max-width: 320px; }
+  }
+
+  /* Core message lede */
+  .lede {
+    font-weight: 600; font-size: var(--t-h4); line-height: 1.4;
+    color: var(--c-indigo); max-width: 44ch; letter-spacing: -0.01em;
+  }
+  .lede-tag { margin-top: 18px; font-family: var(--f-display); font-weight: 700; color: var(--c-purple); font-size: var(--t-body-lg); }
+
+  /* Stakes */
+  .stakes { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(32px, 5vw, 72px); align-items: start; }
+  .stakes-h { font-size: var(--t-h3); max-width: 18ch; }
+  .stakes-body { display: flex; flex-direction: column; gap: 18px; }
+  .stakes-body .body-lg { color: var(--c-body); }
+  .stakes-turn { font-weight: 600; color: var(--c-indigo) !important; }
+
+  /* Section head shared */
+  .section-title { font-size: var(--t-h2); }
+  .section-intro { max-width: 50ch; color: var(--c-body); }
+
+  /* Pillars */
+  .pillars { display: grid; grid-template-columns: repeat(2, 1fr); gap: clamp(16px, 2vw, 24px); }
+  .pillar {
+    display: flex; flex-direction: column; gap: 12px;
+    background: #fff; border: 1px solid var(--c-rule); border-radius: var(--radius);
+    padding: clamp(24px, 3vw, 38px);
+    transition: transform .18s var(--ease-out), border-color .18s var(--ease-out), box-shadow .18s var(--ease-out);
+  }
+  .pillar:hover { transform: translateY(-3px); border-color: var(--c-lilac); box-shadow: 0 18px 40px rgba(101,40,234,0.08); }
+  .pillar-no { font-family: var(--f-display); font-weight: 700; font-size: 13px; letter-spacing: 0.1em; color: var(--c-purple); }
+  .pillar-name { font-size: var(--t-h3); }
+  .pillar-line { color: var(--c-body); }
+  .pillar-more { margin-top: auto; font-weight: 600; font-size: 15px; color: var(--c-purple); }
+
+  /* Steps */
+  .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(20px, 3vw, 44px); }
+  .step { display: flex; flex-direction: column; gap: 12px; }
+  .step-no {
+    font-family: var(--f-display); font-weight: 800; font-size: 40px;
+    color: var(--c-lilac); line-height: 1;
+  }
+  .step-name { font-size: var(--t-h4); }
+  .step-line { color: var(--c-body); }
+
+  /* Thesis */
+  .thesis { max-width: 820px; text-align: center; margin-inline: auto; display: flex; flex-direction: column; align-items: center; gap: 22px; }
+  .thesis-q { font-size: var(--t-h2); line-height: 1.06; }
+  .thesis-body { color: var(--c-body); max-width: 58ch; }
+
+  /* Quotes */
+  .quotes { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(16px, 2vw, 24px); }
+  .quote {
+    background: #fff; border: 1px solid var(--c-rule); border-radius: var(--radius);
+    padding: clamp(24px, 3vw, 34px); display: flex; flex-direction: column; gap: 18px;
+  }
+  .quote-text { font-size: var(--t-body); line-height: 1.6; color: var(--c-body); }
+  .quote-text::before { content: '\201C'; color: var(--c-lilac); font-family: var(--f-display); font-weight: 800; font-size: 40px; line-height: 0; display: block; height: 18px; }
+  .quote-who { font-family: var(--f-display); font-weight: 700; color: var(--c-purple); font-size: 15px; }
+
+  @media (max-width: 860px) {
+    .stakes { grid-template-columns: 1fr; gap: 24px; }
+    .steps { grid-template-columns: 1fr; gap: 28px; }
+    .quotes { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 760px) {
+    .pillars { grid-template-columns: 1fr; }
+  }
+</style>

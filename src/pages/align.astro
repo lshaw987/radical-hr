@@ -1,0 +1,68 @@
+---
+import Base from '../layouts/Base.astro';
+import IndigoBlock from '../components/IndigoBlock.astro';
+
+const blocks = [
+  { name: 'Transformative Values', line: 'We help organisations live and breathe their values - not laminate them - so the culture becomes a workplace your people actually love.' },
+  { name: 'Exceptional Clarity', line: 'Our Clarity Model aligns individuals and teams on what matters most and the part each person plays - so you achieve more with less waste.' },
+  { name: 'Dynamic Goals', line: 'People thrive on goals that are important, thrilling and slightly daunting. We help teams implement OKRs and agile ways of working that deliver for coworkers and the organisation alike.' },
+];
+---
+<Base
+  title="Align"
+  description="Radically simplify strategy and priorities so teams are aligned for the future - values, clarity, and goals that actually move."
+  current="align"
+>
+  <section class="hero">
+    <div class="container">
+      <p class="eyebrow">Pillar 02</p>
+      <h1 class="display hero-h1">Get everyone moving the <span class="accent">same way.</span></h1>
+      <p class="body-lg hero-sub">
+        Vision only matters if people can feel it. We cut through the noise and
+        corporate fluff to align your people around shared purpose, clear
+        strategy, and values that actually mean something.
+      </p>
+      <p class="hero-line">
+        Most people in most organisations can’t clearly name their company’s
+        strategy or goals. Alignment fixes that.
+      </p>
+      <a href="/contact" class="btn btn-primary hero-cta">Talk alignment <span class="arr">&rarr;</span></a>
+    </div>
+  </section>
+
+  <section class="section band-mist">
+    <div class="container">
+      <div class="blocks">
+        {blocks.map((b) => (
+          <div class="block">
+            <h2 class="heading block-name">{b.name}</h2>
+            <p class="body block-line">{b.line}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <IndigoBlock
+    eyebrow="Pillar 02"
+    heading="Strategy on a page, not a 75-page deck."
+    body="Let’s get your people aligned on what matters and the part each one plays."
+    ctaHref="/contact"
+    ctaLabel="Start a conversation"
+  />
+</Base>
+
+<style>
+  .hero { padding-block: clamp(56px, 9vw, 116px) clamp(36px, 5vw, 64px); }
+  .hero-h1 { font-size: var(--t-h1); max-width: 15ch; }
+  .hero-sub { margin-top: 24px; max-width: 54ch; color: var(--c-body); }
+  .hero-line { margin-top: 16px; max-width: 50ch; color: var(--c-lavender); font-weight: 500; }
+  .hero-cta { margin-top: 32px; }
+
+  .blocks { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(16px, 2vw, 24px); }
+  .block { background: #fff; border: 1px solid var(--c-rule); border-radius: var(--radius); padding: clamp(24px, 3vw, 34px); display: flex; flex-direction: column; gap: 12px; }
+  .block-name { font-size: var(--t-h4); color: var(--c-purple); }
+  .block-line { color: var(--c-body); }
+
+  @media (max-width: 760px) { .blocks { grid-template-columns: 1fr; } }
+</style>

@@ -1,0 +1,28 @@
+---
+/* Text wordmark stand-in. Drop the real logo into /public/images/logo.svg
+   and swap this for an <img> when the asset is in hand. Live master:
+   radicalhr.co/wp-content/uploads/2024/05/Radical-HR-standard-transparent-no-padding@5x.png
+*/
+interface Props { tone?: 'light' | 'dark'; }
+const { tone = 'light' } = Astro.props;
+---
+<a href="/" class={`wm wm-${tone}`} aria-label="Radical HR - home">
+  <span class="wm-radical">Radical</span><span class="wm-hr">HR</span>
+</a>
+
+<style>
+  .wm {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 6px;
+    font-family: var(--f-display);
+    font-weight: 800;
+    font-size: 22px;
+    letter-spacing: -0.02em;
+    line-height: 1;
+  }
+  .wm-radical { color: var(--c-indigo); }
+  .wm-hr { color: var(--c-purple); }
+  .wm-dark .wm-radical { color: #fff; }
+  .wm-dark .wm-hr { color: var(--c-lilac); }
+</style>

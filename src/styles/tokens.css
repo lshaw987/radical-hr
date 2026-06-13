@@ -1,0 +1,62 @@
+/* Radical HR brand tokens - single source of truth
+   ------------------------------------------------
+   Source: layer-4-brains/radical-hr/context/brand.md (Visual identity).
+   Palette confirmed by Lisa 2026-06-13. Anything that ships comes from these
+   vars - never hard-code a hex.
+
+   The site runs a LIGHT theme (white page, mist bands, deep-indigo type,
+   purple as the hero accent) - deliberately distinct from MPower's dark look.
+*/
+
+:root {
+  /* Palette - confirmed brand colours -------------------------------------- */
+  --c-purple:    #6528EA;   /* primary - the hero Radical HR purple, links, buttons, accent word */
+  --c-indigo:    #1E146D;   /* deep - headings, dark blocks, footer */
+  --c-indigo-2:  #20166D;   /* near-twin deep tone - second dark surface */
+  --c-lilac:     #B094EF;   /* light purple accent */
+  --c-lavender:  #8A86B2;   /* muted / supporting text, eyebrow labels */
+  --c-mist:      #F0F1F4;   /* near-white section band */
+
+  /* Derived working shades (on-tone, not from the named set) ---------------- */
+  --c-white:     #FFFFFF;   /* page background */
+  --c-purple-2:  #571FD0;   /* purple hover (darker) */
+  --c-body:      #38334F;   /* body copy on light - dark slate-indigo, high contrast */
+  --c-rule:      rgba(30, 20, 109, 0.12);   /* hairline dividers on light */
+  --c-rule-soft: rgba(30, 20, 109, 0.07);
+  --c-rule-dark: rgba(240, 241, 244, 0.16); /* dividers on indigo blocks */
+
+  /* Type ------------------------------------------------------------------- */
+  /* STAND-IN fonts (Poppins display + Inter body) until the real Radical HR
+     typefaces are confirmed off the Canva kit. Swapping is a one-line change
+     here + the @import in global.css. */
+  --f-sans:    'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --f-display: 'Poppins', 'Inter', sans-serif;
+
+  /* Modular scale - responsive clamps. Base 17px mobile / 18px desktop. */
+  --t-label:  clamp(11px, 0.5vw + 9px, 13px);
+  --t-body-sm:clamp(14px, 0.3vw + 13px, 15px);
+  --t-body:   clamp(16px, 0.4vw + 15px, 18px);
+  --t-body-lg:clamp(18px, 0.6vw + 16px, 22px);
+  --t-h4:     clamp(20px, 1.0vw + 17px, 26px);
+  --t-h3:     clamp(26px, 1.8vw + 19px, 42px);
+  --t-h2:     clamp(34px, 3.4vw + 21px, 64px);
+  --t-h1:     clamp(44px, 5.2vw + 24px, 92px);
+
+  /* Spacing scale ---------------------------------------------------------- */
+  --s-1: 4px;  --s-2: 8px;  --s-3: 12px; --s-4: 16px; --s-5: 24px;
+  --s-6: 32px; --s-7: 48px; --s-8: 64px; --s-9: 96px; --s-10: 128px;
+
+  --gutter: clamp(20px, 5vw, 88px);
+  --content-max: 1200px;
+
+  /* Motion ----------------------------------------------------------------- */
+  --ease-out: cubic-bezier(.2,.7,.3,1);
+  --radius:   16px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

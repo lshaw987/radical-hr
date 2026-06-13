@@ -1,0 +1,106 @@
+---
+interface Props { current?: string; }
+const { current } = Astro.props;
+
+const links = [
+  { href: '/attract',      label: 'Attract',        key: 'attract' },
+  { href: '/align',        label: 'Align',          key: 'align' },
+  { href: '/lead-retain',  label: 'Lead & Retain',  key: 'lead-retain' },
+  { href: '/learn',        label: 'Learn & Grow',   key: 'learn' },
+  { href: '/about',        label: 'About',          key: 'about' },
+];
+---
+<header class="nav">
+  <div class="container nav-inner">
+    <a href="/" class="nav-logo" aria-label="Radical HR - home">
+      <img src="/images/logo.png" alt="Radical HR" width="180" height="23" />
+    </a>
+
+    <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-hidden="true" />
+    <label for="nav-toggle" class="nav-burger" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </label>
+
+    <nav class="nav-links" aria-label="Primary">
+      {links.map((l) => (
+        <a href={l.href} class={current === l.key ? 'is-current' : ''}>{l.label}</a>
+      ))}
+      <a href="/contact" class="btn btn-primary nav-cta">Start a conversation</a>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .nav {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(255, 255, 255, 0.86);
+    backdrop-filter: saturate(180%) blur(12px);
+    border-bottom: 1px solid var(--c-rule-soft);
+  }
+  .nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 72px;
+    gap: 24px;
+  }
+  .nav-logo { display: inline-flex; align-items: center; }
+  .nav-logo img { height: 30px; width: auto; display: block; }
+  @media (max-width: 480px) { .nav-logo img { height: 26px; } }
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: clamp(16px, 2vw, 30px);
+  }
+  .nav-links a:not(.nav-cta) {
+    font-weight: 500;
+    font-size: 15px;
+    color: var(--c-body);
+    transition: color .15s var(--ease-out);
+  }
+  .nav-links a:not(.nav-cta):hover,
+  .nav-links a.is-current { color: var(--c-purple); }
+  .nav-cta { padding: 10px 18px; font-size: 15px; }
+
+  /* mobile menu */
+  .nav-toggle, .nav-burger { display: none; }
+  .nav-burger {
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 8px;
+  }
+  .nav-burger span {
+    width: 24px; height: 2px; background: var(--c-indigo);
+    border-radius: 2px; transition: transform .2s var(--ease-out), opacity .2s;
+  }
+
+  @media (max-width: 860px) {
+    .nav-burger { display: flex; }
+    .nav-links {
+      position: absolute;
+      top: 100%; left: 0; right: 0;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 4px;
+      background: #fff;
+      padding: 16px var(--gutter) 28px;
+      border-bottom: 1px solid var(--c-rule);
+      box-shadow: 0 18px 40px rgba(30,20,109,0.08);
+      transform: translateY(-8px);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .18s var(--ease-out), transform .18s var(--ease-out);
+    }
+    .nav-links a:not(.nav-cta) { padding: 12px 4px; font-size: 17px; border-bottom: 1px solid var(--c-rule-soft); }
+    .nav-cta { margin-top: 12px; justify-content: center; }
+    .nav-toggle:checked ~ .nav-links {
+      transform: translateY(0); opacity: 1; pointer-events: auto;
+    }
+    .nav-toggle:checked ~ .nav-burger span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-toggle:checked ~ .nav-burger span:nth-child(2) { opacity: 0; }
+    .nav-toggle:checked ~ .nav-burger span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+  }
+</style>

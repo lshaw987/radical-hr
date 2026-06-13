@@ -1,0 +1,38 @@
+---
+/* Framed photo with optional caption. Ported from the MPower site's media
+   pattern (object-fit cover, subtle frame) and re-themed light. Use for real
+   photography so images read as intentional, not stuck-on. */
+interface Props {
+  src: string;
+  alt: string;
+  caption?: string;
+  ratio?: string;
+}
+const { src, alt, caption, ratio = '16 / 9' } = Astro.props;
+---
+<figure class="media">
+  <div class="media-frame">
+    <img src={src} alt={alt} loading="lazy" style={`aspect-ratio: ${ratio};`} />
+  </div>
+  {caption && <figcaption class="media-cap">{caption}</figcaption>}
+</figure>
+
+<style>
+  .media { margin: 0; }
+  .media-frame {
+    border-radius: var(--radius);
+    overflow: hidden;
+    border: 1px solid var(--c-rule);
+    background: var(--c-mist);
+  }
+  .media-frame img { width: 100%; height: auto; object-fit: cover; display: block; }
+  .media-cap {
+    font-family: var(--f-sans);
+    font-size: var(--t-label);
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--c-lavender);
+    padding-top: 12px;
+  }
+</style>

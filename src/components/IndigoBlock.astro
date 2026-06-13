@@ -1,0 +1,54 @@
+---
+/* The deep-indigo call-to-action block. Radical HR's equivalent of MPower's
+   GreenBlock - the recurring "design what comes next" closer. */
+interface Props {
+  eyebrow?: string;
+  heading: string;
+  body?: string;
+  ctaHref?: string;
+  ctaLabel?: string;
+}
+const {
+  eyebrow = 'Humans First',
+  heading,
+  body,
+  ctaHref = '/contact',
+  ctaLabel = 'Start a conversation',
+} = Astro.props;
+---
+<section class="ib">
+  <div class="container ib-inner">
+    <p class="ib-eyebrow">{eyebrow}</p>
+    <h2 class="ib-heading"><slot name="heading">{heading}</slot></h2>
+    {body && <p class="ib-body">{body}</p>}
+    <a href={ctaHref} class="btn btn-light ib-cta">
+      {ctaLabel}<span class="arr">&rarr;</span>
+    </a>
+  </div>
+</section>
+
+<style>
+  .ib { background: var(--c-indigo); color: #fff; }
+  .ib-inner {
+    padding-block: clamp(64px, 9vw, 132px);
+    max-width: 880px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 22px;
+  }
+  .ib-eyebrow {
+    font-size: var(--t-label); font-weight: 600; letter-spacing: 0.16em;
+    text-transform: uppercase; color: var(--c-lilac);
+  }
+  .ib-heading {
+    font-family: var(--f-display); font-weight: 800;
+    font-size: var(--t-h2); line-height: 1.05; letter-spacing: -0.03em;
+    color: #fff; text-wrap: balance;
+  }
+  .ib-body { font-size: var(--t-body-lg); color: rgba(255,255,255,0.78); max-width: 52ch; }
+  .ib-cta { margin-top: 8px; }
+  .btn-light { background: #fff; color: var(--c-indigo); }
+  .btn-light:hover { background: var(--c-lilac); color: var(--c-indigo); transform: translateY(-1px); }
+</style>

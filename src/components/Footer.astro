@@ -1,0 +1,108 @@
+---
+import Wordmark from './Wordmark.astro';
+const year = 2026; // stamped - Date.now() is unavailable in this workspace
+const cols = [
+  {
+    title: 'What we do',
+    links: [
+      { href: '/attract',     label: 'Attract' },
+      { href: '/align',       label: 'Align' },
+      { href: '/lead-retain', label: 'Lead & Retain' },
+    ],
+  },
+  {
+    title: 'Learn & grow',
+    links: [
+      { href: '/blog',      label: 'Blog' },
+      { href: '/newsletter',label: 'Newsletter' },
+      { href: '/book-nook', label: 'Book Nook' },
+    ],
+  },
+  {
+    title: 'About',
+    links: [
+      { href: '/about',        label: 'About us' },
+      { href: '/values',       label: 'Values' },
+      { href: '/partner',      label: 'Partner with us' },
+      { href: '/contact',      label: 'Contact' },
+    ],
+  },
+];
+const socials = [
+  { href: 'https://www.linkedin.com/company/radical-hr/', label: 'LinkedIn' },
+  { href: 'https://www.facebook.com/radicalHRx/',         label: 'Facebook' },
+  { href: 'https://www.instagram.com/radicalhrx/',        label: 'Instagram' },
+  { href: 'https://www.youtube.com/@RadicalHRx',          label: 'YouTube' },
+];
+---
+<footer class="ft">
+  <div class="container ft-inner">
+    <div class="ft-brand">
+      <Wordmark tone="dark" />
+      <p class="ft-tag">Humans First. Not paperwork first, not compliance first. Humans.</p>
+      <a href="mailto:lisashaw@radicalhr.nz" class="ft-email">lisashaw@radicalhr.nz</a>
+      <div class="ft-social">
+        {socials.map((s) => <a href={s.href} target="_blank" rel="noopener">{s.label}</a>)}
+      </div>
+    </div>
+
+    <div class="ft-cols">
+      {cols.map((c) => (
+        <div class="ft-col">
+          <p class="ft-col-title">{c.title}</p>
+          {c.links.map((l) => <a href={l.href}>{l.label}</a>)}
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <div class="container ft-base">
+    <span>© {year} Radical HR Limited. Auckland, Aotearoa New Zealand.</span>
+    <span class="ft-base-links">
+      <a href="/privacy">Privacy</a>
+      <a href="/terms">Terms</a>
+    </span>
+  </div>
+</footer>
+
+<style>
+  .ft {
+    background: var(--c-indigo);
+    color: rgba(255,255,255,0.78);
+    padding-block: clamp(56px, 7vw, 96px) 28px;
+  }
+  .ft-inner {
+    display: grid;
+    grid-template-columns: 1.3fr 2fr;
+    gap: clamp(40px, 6vw, 80px);
+    padding-bottom: 48px;
+    border-bottom: 1px solid var(--c-rule-dark);
+  }
+  .ft-tag { margin-top: 18px; max-width: 30ch; color: rgba(255,255,255,0.66); font-size: 15px; line-height: 1.6; }
+  .ft-email { display: inline-block; margin-top: 18px; color: var(--c-lilac); font-weight: 600; }
+  .ft-email:hover { color: #fff; }
+  .ft-social { display: flex; flex-wrap: wrap; gap: 18px; margin-top: 22px; }
+  .ft-social a { font-size: 14px; color: rgba(255,255,255,0.7); }
+  .ft-social a:hover { color: #fff; }
+
+  .ft-cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+  .ft-col { display: flex; flex-direction: column; gap: 12px; }
+  .ft-col-title {
+    font-family: var(--f-display); font-weight: 700; color: #fff;
+    font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 4px;
+  }
+  .ft-col a { font-size: 15px; color: rgba(255,255,255,0.74); }
+  .ft-col a:hover { color: var(--c-lilac); }
+
+  .ft-base {
+    display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px;
+    margin-top: 24px; font-size: 13px; color: rgba(255,255,255,0.55);
+  }
+  .ft-base-links { display: flex; gap: 20px; }
+  .ft-base-links a:hover { color: #fff; }
+
+  @media (max-width: 760px) {
+    .ft-inner { grid-template-columns: 1fr; gap: 36px; }
+    .ft-cols { grid-template-columns: repeat(2, 1fr); gap: 28px; }
+  }
+</style>

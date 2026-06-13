@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://radicalhr.co/sitemap-index.xml

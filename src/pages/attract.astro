@@ -1,0 +1,67 @@
+---
+import Base from '../layouts/Base.astro';
+import IndigoBlock from '../components/IndigoBlock.astro';
+
+const blocks = [
+  { name: 'Team fit', line: 'For new people to be effective they don’t just need to do the job - they need to align to the values and ethos of the team. We use values-based recruitment to find people who’ll genuinely excel with you.' },
+  { name: 'Role fit', line: 'Alongside great team fit, we source people with the experience and qualifications that let your organisation achieve more. Great Team Fit + Great Role Fit = great culture and performance.' },
+  { name: 'Culture & performance', line: 'Beyond attracting talent, we help you lift the culture and performance of your team - recruitment process design, CliftonStrengths, neuro-leadership, and OKRs.' },
+];
+---
+<Base
+  title="Attract"
+  description="Recruit people who love their jobs through values-based recruitment - team fit and role fit, for culture and performance that lasts."
+  current="attract"
+>
+  <section class="hero">
+    <div class="container">
+      <p class="eyebrow">Pillar 01</p>
+      <h1 class="display hero-h1">Attract the right humans.</h1>
+      <p class="body-lg hero-sub">
+        Forget cookie-cutter recruitment. We help you bring in people who
+        believe in your mission, not just fill a seat - humans who co-create your
+        culture and love the work they do.
+      </p>
+      <a href="/contact" class="btn btn-primary hero-cta">Talk recruitment <span class="arr">&rarr;</span></a>
+    </div>
+  </section>
+
+  <section class="section band-mist">
+    <div class="container">
+      <div class="blocks">
+        {blocks.map((b) => (
+          <div class="block">
+            <h2 class="heading block-name">{b.name}</h2>
+            <p class="body block-line">{b.line}</p>
+          </div>
+        ))}
+      </div>
+      <p class="body-sm honest">
+        And if we can’t help you, we’ll be honest and upfront and tell you.
+      </p>
+    </div>
+  </section>
+
+  <IndigoBlock
+    eyebrow="Pillar 01"
+    heading="Hiring for fit, not just a CV."
+    body="Tell us about the team you’re building and the people you need in it."
+    ctaHref="/contact"
+    ctaLabel="Start a conversation"
+  />
+</Base>
+
+<style>
+  .hero { padding-block: clamp(56px, 9vw, 116px) clamp(36px, 5vw, 64px); }
+  .hero-h1 { font-size: var(--t-h1); max-width: 16ch; }
+  .hero-sub { margin-top: 24px; max-width: 54ch; color: var(--c-body); }
+  .hero-cta { margin-top: 32px; }
+
+  .blocks { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(16px, 2vw, 24px); }
+  .block { background: #fff; border: 1px solid var(--c-rule); border-radius: var(--radius); padding: clamp(24px, 3vw, 34px); display: flex; flex-direction: column; gap: 12px; }
+  .block-name { font-size: var(--t-h4); color: var(--c-purple); }
+  .block-line { color: var(--c-body); }
+  .honest { margin-top: 28px; }
+
+  @media (max-width: 760px) { .blocks { grid-template-columns: 1fr; } }
+</style>
