@@ -36,23 +36,31 @@ identity). Confirmed by Lisa 2026-06-13.
 
 ### Open items before launch
 
-- **Fonts** - currently a STAND-IN pairing (Poppins + Inter). Swap to the real
-  Radical HR typefaces in `tokens.css` + the `@import` in `global.css` once
-  confirmed off the Canva kit.
-- **Logo** - text wordmark stand-in (`Wordmark.astro`). Drop the real mark into
-  `/public/images/` and swap. Live master:
-  `radicalhr.co/wp-content/uploads/2024/05/Radical-HR-standard-transparent-no-padding@5x.png`
-- **Domain** - `site` in `astro.config.mjs` is set to `radicalhr.co` (current
-  live). Decide `.co` vs `.nz` before DNS cutover and flip the one line.
 - **Newsletter form** - Radical HR uses **Campaign Monitor** (not Klaviyo - that's
-  MPower). Embed the real form on `/newsletter` and the homepage when ready.
-- **Pages still to build** - blog, newsletter, book-nook, values, partner,
-  privacy, terms, and full versions of the pillar + about + contact pages
-  (currently `PageStub`).
-- **og-default.png** - social share image, not yet added.
+  MPower). `/newsletter` degrades to an email signup until the real form is
+  wired: set `FORM_ACTION` + `EMAIL_FIELD` at the top of `src/pages/newsletter.astro`
+  with the Campaign Monitor embed and the native form renders automatically.
+- **Fonts** - still a STAND-IN pairing (Poppins + Inter). Swap to the real
+  Radical HR typefaces in `tokens.css` + the `@import` in `global.css` once
+  confirmed off the Canva kit. (Launching on the stand-ins is fine.)
+- **Legal pages** - Privacy + Terms are real plain-language NZ policies. Worth a
+  lawyer's glance before or shortly after launch.
+
+### Done (2026-06-14)
+
+- **Domain settled** - `site` = `https://radicalhr.nz` (Lisa's call). `.co`
+  301-redirects to `.nz` (set as a redirect domain in the Vercel project).
+- **Logo** - real mark in `/public/images/logo.png` (nav) + `icon-mark.png` (favicon).
+- **All pages built** - home, about, the 3 pillar pages, values, contact, learn,
+  blog, newsletter, book-nook, partner, privacy, terms. No more `PageStub`.
+- **og-default.png** - branded 1200x630 social card added.
 
 ## Build vs deploy
 
-Built in the workspace for review. **Nothing is deployed** - `radicalhr.co`
-still serves the WordPress site until Lisa gives an explicit go and DNS is cut
-over. Same discipline as the MPower build.
+Repo: `github.com/lshaw987/radical-hr`. `vercel.json` is configured (Astro,
+WordPress-path redirects, security headers). **`main` = production; any other
+branch = a Vercel preview.** The site is currently on the **`preview`** branch
+for review. Going live still needs: (1) promote `preview` -> `main`, (2)
+`radicalhr.nz` added as the domain in Vercel (`.co` as a redirect), (3) DNS cut
+over at 1st Domains. Until DNS is changed, `radicalhr.nz`/`.co` keep serving the
+old WordPress site.
