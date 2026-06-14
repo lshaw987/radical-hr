@@ -1,9 +1,127 @@
 ---
-import PageStub from '../components/PageStub.astro';
+import Base from '../layouts/Base.astro';
+import IndigoBlock from '../components/IndigoBlock.astro';
+
+const places = [
+  {
+    name: 'The Blog',
+    line: 'Longer-form thinking on leadership, culture, productivity and the future of work. Tell the story, then name the framework.',
+    href: '/blog',
+    cta: 'Read the blog',
+  },
+  {
+    name: 'The Newsletter',
+    line: 'The good stuff, straight to your inbox. Ideas you can actually use, no inbox clutter, unsubscribe any time.',
+    href: '/newsletter',
+    cta: 'Subscribe',
+  },
+  {
+    name: 'The Book Nook',
+    line: 'Radical Readers - the books shaping how we lead, and honest reviews framed as a mirror, not a manual.',
+    href: '/book-nook',
+    cta: 'Browse the nook',
+  },
+];
+
+const themes = [
+  { name: 'Meaning over Motion', line: '“Busy” isn’t the badge of honour we think it is. Your calendar is your culture audit - it shows what you actually prioritise.' },
+  { name: 'Rethinking Retention', line: 'If you’re only having meaningful conversations with people as they walk out the door, you’re already too late.' },
+  { name: 'Courageous Curiosity', line: 'Real leadership isn’t having the answers. It’s having the questions - and being brave enough to sit in not-knowing.' },
+  { name: 'The Clarity Gap', line: 'Lack of clarity is almost always a leadership problem, not a people problem. Clarity is Humans First in action.' },
+  { name: 'Delevate', line: 'Most leaders don’t burn out because they’re bad at the work. They burn out because they won’t let go. Deciding to delevating.' },
+  { name: 'Humans First', line: 'What if we got rid of HR departments and made them HF? Not paperwork first. Not compliance first. Humans. First.' },
+];
 ---
-<PageStub
-  current="learn"
+<Base
   title="Learn & Grow"
-  eyebrow="Ideas, not noise"
-  blurb="The blog, the newsletter, and the Book Nook. Where the thinking behind Humans First gets shared - meaning over motion, rethinking retention, courageous curiosity, and the clarity gap."
-/>
+  description="Ideas, not noise. The blog, the newsletter and the Book Nook - where the thinking behind Humans First gets shared."
+  current="learn"
+>
+  {/* Hero */}
+  <section class="hero">
+    <div class="container">
+      <p class="eyebrow">Ideas, not noise</p>
+      <h1 class="display hero-h1">Learn &amp; Grow</h1>
+      <p class="body-lg hero-sub">
+        Where the thinking behind Humans First gets shared. No guru listicles, no
+        recycled quotes on stock photos - just ideas grounded in real mahi, that
+        might shift how you lead.
+      </p>
+    </div>
+  </section>
+
+  {/* Three places */}
+  <section class="section-tight">
+    <div class="container">
+      <div class="places">
+        {places.map((p) => (
+          <a href={p.href} class="place">
+            <h2 class="heading place-name">{p.name}</h2>
+            <p class="body place-line">{p.line}</p>
+            <span class="place-cta">{p.cta} <span class="arr">&rarr;</span></span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {/* The themes */}
+  <section class="section band-mist">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">What we write about</p>
+        <h2 class="heading section-title">Six ideas we keep coming back to.</h2>
+        <p class="body-lg section-intro">
+          The provocations underneath the work. Each one is a thread that runs
+          through the blog, the keynotes, and the conversations in the room.
+        </p>
+      </div>
+      <div class="themes">
+        {themes.map((t) => (
+          <div class="theme">
+            <h3 class="heading theme-name">{t.name}</h3>
+            <p class="body theme-line">{t.line}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <IndigoBlock
+    eyebrow="Don’t miss the good stuff"
+    heading="Get the thinking in your inbox."
+    body="One newsletter, ideas you can actually use. No clutter, no spam, unsubscribe any time."
+    ctaHref="/newsletter"
+    ctaLabel="Subscribe to the newsletter"
+  />
+</Base>
+
+<style>
+  .hero { padding-block: clamp(56px, 9vw, 116px) clamp(28px, 4vw, 56px); }
+  .hero-h1 { font-size: var(--t-h1); }
+  .hero-sub { margin-top: 24px; max-width: 54ch; color: var(--c-body); }
+
+  .places { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(16px, 2vw, 24px); }
+  .place {
+    display: flex; flex-direction: column; gap: 12px;
+    background: #fff; border: 1px solid var(--c-rule); border-radius: var(--radius);
+    padding: clamp(24px, 3vw, 36px);
+    transition: transform .18s var(--ease-out), border-color .18s var(--ease-out), box-shadow .18s var(--ease-out);
+  }
+  .place:hover { transform: translateY(-3px); border-color: var(--c-lilac); box-shadow: 0 18px 40px rgba(101,40,234,0.08); }
+  .place-name { font-size: var(--t-h4); }
+  .place-line { color: var(--c-body); }
+  .place-cta { margin-top: auto; font-weight: 600; font-size: 15px; color: var(--c-purple); }
+
+  .section-title { font-size: var(--t-h2); }
+  .section-intro { max-width: 56ch; color: var(--c-body); }
+
+  .themes { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(16px, 2vw, 28px); }
+  .theme { display: flex; flex-direction: column; gap: 10px; }
+  .theme-name { font-size: var(--t-h4); color: var(--c-purple); }
+  .theme-line { color: var(--c-body); }
+
+  @media (max-width: 860px) { .themes { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 760px) { .places { grid-template-columns: 1fr; } }
+  @media (max-width: 540px) { .themes { grid-template-columns: 1fr; } }
+</style>

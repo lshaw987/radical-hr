@@ -1,9 +1,98 @@
 ---
-import PageStub from '../components/PageStub.astro';
+import Base from '../layouts/Base.astro';
+import IndigoBlock from '../components/IndigoBlock.astro';
+
+const ways = [
+  {
+    name: 'Delivery partners',
+    line: 'Facilitators, coaches and consultants who share the Humans First way of working. I co-deliver - recruitment, leadership programmes, strategy work - with people I trust to carry the same standard into the room.',
+  },
+  {
+    name: 'Referrers',
+    line: 'You know a leader or team who needs this, and it’s not your lane. Send them my way. I’ll look after them, and I’ll tell you honestly if I’m not the right fit.',
+  },
+  {
+    name: 'Causes & community',
+    line: 'We’re a social business - a share of our energy and profit goes back into people, communities and causes that matter. If your kaupapa lines up, let’s talk.',
+  },
+];
 ---
-<PageStub
-  current="about"
+<Base
   title="Partner with us"
-  eyebrow="Better together"
-  blurb="Delivery partners, collaborators, and referrers who share the Humans First way of working. If that's you, let's talk about what we could build together."
-/>
+  description="Delivery partners, collaborators and referrers who share the Humans First way of working. Let’s build something together."
+  current="about"
+>
+  {/* Hero */}
+  <section class="hero">
+    <div class="container">
+      <p class="eyebrow">Better together</p>
+      <h1 class="display hero-h1">Partner with us.</h1>
+      <p class="body-lg hero-sub">
+        The best work rarely happens alone. If you share the Humans First way of
+        working, there’s a good chance we could do more together than either of
+        us could apart.
+      </p>
+    </div>
+  </section>
+
+  {/* Ways to partner */}
+  <section class="section band-mist">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">Ways we partner</p>
+        <h2 class="heading section-title">Three ways this works.</h2>
+      </div>
+      <div class="ways">
+        {ways.map((w) => (
+          <div class="way">
+            <h3 class="heading way-name">{w.name}</h3>
+            <p class="body way-line">{w.line}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {/* What we look for */}
+  <section class="section">
+    <div class="container look">
+      <p class="eyebrow">What we look for</p>
+      <h2 class="heading look-h">Same standard. Same heart.</h2>
+      <p class="body-lg">
+        Lived experience over theory. Honesty over polish. People who play the
+        ball, not the player, and who’d rather tell a client the hard truth than
+        keep the peace. If that’s you, the rest we can figure out over a coffee.
+      </p>
+    </div>
+  </section>
+
+  <IndigoBlock
+    eyebrow="Better together"
+    heading="Let’s talk about what we could build."
+    body="Tell me a bit about you and how you work. If there’s a fit, we’ll find it fast - and if there isn’t, you’ll get an honest answer."
+    ctaHref="mailto:lisashaw@radicalhr.nz?subject=Partnering%20with%20Radical%20HR"
+    ctaLabel="Start a conversation"
+  />
+</Base>
+
+<style>
+  .hero { padding-block: clamp(56px, 9vw, 116px) clamp(28px, 4vw, 56px); }
+  .hero-h1 { font-size: var(--t-h1); }
+  .hero-sub { margin-top: 24px; max-width: 54ch; color: var(--c-body); }
+
+  .section-title { font-size: var(--t-h2); }
+  .ways { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(16px, 2vw, 24px); }
+  .way {
+    display: flex; flex-direction: column; gap: 12px;
+    background: #fff; border: 1px solid var(--c-rule); border-radius: var(--radius);
+    padding: clamp(24px, 3vw, 34px);
+  }
+  .way-name { font-size: var(--t-h4); color: var(--c-purple); }
+  .way-line { color: var(--c-body); }
+
+  .look { max-width: 60ch; display: flex; flex-direction: column; gap: 16px; }
+  .look-h { font-size: var(--t-h3); }
+  .look .body-lg { color: var(--c-body); }
+
+  @media (max-width: 760px) { .ways { grid-template-columns: 1fr; } }
+</style>

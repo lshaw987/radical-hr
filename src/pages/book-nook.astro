@@ -1,9 +1,109 @@
 ---
-import PageStub from '../components/PageStub.astro';
+import Base from '../layouts/Base.astro';
+import IndigoBlock from '../components/IndigoBlock.astro';
+
+// Radical Readers is defined, not yet built (no launch date, format/price still
+// to confirm - see layer-4-brains/radical-hr/sub/radical-readers/context.md).
+// So this page introduces the idea and gathers interest by email, without
+// promising a format or price we haven't set.
+const reads = [
+  {
+    title: 'Tribes',
+    author: 'Seth Godin',
+    take: 'Leadership as courage, not authority - and the quiet cost of “sheepwalking” through work that deserves more of us.',
+  },
+  {
+    title: 'How to Change',
+    author: 'Katy Milkman',
+    take: 'Design beats willpower. The behavioural science of making change actually stick - for you and the people you lead.',
+  },
+  {
+    title: 'Belonging',
+    author: 'Owen Eastwood',
+    take: 'Whakapapa, identity and the deep human need to belong. Quiet, paradox-driven, and it stays with you.',
+  },
+];
 ---
-<PageStub
-  current="learn"
+<Base
   title="Book Nook"
-  eyebrow="Radical Readers"
-  blurb="A book club community under Radical HR. Reviews framed as a mirror, not a manual - the books that shape how we lead, and the people reading them together."
-/>
+  description="Radical Readers - a book club community under Radical HR. The books that shape how we lead, read together. Reviews framed as a mirror, not a manual."
+  current="learn"
+>
+  {/* Hero */}
+  <section class="hero">
+    <div class="container">
+      <p class="eyebrow">Radical Readers</p>
+      <h1 class="display hero-h1">The Book Nook.</h1>
+      <p class="body-lg hero-sub">
+        A book club community for people who lead and want to keep growing -
+        reading the ideas that shape Humans First leadership, together. Coming
+        soon.
+      </p>
+    </div>
+  </section>
+
+  {/* Philosophy */}
+  <section class="section-tight">
+    <div class="container philosophy">
+      <p class="heading philosophy-h">
+        A good book isn’t a manual. <span class="accent">It’s a mirror.</span>
+      </p>
+      <p class="body-lg">
+        The best ones don’t tell you what to do - they remind you who you want to
+        be. That’s how we read here. We tell the story, then name the framework,
+        credit the thinker in full, and bring it back to the real, slightly messy
+        work of leading humans.
+      </p>
+    </div>
+  </section>
+
+  {/* On the shelf */}
+  <section class="section band-mist">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">On the shelf</p>
+        <h2 class="heading section-title">A few that have shaped the thinking.</h2>
+      </div>
+      <div class="reads">
+        {reads.map((r) => (
+          <div class="read">
+            <h3 class="heading read-title">{r.title}</h3>
+            <p class="read-author">{r.author}</p>
+            <p class="body read-take">{r.take}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <IndigoBlock
+    eyebrow="Want in early?"
+    heading="Be first into the Book Nook."
+    body="Radical Readers is being built. Tell me you’re keen and I’ll let you know the moment the doors open."
+    ctaHref="mailto:lisashaw@radicalhr.nz?subject=Radical%20Readers%20-%20count%20me%20in"
+    ctaLabel="Register your interest"
+  />
+</Base>
+
+<style>
+  .hero { padding-block: clamp(56px, 9vw, 116px) clamp(28px, 4vw, 56px); }
+  .hero-h1 { font-size: var(--t-h1); }
+  .hero-sub { margin-top: 24px; max-width: 52ch; color: var(--c-body); }
+
+  .philosophy { display: flex; flex-direction: column; gap: 18px; max-width: 62ch; }
+  .philosophy-h { font-size: var(--t-h3); line-height: 1.2; max-width: 20ch; }
+  .philosophy .body-lg { color: var(--c-body); }
+
+  .section-title { font-size: var(--t-h2); }
+  .reads { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(16px, 2vw, 24px); }
+  .read {
+    display: flex; flex-direction: column; gap: 8px;
+    background: #fff; border: 1px solid var(--c-rule); border-radius: var(--radius);
+    padding: clamp(24px, 3vw, 34px);
+  }
+  .read-title { font-size: var(--t-h4); }
+  .read-author { font-family: var(--f-sans); font-size: var(--t-body-sm); font-weight: 600; letter-spacing: 0.04em; color: var(--c-purple); }
+  .read-take { color: var(--c-body); margin-top: 4px; }
+
+  @media (max-width: 860px) { .reads { grid-template-columns: 1fr; } }
+</style>

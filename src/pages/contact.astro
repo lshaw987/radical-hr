@@ -1,9 +1,142 @@
 ---
-import PageStub from '../components/PageStub.astro';
+import Base from '../layouts/Base.astro';
+
+const steps = [
+  {
+    no: '01',
+    name: 'You reach out',
+    line: 'Email me, or connect on LinkedIn. Tell me where you’re at and what’s on your mind. A line or two is plenty - I don’t need a brief.',
+  },
+  {
+    no: '02',
+    name: 'We have a real conversation',
+    line: 'A proper korero, no charge and no pitch. We work out whether I’m the right person to help, and what that could look like. If I’m not, I’ll tell you - and point you somewhere better.',
+  },
+  {
+    no: '03',
+    name: 'We design the next step',
+    line: 'Coaching, facilitation, a team day, a piece of strategy - whatever fits. Designed with you, not handed to you. Then we make it real.',
+  },
+];
+
+const channels = [
+  {
+    label: 'Email',
+    value: 'lisashaw@radicalhr.nz',
+    href: 'mailto:lisashaw@radicalhr.nz',
+    note: 'The best way to reach me. I read everything.',
+  },
+  {
+    label: 'LinkedIn',
+    value: 'Lisa Shaw',
+    href: 'https://nz.linkedin.com/in/lisajshaw',
+    note: 'Connect, follow the thinking, or send a message.',
+  },
+];
 ---
-<PageStub
+<Base
+  title="Contact"
+  description="Start a conversation with Radical HR. No pitch, no jargon - just where you’re at and where you want to get to. Email lisashaw@radicalhr.nz."
   current="contact"
-  title="Start a conversation"
-  eyebrow="No pitch, no jargon"
-  blurb="Tell me where you're at and where you want to get to. One leader, one team, or the whole organisation. Email lisashaw@radicalhr.nz - a proper contact form and booking link land here next."
-/>
+>
+  {/* Hero */}
+  <section class="hero">
+    <div class="container">
+      <p class="eyebrow">No pitch, no jargon</p>
+      <h1 class="display hero-h1">Let’s start a conversation.</h1>
+      <p class="body-lg hero-sub">
+        Tell me where you’re at and where you want to get to. One leader, one
+        team, or the whole organisation. The work doesn’t wait on a perfect
+        brief - so don’t overthink the first message.
+      </p>
+    </div>
+  </section>
+
+  {/* Channels */}
+  <section class="section-tight">
+    <div class="container">
+      <div class="channels">
+        {channels.map((c) => (
+          <a href={c.href} class="channel" target={c.label === 'LinkedIn' ? '_blank' : undefined} rel={c.label === 'LinkedIn' ? 'noopener' : undefined}>
+            <span class="channel-label">{c.label}</span>
+            <span class="channel-value">{c.value} <span class="arr">&rarr;</span></span>
+            <span class="channel-note">{c.note}</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {/* What happens next */}
+  <section class="section band-mist">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">What happens next</p>
+        <h2 class="heading section-title">Three steps. No surprises.</h2>
+      </div>
+      <div class="steps">
+        {steps.map((s) => (
+          <div class="step">
+            <span class="step-no">{s.no}</span>
+            <h3 class="heading step-name">{s.name}</h3>
+            <p class="body step-line">{s.line}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {/* Reassurance closer */}
+  <section class="section">
+    <div class="container closer">
+      <p class="heading closer-h">
+        Not sure if it’s a Radical HR job? <span class="accent">Ask anyway.</span>
+      </p>
+      <p class="body-lg">
+        If I can help, I’ll tell you how. If I can’t, I’ll be honest and upfront
+        and point you to someone who can. Either way, you’ll leave the
+        conversation clearer than you came in.
+      </p>
+      <a href="mailto:lisashaw@radicalhr.nz" class="btn btn-primary closer-cta">
+        Email me <span class="arr">&rarr;</span>
+      </a>
+      <p class="body-sm closer-loc">Auckland, Aotearoa New Zealand · working across NZ, in person and remote.</p>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .hero { padding-block: clamp(56px, 9vw, 116px) clamp(28px, 4vw, 56px); }
+  .hero-h1 { font-size: var(--t-h1); max-width: 14ch; }
+  .hero-sub { margin-top: 24px; max-width: 54ch; color: var(--c-body); }
+
+  .channels { display: grid; grid-template-columns: repeat(2, 1fr); gap: clamp(16px, 2vw, 24px); }
+  .channel {
+    display: flex; flex-direction: column; gap: 8px;
+    background: #fff; border: 1px solid var(--c-rule); border-radius: var(--radius);
+    padding: clamp(24px, 3vw, 36px);
+    transition: transform .18s var(--ease-out), border-color .18s var(--ease-out), box-shadow .18s var(--ease-out);
+  }
+  .channel:hover { transform: translateY(-3px); border-color: var(--c-lilac); box-shadow: 0 18px 40px rgba(101,40,234,0.08); }
+  .channel-label { font-family: var(--f-sans); font-size: var(--t-label); font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--c-lavender); }
+  .channel-value { font-family: var(--f-display); font-weight: 700; font-size: var(--t-h4); color: var(--c-purple); }
+  .channel-note { color: var(--c-body); font-size: var(--t-body); }
+
+  .section-title { font-size: var(--t-h2); }
+  .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(20px, 3vw, 44px); }
+  .step { display: flex; flex-direction: column; gap: 12px; }
+  .step-no { font-family: var(--f-display); font-weight: 800; font-size: 40px; color: var(--c-lilac); line-height: 1; }
+  .step-name { font-size: var(--t-h4); }
+  .step-line { color: var(--c-body); }
+
+  .closer { max-width: 60ch; display: flex; flex-direction: column; gap: 18px; }
+  .closer-h { font-size: var(--t-h3); }
+  .closer .body-lg { color: var(--c-body); }
+  .closer-cta { align-self: flex-start; margin-top: 6px; }
+  .closer-loc { margin-top: 8px; }
+
+  @media (max-width: 760px) {
+    .channels { grid-template-columns: 1fr; }
+    .steps { grid-template-columns: 1fr; gap: 28px; }
+  }
+</style>

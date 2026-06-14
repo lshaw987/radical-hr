@@ -1,8 +1,67 @@
 ---
-import PageStub from '../components/PageStub.astro';
+import Base from '../layouts/Base.astro';
+
+const updated = '14 June 2026'; // stamped - Date.now() is unavailable in this workspace
 ---
-<PageStub
+<Base
   title="Terms"
-  eyebrow="The legal bits"
-  blurb="The terms for using this site and working with Radical HR, kept conversational - not legalese. Full text goes here, to be reviewed before launch."
-/>
+  description="The terms for using the Radical HR website - kept plain, not buried in legalese."
+>
+  <section class="legal">
+    <div class="container legal-inner">
+      <p class="eyebrow">The legal bits</p>
+      <h1 class="display legal-h1">Terms of Use</h1>
+      <p class="legal-updated">Last updated: {updated}</p>
+
+      <div class="prose">
+        <p>
+          These terms cover your use of the Radical HR website (radicalhr.nz). By
+          using the site, you agree to them. We’ve kept them plain - no legalese
+          for the sake of it.
+        </p>
+
+        <h2>Using this site</h2>
+        <p>You’re welcome to browse, read and share our content for your own personal or business use. Please don’t copy, republish or sell our content as your own, or use the site in any way that’s unlawful or could damage it or other users.</p>
+
+        <h2>Our content</h2>
+        <p>The content on this site - words, images, models, frameworks and design - belongs to Radical HR Limited unless we say otherwise. Our tools, models and materials remain ours. You’re welcome to quote us; please credit Radical HR and link back where you can.</p>
+
+        <h2>No advice</h2>
+        <p>The content here is general information, shared to be useful. It isn’t professional, legal or employment advice for your specific situation. For that, talk to us directly or to a suitably qualified adviser before you act.</p>
+
+        <h2>Engagements</h2>
+        <p>If you engage Radical HR for work, that work is governed by the separate engagement letter we agree with you - not by these website terms.</p>
+
+        <h2>Links to other sites</h2>
+        <p>We sometimes link to other websites because they’re useful. We don’t control them and aren’t responsible for their content or their privacy practices.</p>
+
+        <h2>Availability</h2>
+        <p>We aim to keep the site available and accurate, but we can’t guarantee it’s always up, error-free, or current. We may change or remove content at any time.</p>
+
+        <h2>Liability</h2>
+        <p>To the extent the law allows, Radical HR isn’t liable for any loss arising from your use of this site or reliance on its content. Nothing in these terms limits rights you have under the New Zealand Consumer Guarantees Act 1993 where it applies.</p>
+
+        <h2>Governing law</h2>
+        <p>These terms are governed by the laws of New Zealand, and the New Zealand courts have jurisdiction.</p>
+
+        <h2>Contact</h2>
+        <p>Questions about these terms? Email <a href="mailto:lisashaw@radicalhr.nz">lisashaw@radicalhr.nz</a>.</p>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .legal { padding-block: clamp(48px, 8vw, 104px) clamp(48px, 7vw, 96px); }
+  .legal-inner { max-width: 760px; }
+  .legal-h1 { font-size: var(--t-h2); margin-top: 16px; }
+  .legal-updated { margin-top: 16px; font-size: var(--t-body-sm); color: var(--c-lavender); }
+
+  .prose { margin-top: clamp(28px, 4vw, 48px); display: flex; flex-direction: column; gap: 18px; }
+  .prose h2 { font-family: var(--f-display); font-weight: 700; color: var(--c-indigo); font-size: var(--t-h4); margin-top: 22px; letter-spacing: -0.01em; }
+  .prose p, .prose li { color: var(--c-body); font-size: var(--t-body); line-height: 1.7; }
+  .prose ul { display: flex; flex-direction: column; gap: 10px; padding-left: 22px; }
+  .prose a { color: var(--c-purple); font-weight: 600; }
+  .prose a:hover { text-decoration: underline; }
+  .prose strong { color: var(--c-indigo); }
+</style>

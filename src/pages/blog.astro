@@ -1,9 +1,95 @@
 ---
-import PageStub from '../components/PageStub.astro';
+import Base from '../layouts/Base.astro';
+import IndigoBlock from '../components/IndigoBlock.astro';
+
+// No posts are wired in yet. When the blog content goes live, this page becomes
+// the post index (newest first). Until then it shows the topics and points
+// people to the newsletter so they don't miss the first pieces. Honest by
+// design - no fake posts, no fake dates.
+const topics = [
+  { name: 'Meaning over Motion', line: 'Busyness, calendars as culture, and getting your energy onto work that actually matters.' },
+  { name: 'Rethinking Retention', line: 'Stay interviews, internal mobility, and the conversations that keep your best people - while there’s still time to have them.' },
+  { name: 'Leadership & Delevate', line: 'Moving from carrying the weight to building teams strong enough to carry it together.' },
+  { name: 'Courageous Curiosity', line: 'Asking better questions, solving the right problem, and leading through uncertainty.' },
+  { name: 'The Clarity Gap', line: 'Why clarity is a leadership job, and how to build it at the org, team and individual level.' },
+  { name: 'Future of Work & AI', line: 'Practical, lived takes on AI, capability and the changing nature of work. Not hype.' },
+];
 ---
-<PageStub
-  current="learn"
+<Base
   title="Blog"
-  eyebrow="Learn & Grow"
-  blurb="Meaning over motion. Rethinking retention. Courageous curiosity. The clarity gap. The thinking behind Humans First - one idea at a time. Posts are being migrated across."
-/>
+  description="The Radical HR blog - leadership, culture, productivity and the future of work. Tell the story, then name the framework."
+  current="learn"
+>
+  {/* Hero */}
+  <section class="hero">
+    <div class="container">
+      <p class="eyebrow">The blog</p>
+      <h1 class="display hero-h1">Thinking out loud.</h1>
+      <p class="body-lg hero-sub">
+        Leadership, culture, productivity and the future of work - grounded in
+        real mahi, not theory for hire. Tell the story, then name the framework.
+      </p>
+    </div>
+  </section>
+
+  {/* Coming-soon honesty + topics */}
+  <section class="section-tight">
+    <div class="container">
+      <p class="heading lede">
+        The first pieces are landing soon. <span class="accent">Here’s what they’ll dig into.</span>
+      </p>
+      <p class="body-lg lede-sub">
+        Want them as they drop? The newsletter is the surest way - subscribe
+        below and nothing slips past you.
+      </p>
+    </div>
+  </section>
+
+  {/* Topics */}
+  <section class="section band-mist">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">What’s coming</p>
+        <h2 class="heading section-title">The topics on the workbench.</h2>
+      </div>
+      <div class="topics">
+        {topics.map((t) => (
+          <div class="topic">
+            <h3 class="heading topic-name">{t.name}</h3>
+            <p class="body topic-line">{t.line}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <IndigoBlock
+    eyebrow="Don’t miss the first ones"
+    heading="Get new pieces in your inbox."
+    body="Subscribe to the newsletter and the writing comes to you - no clutter, unsubscribe any time."
+    ctaHref="/newsletter"
+    ctaLabel="Subscribe"
+  />
+</Base>
+
+<style>
+  .hero { padding-block: clamp(56px, 9vw, 116px) clamp(28px, 4vw, 56px); }
+  .hero-h1 { font-size: var(--t-h1); }
+  .hero-sub { margin-top: 24px; max-width: 54ch; color: var(--c-body); }
+
+  .lede { font-size: var(--t-h3); line-height: 1.2; max-width: 22ch; }
+  .lede-sub { margin-top: 18px; max-width: 52ch; color: var(--c-body); }
+
+  .section-title { font-size: var(--t-h2); }
+  .topics { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(16px, 2vw, 28px); }
+  .topic {
+    display: flex; flex-direction: column; gap: 10px;
+    background: #fff; border: 1px solid var(--c-rule); border-radius: var(--radius);
+    padding: clamp(22px, 3vw, 32px);
+  }
+  .topic-name { font-size: var(--t-h4); color: var(--c-purple); }
+  .topic-line { color: var(--c-body); }
+
+  @media (max-width: 860px) { .topics { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 540px) { .topics { grid-template-columns: 1fr; } }
+</style>

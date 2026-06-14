@@ -1,9 +1,116 @@
 ---
-import PageStub from '../components/PageStub.astro';
+import Base from '../layouts/Base.astro';
+
+// Radical HR sends its newsletter through Campaign Monitor. To make the native
+// signup form live, paste the Campaign Monitor form details below:
+//   FORM_ACTION   - the form's "action" URL (Campaign Monitor → your list →
+//                   Signup forms → Custom → copy the <form action="...">)
+//   EMAIL_FIELD   - the generated name on the email input (looks like
+//                   "cm-xxxxxx-xxxxxx")
+// Until FORM_ACTION is set, the page shows a clean email-signup fallback so
+// nothing broken ever ships. Set both and the real form renders automatically.
+const FORM_ACTION = '';
+const EMAIL_FIELD = 'cm-EMAIL'; // replace with the Campaign Monitor email field name
+const formLive = FORM_ACTION.length > 0;
+
+const promises = [
+  'Ideas you can actually use - not recycled quotes on stock photos.',
+  'Short and sharp. Respect for your inbox and your time.',
+  'No spam, no selling-only. Unsubscribe any time, no hard feelings.',
+];
 ---
-<PageStub
-  current="learn"
+<Base
   title="Newsletter"
-  eyebrow="Learn & Grow"
-  blurb="Humans First thinking in your inbox - no noise, no fluff. The signup form lands here once the Campaign Monitor embed is wired in."
-/>
+  description="Humans First thinking in your inbox - ideas you can actually use, no noise. Subscribe to the Radical HR newsletter."
+  current="learn"
+>
+  {/* Hero + signup */}
+  <section class="hero">
+    <div class="container hero-grid">
+      <div class="hero-copy">
+        <p class="eyebrow">The newsletter</p>
+        <h1 class="display hero-h1">The good stuff, <span class="accent">straight to your inbox.</span></h1>
+        <p class="body-lg hero-sub">
+          Humans First thinking on leadership, culture and the future of work.
+          Written the way I’d say it out loud - no jargon, no fluff, no inbox
+          clutter.
+        </p>
+        <ul class="promises">
+          {promises.map((p) => <li>{p}</li>)}
+        </ul>
+      </div>
+
+      <div class="signup">
+        {formLive ? (
+          <form class="signup-form" action={FORM_ACTION} method="post">
+            <label class="field">
+              <span class="field-label">First name</span>
+              <input type="text" name="cm-name" autocomplete="given-name" />
+            </label>
+            <label class="field">
+              <span class="field-label">Email</span>
+              <input type="email" name={EMAIL_FIELD} required autocomplete="email" placeholder="you@example.com" />
+            </label>
+            <button type="submit" class="btn btn-primary signup-btn">Subscribe <span class="arr">&rarr;</span></button>
+            <p class="signup-fine">We use Campaign Monitor. You can unsubscribe any time.</p>
+          </form>
+        ) : (
+          <div class="signup-fallback">
+            <p class="field-label">Get on the list</p>
+            <p class="body">
+              Email me and I’ll add you to the newsletter. The one-click signup
+              form is landing here shortly.
+            </p>
+            <a href="mailto:lisashaw@radicalhr.nz?subject=Add%20me%20to%20the%20Radical%20HR%20newsletter" class="btn btn-primary signup-btn">
+              Email to subscribe <span class="arr">&rarr;</span>
+            </a>
+            <p class="signup-fine">lisashaw@radicalhr.nz · unsubscribe any time.</p>
+          </div>
+        )}
+      </div>
+    </div>
+  </section>
+
+  {/* Reassurance strip */}
+  <section class="section band-mist">
+    <div class="container reassure">
+      <p class="heading reassure-h">No noise. Just the thinking worth your time.</p>
+      <p class="body-lg">
+        If a piece won’t shift how you lead, it doesn’t go out. That’s the whole
+        filter. When you’re ready to go deeper, the door is always open.
+      </p>
+      <a href="/contact" class="btn btn-ghost reassure-cta">Start a conversation <span class="arr">&rarr;</span></a>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .hero { padding-block: clamp(48px, 8vw, 104px) clamp(40px, 6vw, 80px); }
+  .hero-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: clamp(32px, 5vw, 72px); align-items: center; }
+  .hero-h1 { font-size: var(--t-h2); max-width: 16ch; }
+  .hero-sub { margin-top: 22px; max-width: 50ch; color: var(--c-body); }
+  .promises { margin-top: 24px; display: flex; flex-direction: column; gap: 12px; list-style: none; padding: 0; }
+  .promises li { position: relative; padding-left: 28px; color: var(--c-body); }
+  .promises li::before { content: '✓'; position: absolute; left: 0; top: 0; color: var(--c-purple); font-weight: 800; }
+
+  .signup { background: #fff; border: 1px solid var(--c-rule); border-radius: var(--radius); padding: clamp(24px, 3vw, 38px); box-shadow: 0 18px 50px rgba(30,20,109,0.06); }
+  .signup-form, .signup-fallback { display: flex; flex-direction: column; gap: 16px; }
+  .field { display: flex; flex-direction: column; gap: 8px; }
+  .field-label { font-family: var(--f-sans); font-size: var(--t-label); font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--c-lavender); }
+  .field input {
+    font: inherit; font-size: var(--t-body); color: var(--c-indigo);
+    padding: 13px 16px; border: 1.5px solid var(--c-rule); border-radius: 12px; background: var(--c-mist);
+    transition: border-color .15s var(--ease-out), background .15s var(--ease-out);
+  }
+  .field input:focus { outline: none; border-color: var(--c-purple); background: #fff; }
+  .signup-btn { justify-content: center; margin-top: 4px; }
+  .signup-fine { font-size: var(--t-body-sm); color: var(--c-lavender); }
+  .signup-fallback .body { color: var(--c-body); }
+
+  .reassure { max-width: 60ch; display: flex; flex-direction: column; gap: 16px; }
+  .reassure-h { font-size: var(--t-h3); }
+  .reassure .body-lg { color: var(--c-body); }
+  .reassure-cta { align-self: flex-start; margin-top: 4px; }
+
+  @media (max-width: 860px) { .hero-grid { grid-template-columns: 1fr; } }
+</style>

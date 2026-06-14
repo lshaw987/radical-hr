@@ -3,11 +3,11 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  // Current live site is radicalhr.co. Open decision (OPEN-ITEMS): make
-  // radicalhr.nz the primary site domain and 301 the .co, or keep .co.
-  // Whatever ships must match the real deploy domain, or sitemap/canonical/OG
-  // URLs point at a dead host. Flip this one line when the domain is settled.
-  site: 'https://radicalhr.co',
+  // Primary domain settled (Lisa, 2026-06-14): radicalhr.nz is the canonical
+  // home; radicalhr.co 301-redirects to it (set the .co domain as a redirect to
+  // .nz in the Vercel project's Domains panel). Sitemap/canonical/OG all point
+  // at .nz to match the real deploy domain.
+  site: 'https://radicalhr.nz',
   // Static output by default - any static host (Netlify / Cloudflare Pages /
   // Vercel) serves dist/ straight off a CDN. No adapter needed.
   integrations: [sitemap()],

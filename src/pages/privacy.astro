@@ -1,8 +1,73 @@
 ---
-import PageStub from '../components/PageStub.astro';
+import Base from '../layouts/Base.astro';
+
+const updated = '14 June 2026'; // stamped - Date.now() is unavailable in this workspace
 ---
-<PageStub
+<Base
   title="Privacy"
-  eyebrow="The legal bits"
-  blurb="How Radical HR handles your information, in plain language. The full policy goes here - to be reviewed before launch."
-/>
+  description="How Radical HR collects, uses and protects your personal information, in plain language. Compliant with the New Zealand Privacy Act 2020."
+>
+  <section class="legal">
+    <div class="container legal-inner">
+      <p class="eyebrow">The legal bits</p>
+      <h1 class="display legal-h1">Privacy Policy</h1>
+      <p class="legal-updated">Last updated: {updated}</p>
+
+      <div class="prose">
+        <p>
+          Radical HR Limited (“Radical HR”, “we”, “us”) respects your privacy. This
+          policy explains what personal information we collect, why we collect it,
+          and what we do with it. We handle your information in line with the New
+          Zealand Privacy Act 2020.
+        </p>
+
+        <h2>What we collect</h2>
+        <p>We only collect what we actually need:</p>
+        <ul>
+          <li><strong>When you contact us</strong> - your name, email address, and whatever you choose to tell us.</li>
+          <li><strong>When you subscribe to our newsletter</strong> - your name and email address, managed through our email provider (Campaign Monitor).</li>
+          <li><strong>When you use this site</strong> - basic, non-identifying usage data (such as pages visited and general location), used only to understand what’s useful and improve the site.</li>
+        </ul>
+
+        <h2>How we use it</h2>
+        <p>To reply to you, to deliver the services or content you’ve asked for, to send the newsletter you’ve signed up for, and to keep the site working well. That’s it. We don’t sell your information, and we never will.</p>
+
+        <h2>Who we share it with</h2>
+        <p>We share information only with the trusted providers that help us run Radical HR - for example our email platform (Campaign Monitor) and our website host (Vercel). They process your information on our behalf and only as needed to provide their service. We may also disclose information if the law requires it.</p>
+
+        <h2>Where it’s held</h2>
+        <p>Some of our providers store data on servers outside New Zealand. Where that happens, we take reasonable steps to ensure your information is protected to a standard comparable to the Privacy Act 2020.</p>
+
+        <h2>How long we keep it</h2>
+        <p>We keep your information only as long as we need it for the purpose it was collected, or as long as the law requires. When we no longer need it, we delete it.</p>
+
+        <h2>Your rights</h2>
+        <p>Under the Privacy Act 2020 you can ask to see the personal information we hold about you, and ask us to correct it if it’s wrong. You can unsubscribe from our newsletter at any time using the link in any email. To make a request, just email us.</p>
+
+        <h2>Cookies</h2>
+        <p>This site uses minimal cookies and similar technologies to help it function and to understand general usage. You can control or block cookies in your browser settings; the site will still work.</p>
+
+        <h2>Contact</h2>
+        <p>Questions about your privacy, or want to make a request? Email <a href="mailto:lisashaw@radicalhr.nz">lisashaw@radicalhr.nz</a> and we’ll come back to you. If you’re not satisfied with our response, you can contact the Office of the Privacy Commissioner at <a href="https://www.privacy.org.nz" target="_blank" rel="noopener">privacy.org.nz</a>.</p>
+
+        <h2>Changes</h2>
+        <p>We may update this policy from time to time. The “last updated” date above always shows the current version.</p>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .legal { padding-block: clamp(48px, 8vw, 104px) clamp(48px, 7vw, 96px); }
+  .legal-inner { max-width: 760px; }
+  .legal-h1 { font-size: var(--t-h2); margin-top: 16px; }
+  .legal-updated { margin-top: 16px; font-size: var(--t-body-sm); color: var(--c-lavender); }
+
+  .prose { margin-top: clamp(28px, 4vw, 48px); display: flex; flex-direction: column; gap: 18px; }
+  .prose h2 { font-family: var(--f-display); font-weight: 700; color: var(--c-indigo); font-size: var(--t-h4); margin-top: 22px; letter-spacing: -0.01em; }
+  .prose p, .prose li { color: var(--c-body); font-size: var(--t-body); line-height: 1.7; }
+  .prose ul { display: flex; flex-direction: column; gap: 10px; padding-left: 22px; }
+  .prose a { color: var(--c-purple); font-weight: 600; }
+  .prose a:hover { text-decoration: underline; }
+  .prose strong { color: var(--c-indigo); }
+</style>
