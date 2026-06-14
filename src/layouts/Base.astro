@@ -16,6 +16,12 @@ const {
   ogImage = '/og-default.png',
 } = Astro.props;
 const fullTitle = title === 'Radical HR' ? title : `${title} · Radical HR`;
+
+// Klaviyo onsite - powers embedded signup forms (e.g. the newsletter form on
+// /newsletter). Same Klaviyo account as the MPower site (company SKABCW) -
+// confirm Radical HR uses this account, or swap for the RHR company id. Loaded
+// site-wide so Klaviyo forms/popups can run on any page.
+const KLAVIYO_COMPANY_ID = 'SKABCW';
 ---
 <!doctype html>
 <html lang="en-NZ">
@@ -42,6 +48,11 @@ const fullTitle = title === 'Radical HR' ? title : `${title} · Radical HR`;
     {/* Preconnect to Google Fonts - real win on slow connections */}
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    {/* Klaviyo onsite (embedded signup forms) */}
+    {KLAVIYO_COMPANY_ID && (
+      <script defer src={`https://static.klaviyo.com/onsite/js/klaviyo.js?company_id=${KLAVIYO_COMPANY_ID}`}></script>
+    )}
 
     <slot name="head" />
   </head>

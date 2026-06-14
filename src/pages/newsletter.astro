@@ -1,17 +1,13 @@
 ---
 import Base from '../layouts/Base.astro';
 
-// Radical HR sends its newsletter through Campaign Monitor. To make the native
-// signup form live, paste the Campaign Monitor form details below:
-//   FORM_ACTION   - the form's "action" URL (Campaign Monitor → your list →
-//                   Signup forms → Custom → copy the <form action="...">)
-//   EMAIL_FIELD   - the generated name on the email input (looks like
-//                   "cm-xxxxxx-xxxxxx")
-// Until FORM_ACTION is set, the page shows a clean email-signup fallback so
-// nothing broken ever ships. Set both and the real form renders automatically.
-const FORM_ACTION = '';
-const EMAIL_FIELD = 'cm-EMAIL'; // replace with the Campaign Monitor email field name
-const formLive = FORM_ACTION.length > 0;
+// Radical HR newsletter runs on Klaviyo (the onsite script is loaded site-wide
+// in Base.astro, company SKABCW). To make the embedded form live, create a
+// signup form in Klaviyo for Radical HR and paste its form id below (the bit
+// after "klaviyo-form-", e.g. "ABC123"). Until KLAVIYO_FORM_ID is set, the page
+// shows a clean email-signup fallback so nothing broken ever ships.
+const KLAVIYO_FORM_ID = '';
+const formLive = KLAVIYO_FORM_ID.length > 0;
 
 const promises = [
   'Ideas you can actually use - not recycled quotes on stock photos.',
@@ -42,18 +38,20 @@ const promises = [
 
       <div class="signup">
         {formLive ? (
-          <form class="signup-form" action={FORM_ACTION} method="post">
-            <label class="field">
-              <span class="field-label">First name</span>
-              <input type="text" name="cm-name" autocomplete="given-name" />
-            </label>
-            <label class="field">
-              <span class="field-label">Email</span>
-              <input type="email" name={EMAIL_FIELD} required autocomplete="email" placeholder="you@example.com" />
-            </label>
-            <button type="submit" class="btn btn-primary signup-btn">Subscribe <span class="arr">&rarr;</span></button>
-            <p class="signup-fine">We use Campaign Monitor. You can unsubscribe any time.</p>
-          </form>
+          <div class="signup-form">
+            {/* Klaviyo embedded form - fields, validation, success state and
+                double opt-in are all managed in Klaviyo. This div is the mount
+                point; the onsite script lives in Base.astro. */}
+            <div class={`klaviyo-form-${KLAVIYO_FORM_ID}`}></div>
+            <noscript>
+              <p class="body">
+                The signup form needs JavaScript. If it isn’t loading, email
+                <a href="mailto:lisashaw@radicalhr.nz?subject=Add%20me%20to%20the%20Radical%20HR%20newsletter"> lisashaw@radicalhr.nz</a>
+                and I’ll add you by hand.
+              </p>
+            </noscript>
+            <p class="signup-fine">Powered by Klaviyo. Unsubscribe any time.</p>
+          </div>
         ) : (
           <div class="signup-fallback">
             <p class="field-label">Get on the list</p>
@@ -95,14 +93,9 @@ const promises = [
 
   .signup { background: #fff; border: 1px solid var(--c-rule); border-radius: var(--radius); padding: clamp(24px, 3vw, 38px); box-shadow: 0 18px 50px rgba(30,20,109,0.06); }
   .signup-form, .signup-fallback { display: flex; flex-direction: column; gap: 16px; }
-  .field { display: flex; flex-direction: column; gap: 8px; }
+  .signup-form .body a { color: var(--c-purple); font-weight: 600; }
+  .klaviyo-form { min-height: 120px; }
   .field-label { font-family: var(--f-sans); font-size: var(--t-label); font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--c-lavender); }
-  .field input {
-    font: inherit; font-size: var(--t-body); color: var(--c-indigo);
-    padding: 13px 16px; border: 1.5px solid var(--c-rule); border-radius: 12px; background: var(--c-mist);
-    transition: border-color .15s var(--ease-out), background .15s var(--ease-out);
-  }
-  .field input:focus { outline: none; border-color: var(--c-purple); background: #fff; }
   .signup-btn { justify-content: center; margin-top: 4px; }
   .signup-fine { font-size: var(--t-body-sm); color: var(--c-lavender); }
   .signup-fallback .body { color: var(--c-body); }

@@ -1,0 +1,156 @@
+---
+import Base from '../layouts/Base.astro';
+import IndigoBlock from '../components/IndigoBlock.astro';
+
+// Concrete offers, grouped into client-friendly clusters and tied to the four
+// pillars. Source: layer-1-context/services.md. No prices on the site - pricing
+// is client-dependent and quoted per engagement (Lisa's rule).
+const groups = [
+  {
+    name: 'Leadership & Coaching',
+    pillar: 'Lead',
+    items: [
+      { name: 'Executive & Leadership Coaching', line: 'One-to-one and team coaching to grow courageous, future-ready leaders. Practical, strengths-based, and grounded in having actually carried the weight.' },
+      { name: 'CliftonStrengths Coaching', line: 'Find what you and your team do best, then build around it. Strengths-based coaching that unlocks performance, belonging and real growth.', feature: true },
+      { name: 'Delevate', line: 'Lisa’s own model: Deciding → Directing → Delegating → Developing → Delevating. Move from carrying the weight to building a team strong enough to carry it together - protecting your hauora as you go.', signature: true },
+      { name: 'Leadership Hauora & Wellbeing', line: 'Hauora is richer than wellbeing - it’s the whole person. Sustainable leadership: energy, boundaries, decompression, and carrying the emotional load without burning out.', feature: true },
+    ],
+  },
+  {
+    name: 'Strategy, Culture & Teams',
+    pillar: 'Align',
+    items: [
+      { name: 'Strategy Facilitation & Offsites', line: 'Facilitated strategy, values and alignment sessions. Plan on a page, not a 75-page deck no one reads. Clarity and line-of-sight to what matters.' },
+      { name: 'Organisational Design, Culture & Values', line: 'Culture and values built to be lived, never corporate wallpaper. Behavioural frameworks and design that match the reality in the room.' },
+      { name: 'Team Development & Extraordinary Teams', line: 'Designing the conditions where extraordinary teams thrive - belonging, strengths and sustainable ways of working. Hands-on, ending in commitment, not just conversation.' },
+    ],
+  },
+  {
+    name: 'Performance & the Future',
+    pillar: 'Lead',
+    items: [
+      { name: 'Productivity & Sustainable Performance', line: 'Your calendar is your culture audit. Deep work, interruptibility and Q2 thinking for leaders and teams drowning in busywork. Meaning over motion.', feature: true },
+      { name: 'Future of Work & AI Capability', line: 'Practical, lived sessions on AI, automation and the changing nature of work. Future-ready by design, not hype.' },
+    ],
+  },
+  {
+    name: 'Talent & People',
+    pillar: 'Attract',
+    items: [
+      { name: 'Recruitment & Attraction', line: 'Values-based, end-to-end recruitment and employer-brand work. Find people who love the job and align to your ethos - not just fill a seat.' },
+      { name: 'Employment Relations & People Matters', line: 'Confidential, hands-on support with sensitive people situations and restructuring - in line with NZ employment law and best-practice HR.' },
+      { name: 'Fractional Strategic Support', line: 'Senior people, culture and strategy partnership for organisations that need the capability without a full-time hire.' },
+    ],
+  },
+  {
+    name: 'On the Stage',
+    pillar: 'Speaking',
+    items: [
+      { name: 'Keynotes & Conference Facilitation', line: 'Humans First leadership, the future of work, paddock-to-boardroom. The biggest risk to your future might just be your calendar.' },
+    ],
+  },
+];
+---
+<Base
+  title="Services"
+  description="How Radical HR works with you - coaching, strengths, leadership hauora, productivity, strategy, culture, recruitment and speaking. The work that brings the four pillars to life."
+  current="services"
+>
+  {/* Hero */}
+  <section class="hero">
+    <div class="container">
+      <p class="eyebrow">How we help</p>
+      <h1 class="display hero-h1">The work, not the wallpaper.</h1>
+      <p class="body-lg hero-sub">
+        Our model runs on four pillars - Attract, Align, Lead, Retain. These are
+        the ways we bring them to life with you. Coaching, facilitation,
+        strategy, culture and the human stuff in between.
+      </p>
+      <a href="/contact" class="btn btn-primary hero-cta">Start a conversation <span class="arr">&rarr;</span></a>
+    </div>
+  </section>
+
+  {/* Service groups */}
+  {groups.map((g, i) => (
+    <section class={i % 2 === 1 ? 'section band-mist' : 'section'}>
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">{g.pillar}</p>
+          <h2 class="heading section-title">{g.name}</h2>
+        </div>
+        <div class="cards">
+          {g.items.map((s) => (
+            <div class={s.feature || s.signature ? 'card card-feature' : 'card'}>
+              {s.signature && <span class="tag tag-signature">Signature</span>}
+              {s.feature && !s.signature && <span class="tag">Often asked for</span>}
+              <h3 class="heading card-name">{s.name}</h3>
+              <p class="body card-line">{s.line}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  ))}
+
+  {/* How engagements work */}
+  <section class="section">
+    <div class="container how">
+      <p class="eyebrow">How it works</p>
+      <h2 class="heading how-h">Designed with you, priced per engagement.</h2>
+      <p class="body-lg">
+        Every piece of work is shaped to your situation - coaching, a workshop, a
+        team day, a piece of strategy, or ongoing support. Pricing is quoted per
+        engagement (project, day or hourly), and our engagement letters are kept
+        plain - no legalese. If we’re not the right fit, we’ll tell you, and point
+        you somewhere better.
+      </p>
+      <a href="/contact" class="btn btn-ghost how-cta">Tell us what you need <span class="arr">&rarr;</span></a>
+    </div>
+  </section>
+
+  <IndigoBlock
+    eyebrow="We’re ready when you are"
+    heading="Let’s find the right way to work together."
+    body="Tell me where you’re at and what you’re trying to shift. We’ll design the next step from there."
+    ctaHref="/contact"
+    ctaLabel="Start a conversation"
+  />
+</Base>
+
+<style>
+  .hero { padding-block: clamp(56px, 9vw, 116px) clamp(36px, 5vw, 64px); }
+  .hero-h1 { font-size: var(--t-h1); max-width: 16ch; }
+  .hero-sub { margin-top: 24px; max-width: 56ch; color: var(--c-body); }
+  .hero-cta { margin-top: 32px; }
+
+  .section-title { font-size: var(--t-h2); }
+
+  .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(16px, 2vw, 24px); }
+  .card {
+    position: relative;
+    display: flex; flex-direction: column; gap: 12px;
+    background: #fff; border: 1px solid var(--c-rule); border-radius: var(--radius);
+    padding: clamp(24px, 3vw, 34px);
+    transition: transform .18s var(--ease-out), border-color .18s var(--ease-out), box-shadow .18s var(--ease-out);
+  }
+  .card:hover { transform: translateY(-3px); border-color: var(--c-lilac); box-shadow: 0 18px 40px rgba(101,40,234,0.08); }
+  .card-feature { border-color: var(--c-lilac); }
+  .card-name { font-size: var(--t-h4); color: var(--c-purple); }
+  .card-line { color: var(--c-body); }
+
+  .tag {
+    align-self: flex-start;
+    font-family: var(--f-sans); font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--c-purple); background: rgba(101,40,234,0.08);
+    padding: 5px 10px; border-radius: 999px;
+  }
+  .tag-signature { color: #fff; background: var(--c-purple); }
+
+  .how { max-width: 62ch; display: flex; flex-direction: column; gap: 16px; }
+  .how-h { font-size: var(--t-h3); }
+  .how .body-lg { color: var(--c-body); }
+  .how-cta { align-self: flex-start; margin-top: 4px; }
+
+  @media (max-width: 860px) { .cards { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 560px) { .cards { grid-template-columns: 1fr; } }
+</style>
