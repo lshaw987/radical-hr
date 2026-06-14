@@ -1,0 +1,64 @@
+---
+import Base from '../layouts/Base.astro';
+import IndigoBlock from '../components/IndigoBlock.astro';
+
+const blocks = [
+  { name: 'Thrive Framework', line: 'Everything people need to thrive - role clarity, personal healthfulness, team connection, pay alignment, intentional development, and organisational influence.' },
+  { name: 'Unique Belonging', line: 'To belong, people need to safely bring 100% of their unique selves to work - their identity, their strengths, their personal values.' },
+  { name: 'Purposeful Productivity', line: 'People who stay believe what they do matters - and they have the tools to carry less stress and more focus, to achieve bigger results.' },
+];
+---
+<Base
+  title="Retain"
+  description="Keep your best humans thriving - belonging, strengths and trust, so people want to stay and do the best work of their lives."
+  current="retain"
+>
+  <section class="hero">
+    <div class="container">
+      <p class="eyebrow">Pillar 04</p>
+      <h1 class="display hero-h1">Keep your best humans <span class="accent">thriving.</span></h1>
+      <p class="body-lg hero-sub">
+        Retention isn’t beanbags and ping-pong tables. It’s belonging, strengths
+        and trust. Most organisations justify almost every resignation rather
+        than solving the underlying challenge. We help you build the kind of
+        place people don’t want to leave.
+      </p>
+      <a href="/contact" class="btn btn-primary hero-cta">Talk retention <span class="arr">&rarr;</span></a>
+    </div>
+  </section>
+
+  <section class="section band-mist">
+    <div class="container">
+      <div class="blocks">
+        {blocks.map((b) => (
+          <div class="block">
+            <h2 class="heading block-name">{b.name}</h2>
+            <p class="body block-line">{b.line}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <IndigoBlock
+    eyebrow="Pillar 04"
+    heading="Build a place people don’t want to leave."
+    body="Loyalty leads to retention. Let’s solve what’s really making your people look elsewhere."
+    ctaHref="/contact"
+    ctaLabel="Start a conversation"
+  />
+</Base>
+
+<style>
+  .hero { padding-block: clamp(56px, 9vw, 116px) clamp(36px, 5vw, 64px); }
+  .hero-h1 { font-size: var(--t-h1); max-width: 15ch; }
+  .hero-sub { margin-top: 24px; max-width: 56ch; color: var(--c-body); }
+  .hero-cta { margin-top: 32px; }
+
+  .blocks { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(16px, 2vw, 24px); }
+  .block { background: #fff; border: 1px solid var(--c-rule); border-radius: var(--radius); padding: clamp(24px, 3vw, 34px); display: flex; flex-direction: column; gap: 12px; }
+  .block-name { font-size: var(--t-h4); color: var(--c-purple); }
+  .block-line { color: var(--c-body); }
+
+  @media (max-width: 760px) { .blocks { grid-template-columns: 1fr; } }
+</style>

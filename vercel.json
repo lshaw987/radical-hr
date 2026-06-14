@@ -10,7 +10,9 @@
 
     { "source": "/recruitment-agency", "destination": "/attract", "permanent": true },
     { "source": "/alignment", "destination": "/align", "permanent": true },
-    { "source": "/leadership-retention", "destination": "/lead-retain", "permanent": true },
+    { "source": "/lead-retain", "destination": "/lead", "permanent": true },
+    { "source": "/leadership-retention", "destination": "/lead", "permanent": true },
+    { "source": "/retention", "destination": "/retain", "permanent": true },
     { "source": "/learn-grow", "destination": "/learn", "permanent": true },
     { "source": "/about-us", "destination": "/about", "permanent": true },
     { "source": "/contact-us", "destination": "/contact", "permanent": true },
