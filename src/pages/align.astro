@@ -2,6 +2,9 @@
 import Base from '../layouts/Base.astro';
 import IndigoBlock from '../components/IndigoBlock.astro';
 
+const belief = 'Organisations need to radically simplify their strategy and priorities to align teams for the future.';
+const pain = 'Most people can’t clearly name their organisation’s strategy or goals - let alone the part they play in delivering it.';
+
 const blocks = [
   { name: 'Transformative Values', line: 'We help organisations live and breathe their values - not laminate them - so the culture becomes a workplace your people actually love.' },
   { name: 'Exceptional Clarity', line: 'Our Clarity Model aligns individuals and teams on what matters most and the part each person plays - so you achieve more with less waste.' },
@@ -22,11 +25,21 @@ const blocks = [
         corporate fluff to align your people around shared purpose, clear
         strategy, and values that actually mean something.
       </p>
-      <p class="hero-line">
-        Most people in most organisations can’t clearly name their company’s
-        strategy or goals. Alignment fixes that.
-      </p>
       <a href="/contact" class="btn btn-primary hero-cta">Talk alignment <span class="arr">&rarr;</span></a>
+    </div>
+  </section>
+
+  {/* Radical belief + the problem */}
+  <section class="section-tight">
+    <div class="container belief">
+      <div class="belief-main">
+        <p class="eyebrow">Our radical belief</p>
+        <p class="heading belief-line">{belief}</p>
+      </div>
+      <div class="belief-pain">
+        <p class="eyebrow">The problem</p>
+        <p class="body-lg">{pain}</p>
+      </div>
     </div>
   </section>
 
@@ -56,8 +69,13 @@ const blocks = [
   .hero { padding-block: clamp(56px, 9vw, 116px) clamp(36px, 5vw, 64px); }
   .hero-h1 { font-size: var(--t-h1); max-width: 15ch; }
   .hero-sub { margin-top: 24px; max-width: 54ch; color: var(--c-body); }
-  .hero-line { margin-top: 16px; max-width: 50ch; color: var(--c-lavender); font-weight: 500; }
   .hero-cta { margin-top: 32px; }
+
+  .belief { display: grid; grid-template-columns: 1.4fr 1fr; gap: clamp(28px, 5vw, 64px); align-items: start; }
+  .belief .eyebrow { margin-bottom: 14px; }
+  .belief-line { font-size: var(--t-h3); max-width: 24ch; }
+  .belief-pain .body-lg { color: var(--c-body); }
+  @media (max-width: 760px) { .belief { grid-template-columns: 1fr; gap: 24px; } }
 
   .blocks { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(16px, 2vw, 24px); }
   .block { background: #fff; border: 1px solid var(--c-rule); border-radius: var(--radius); padding: clamp(24px, 3vw, 34px); display: flex; flex-direction: column; gap: 12px; }

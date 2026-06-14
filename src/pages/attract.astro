@@ -2,15 +2,18 @@
 import Base from '../layouts/Base.astro';
 import IndigoBlock from '../components/IndigoBlock.astro';
 
+const belief = 'All talent attraction should be driven by values, first.';
+const pain = 'Almost every HR and people problem starts with poor recruitment. Hire for the wrong reasons and you pay for it for years.';
+
 const blocks = [
-  { name: 'Team fit', line: 'For new people to be effective they don’t just need to do the job - they need to align to the values and ethos of the team. We use values-based recruitment to find people who’ll genuinely excel with you.' },
-  { name: 'Role fit', line: 'Alongside great team fit, we source people with the experience and qualifications that let your organisation achieve more. Great Team Fit + Great Role Fit = great culture and performance.' },
-  { name: 'Culture & performance', line: 'Beyond attracting talent, we help you lift the culture and performance of your team - recruitment process design, CliftonStrengths, neuro-leadership, and OKRs.' },
+  { name: 'Innovative Hiring', line: 'We design a values-based approach to recruitment that finds great people who love the job, have the right experience, and align to the values and ethos of your organisation.' },
+  { name: 'Creative Attraction', line: 'Talent attraction is so much more than throwing an ad on a job board and hoping for the best. Our talent marketers help you attract the right people, creatively and cost-effectively.' },
+  { name: 'Unconventional Recruitment', line: 'Finding a job you love can feel like a needle in a haystack. Our end-to-end recruitment uses a research team to surface people who are passive in the market and have the transferable skills you’re really after.' },
 ];
 ---
 <Base
   title="Attract"
-  description="Recruit people who love their jobs through values-based recruitment - team fit and role fit, for culture and performance that lasts."
+  description="Values-based recruitment that attracts people who love the job - team fit and role fit, for culture and performance that lasts."
   current="attract"
 >
   <section class="hero">
@@ -23,6 +26,20 @@ const blocks = [
         culture and love the work they do.
       </p>
       <a href="/contact" class="btn btn-primary hero-cta">Talk recruitment <span class="arr">&rarr;</span></a>
+    </div>
+  </section>
+
+  {/* Radical belief + the problem */}
+  <section class="section-tight">
+    <div class="container belief">
+      <div class="belief-main">
+        <p class="eyebrow">Our radical belief</p>
+        <p class="heading belief-line">{belief}</p>
+      </div>
+      <div class="belief-pain">
+        <p class="eyebrow">The problem</p>
+        <p class="body-lg">{pain}</p>
+      </div>
     </div>
   </section>
 
@@ -56,6 +73,12 @@ const blocks = [
   .hero-h1 { font-size: var(--t-h1); max-width: 16ch; }
   .hero-sub { margin-top: 24px; max-width: 54ch; color: var(--c-body); }
   .hero-cta { margin-top: 32px; }
+
+  .belief { display: grid; grid-template-columns: 1.4fr 1fr; gap: clamp(28px, 5vw, 64px); align-items: start; }
+  .belief .eyebrow { margin-bottom: 14px; }
+  .belief-line { font-size: var(--t-h3); max-width: 22ch; }
+  .belief-pain .body-lg { color: var(--c-body); }
+  @media (max-width: 760px) { .belief { grid-template-columns: 1fr; gap: 24px; } }
 
   .blocks { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(16px, 2vw, 24px); }
   .block { background: #fff; border: 1px solid var(--c-rule); border-radius: var(--radius); padding: clamp(24px, 3vw, 34px); display: flex; flex-direction: column; gap: 12px; }

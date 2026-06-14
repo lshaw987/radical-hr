@@ -2,10 +2,13 @@
 import Base from '../layouts/Base.astro';
 import IndigoBlock from '../components/IndigoBlock.astro';
 
+const belief = 'Organisations need to radically change how they equip leaders for the future.';
+const pain = 'Most teams are managed, not led - because managers are never given the time and development to achieve phenomenal results.';
+
 const blocks = [
   { name: 'Vivid LEADERS', line: 'Leadership development built by people who’ve actually led large teams and know the complexity first-hand. We equip leaders not merely to manage, but to be fresh, distinct leaders who make a difference.' },
-  { name: 'Compelling Communication', line: 'Leadership is language - taking complex ideas and plans and communicating them in a way that compels people to respond and deliver.' },
-  { name: 'Visionary Strategy', line: 'If a leader isn’t clear on the strategic priorities, there’s zero chance the team will be. We equip leaders to make the vision living and clear, organisation-wide.' },
+  { name: 'Compelling Communication', line: 'Leadership is language - taking complex ideas and plans and communicating them in a way that compels people to respond and deliver amazing results.' },
+  { name: 'Visionary Strategy', line: 'If a leader isn’t clear on the strategic priorities, there’s zero chance the team will be. We equip leaders to take the vision and strategy and make it living and clear, organisation-wide.' },
 ];
 ---
 <Base
@@ -19,11 +22,24 @@ const blocks = [
       <h1 class="display hero-h1">Build leaders who <span class="accent">multiply impact.</span></h1>
       <p class="body-lg hero-sub">
         Real leadership isn’t carrying the weight alone. It’s building others
-        strong enough to carry it with you. Most teams are managed, not led -
-        because managers are never given the time and development to achieve
-        phenomenal results. We change that.
+        strong enough to carry it with you. We grow the kind of leaders who
+        empower, not control - and lift everyone around them.
       </p>
       <a href="/contact" class="btn btn-primary hero-cta">Talk leadership <span class="arr">&rarr;</span></a>
+    </div>
+  </section>
+
+  {/* Radical belief + the problem */}
+  <section class="section-tight">
+    <div class="container belief">
+      <div class="belief-main">
+        <p class="eyebrow">Our radical belief</p>
+        <p class="heading belief-line">{belief}</p>
+      </div>
+      <div class="belief-pain">
+        <p class="eyebrow">The problem</p>
+        <p class="body-lg">{pain}</p>
+      </div>
     </div>
   </section>
 
@@ -54,6 +70,12 @@ const blocks = [
   .hero-h1 { font-size: var(--t-h1); max-width: 15ch; }
   .hero-sub { margin-top: 24px; max-width: 56ch; color: var(--c-body); }
   .hero-cta { margin-top: 32px; }
+
+  .belief { display: grid; grid-template-columns: 1.4fr 1fr; gap: clamp(28px, 5vw, 64px); align-items: start; }
+  .belief .eyebrow { margin-bottom: 14px; }
+  .belief-line { font-size: var(--t-h3); max-width: 22ch; }
+  .belief-pain .body-lg { color: var(--c-body); }
+  @media (max-width: 760px) { .belief { grid-template-columns: 1fr; gap: 24px; } }
 
   .blocks { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(16px, 2vw, 24px); }
   .block { background: #fff; border: 1px solid var(--c-rule); border-radius: var(--radius); padding: clamp(24px, 3vw, 34px); display: flex; flex-direction: column; gap: 12px; }

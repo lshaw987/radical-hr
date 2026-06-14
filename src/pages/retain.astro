@@ -2,6 +2,9 @@
 import Base from '../layouts/Base.astro';
 import IndigoBlock from '../components/IndigoBlock.astro';
 
+const belief = 'Letting people be their unique selves, in a job they love, is what keeps your best people.';
+const pain = 'Most organisations forget that loyalty leads to retention - and justify almost every resignation rather than solving the real, underlying challenge.';
+
 const blocks = [
   { name: 'Thrive Framework', line: 'Everything people need to thrive - role clarity, personal healthfulness, team connection, pay alignment, intentional development, and organisational influence.' },
   { name: 'Unique Belonging', line: 'To belong, people need to safely bring 100% of their unique selves to work - their identity, their strengths, their personal values.' },
@@ -19,11 +22,24 @@ const blocks = [
       <h1 class="display hero-h1">Keep your best humans <span class="accent">thriving.</span></h1>
       <p class="body-lg hero-sub">
         Retention isn’t beanbags and ping-pong tables. It’s belonging, strengths
-        and trust. Most organisations justify almost every resignation rather
-        than solving the underlying challenge. We help you build the kind of
-        place people don’t want to leave.
+        and trust. We help you build the kind of place people don’t want to
+        leave - where they do the best work of their lives.
       </p>
       <a href="/contact" class="btn btn-primary hero-cta">Talk retention <span class="arr">&rarr;</span></a>
+    </div>
+  </section>
+
+  {/* Radical belief + the problem */}
+  <section class="section-tight">
+    <div class="container belief">
+      <div class="belief-main">
+        <p class="eyebrow">Our radical belief</p>
+        <p class="heading belief-line">{belief}</p>
+      </div>
+      <div class="belief-pain">
+        <p class="eyebrow">The problem</p>
+        <p class="body-lg">{pain}</p>
+      </div>
     </div>
   </section>
 
@@ -54,6 +70,12 @@ const blocks = [
   .hero-h1 { font-size: var(--t-h1); max-width: 15ch; }
   .hero-sub { margin-top: 24px; max-width: 56ch; color: var(--c-body); }
   .hero-cta { margin-top: 32px; }
+
+  .belief { display: grid; grid-template-columns: 1.4fr 1fr; gap: clamp(28px, 5vw, 64px); align-items: start; }
+  .belief .eyebrow { margin-bottom: 14px; }
+  .belief-line { font-size: var(--t-h3); max-width: 24ch; }
+  .belief-pain .body-lg { color: var(--c-body); }
+  @media (max-width: 760px) { .belief { grid-template-columns: 1fr; gap: 24px; } }
 
   .blocks { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(16px, 2vw, 24px); }
   .block { background: #fff; border: 1px solid var(--c-rule); border-radius: var(--radius); padding: clamp(24px, 3vw, 34px); display: flex; flex-direction: column; gap: 12px; }
