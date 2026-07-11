@@ -2,14 +2,48 @@
 interface Props { current?: string; }
 const { current } = Astro.props;
 
-const links = [
-  { href: '/attract',      label: 'Attract',        key: 'attract' },
-  { href: '/align',        label: 'Align',          key: 'align' },
-  { href: '/lead',         label: 'Lead',           key: 'lead' },
-  { href: '/retain',       label: 'Retain',         key: 'retain' },
-  { href: '/services',     label: 'Services',       key: 'services' },
-  { href: '/learn',        label: 'Learn & Grow',   key: 'learn' },
-  { href: '/about',        label: 'About',          key: 'about' },
+// Three dropdown groups + the CTA. Top-level labels are real links (the hub
+// page); the menu reveals on hover/focus on desktop and shows as grouped
+// sections inside the burger panel on mobile. CSS-only - no JS.
+const groups = [
+  {
+    label: 'What we do',
+    href: '/services',
+    keys: ['services', 'attract', 'align', 'lead', 'retain'],
+    items: [
+      { href: '/services',            label: 'All services' },
+      { href: '/attract',             label: 'Attract' },
+      { href: '/align',               label: 'Align' },
+      { href: '/lead',                label: 'Lead' },
+      { href: '/retain',              label: 'Retain' },
+      { href: '/strengths',           label: 'Strengths Coaching' },
+      { href: '/recruitment-agency',  label: 'Recruitment' },
+      { href: '/productivity',        label: 'Purposeful Productivity' },
+      { href: '/speaking',            label: 'Speaking & Keynotes' },
+    ],
+  },
+  {
+    label: 'Learn & Grow',
+    href: '/learn',
+    keys: ['learn'],
+    items: [
+      { href: '/blog',       label: 'Blog' },
+      { href: '/newsletter', label: 'Newsletter' },
+      { href: '/book-nook',  label: 'Book Nook' },
+    ],
+  },
+  {
+    label: 'About',
+    href: '/about',
+    keys: ['about'],
+    items: [
+      { href: '/about',          label: 'About us' },
+      { href: '/values',         label: 'Values' },
+      { href: '/about#ventures', label: 'Sister companies' },
+      { href: '/partner',        label: 'Partner with us' },
+      { href: '/contact',        label: 'Contact' },
+    ],
+  },
 ];
 ---
 <header class="nav">
@@ -24,8 +58,20 @@ const links = [
     </label>
 
     <nav class="nav-links" aria-label="Primary">
-      {links.map((l) => (
-        <a href={l.href} class={current === l.key ? 'is-current' : ''}>{l.label}</a>
+      {groups.map((g) => (
+        <div class={g.keys.includes(current ?? '') ? 'nav-group is-current-group' : 'nav-group'}>
+          <a href={g.href} class="nav-top">
+            {g.label}
+            <svg class="chev" width="10" height="6" viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <div class="grp-menu">
+            <div class="grp-panel">
+              {g.items.map((l) => (
+                <a href={l.href} class={current === l.href.replace('/', '') ? 'grp-link is-current' : 'grp-link'}>{l.label}</a>
+              ))}
+            </div>
+          </div>
+        </div>
       ))}
       <a href="/contact" class="btn btn-primary nav-cta">Start a conversation</a>
     </nav>
@@ -51,19 +97,59 @@ const links = [
   .nav-logo { display: inline-flex; align-items: center; }
   .nav-logo img { height: 30px; width: auto; display: block; }
   @media (max-width: 480px) { .nav-logo img { height: 26px; } }
+
   .nav-links {
     display: flex;
     align-items: center;
-    gap: clamp(16px, 2vw, 30px);
+    gap: clamp(10px, 1.6vw, 22px);
   }
-  .nav-links a:not(.nav-cta) {
-    font-weight: 500;
-    font-size: 15px;
-    color: var(--c-body);
-    transition: color .15s var(--ease-out);
+
+  /* Top-level group links */
+  .nav-group { position: relative; }
+  .nav-top {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-weight: 500; font-size: 15px; color: var(--c-body);
+    padding: 10px 12px; border-radius: 999px;
+    transition: color .15s var(--ease-out), background .15s var(--ease-out);
   }
-  .nav-links a:not(.nav-cta):hover,
-  .nav-links a.is-current { color: var(--c-purple); }
+  .nav-group:hover .nav-top,
+  .nav-group:focus-within .nav-top,
+  .is-current-group .nav-top { color: var(--c-purple); background: rgba(101,40,234,0.06); }
+  .chev { transition: transform .18s var(--ease-out); color: var(--c-lavender); }
+  .nav-group:hover .chev,
+  .nav-group:focus-within .chev { transform: rotate(180deg); color: var(--c-purple); }
+
+  /* Dropdown panel (desktop) */
+  .grp-menu {
+    position: absolute; top: 100%; left: 0;
+    padding-top: 10px; /* hover bridge so the menu doesn't flicker shut */
+    opacity: 0; pointer-events: none; transform: translateY(6px);
+    transition: opacity .16s var(--ease-out), transform .16s var(--ease-out);
+    z-index: 60;
+  }
+  .nav-group:hover .grp-menu,
+  .nav-group:focus-within .grp-menu {
+    opacity: 1; pointer-events: auto; transform: translateY(0);
+  }
+  .grp-panel {
+    min-width: 232px;
+    background: #fff;
+    border: 1px solid var(--c-rule);
+    border-radius: 18px;
+    box-shadow: 0 22px 50px rgba(30,20,109,0.12);
+    padding: 10px;
+    display: flex; flex-direction: column; gap: 2px;
+  }
+  .grp-link {
+    display: block;
+    font-size: 15px; font-weight: 500; color: var(--c-body);
+    padding: 9px 14px; border-radius: 999px;
+    transition: color .13s var(--ease-out), background .13s var(--ease-out);
+    white-space: nowrap;
+  }
+  .grp-link:hover { color: var(--c-purple); background: rgba(101,40,234,0.07); }
+  .grp-link.is-current { color: var(--c-purple); font-weight: 600; }
+
   .nav-cta { padding: 10px 18px; font-size: 15px; }
 
   /* mobile menu */
@@ -86,23 +172,49 @@ const links = [
       top: 100%; left: 0; right: 0;
       flex-direction: column;
       align-items: stretch;
-      gap: 4px;
+      gap: 0;
       background: #fff;
-      padding: 16px var(--gutter) 28px;
+      padding: 12px var(--gutter) 28px;
       border-bottom: 1px solid var(--c-rule);
       box-shadow: 0 18px 40px rgba(30,20,109,0.08);
       transform: translateY(-8px);
       opacity: 0;
       pointer-events: none;
       transition: opacity .18s var(--ease-out), transform .18s var(--ease-out);
+      max-height: calc(100vh - 72px);
+      overflow-y: auto;
     }
-    .nav-links a:not(.nav-cta) { padding: 12px 4px; font-size: 17px; border-bottom: 1px solid var(--c-rule-soft); }
-    .nav-cta { margin-top: 12px; justify-content: center; }
     .nav-toggle:checked ~ .nav-links {
       transform: translateY(0); opacity: 1; pointer-events: auto;
     }
     .nav-toggle:checked ~ .nav-burger span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
     .nav-toggle:checked ~ .nav-burger span:nth-child(2) { opacity: 0; }
     .nav-toggle:checked ~ .nav-burger span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* Groups become labelled sections; menus always open */
+    .nav-group { position: static; }
+    .nav-top {
+      padding: 14px 4px 8px;
+      font-family: var(--f-display); font-weight: 700;
+      font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--c-lavender);
+      border-radius: 0;
+      background: none !important;
+    }
+    .chev { display: none; }
+    .grp-menu {
+      position: static; opacity: 1; pointer-events: auto; transform: none;
+      padding-top: 0;
+    }
+    .grp-panel {
+      border: 0; box-shadow: none; border-radius: 0; padding: 0;
+      background: transparent; min-width: 0; gap: 0;
+    }
+    .grp-link {
+      padding: 12px 8px; font-size: 17px; border-radius: 12px;
+      border-bottom: 1px solid var(--c-rule-soft);
+      white-space: normal;
+    }
+    .nav-cta { margin-top: 18px; justify-content: center; }
   }
 </style>

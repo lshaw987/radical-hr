@@ -1,0 +1,166 @@
+---
+import Base from '../layouts/Base.astro';
+import IndigoBlock from '../components/IndigoBlock.astro';
+
+// Real, public engagements only (source: layer-1-context/personal-brand.md).
+const talks = [
+  {
+    name: 'The BIGGEST risk to the future of food & fibre is your calendar',
+    line: 'The paddock-to-boardroom keynote. The threat to the sector isn’t out there somewhere - it’s how its leaders spend their time. Your calendar is your culture audit, and the sector grows everything it needs except the leaders it needs next.',
+  },
+  {
+    name: 'What if we got rid of HR departments and made them HF?',
+    line: 'The Humans First thesis. Not paperwork first, not compliance first - humans first. Why the future of work belongs to organisations that stop polishing a broken system and design something people actually want to be part of.',
+  },
+  {
+    name: 'Extraordinary teams are designed, not born',
+    line: 'Belonging, strengths, clarity and courage - the conditions extraordinary teams are intentionally built on, told through the real, slightly messy stories of teams that got there.',
+  },
+];
+
+const engagements = [
+  {
+    name: 'Revved Summit 2026',
+    detail: 'Auckland, August 2026 · theme “Engineering Change” - a room of NZ founders, CEOs and senior leaders. Lisa features in the Drivers Book given to every attendee.',
+  },
+  {
+    name: 'E Tipu 2025',
+    detail: 'The agri and food & fibre sector’s big stage - paddock-to-boardroom leadership for the people growing New Zealand’s future.',
+  },
+  {
+    name: 'CNISPA principals’ conference',
+    detail: 'Keynote to a principals’ association at Waikato University, June 2025 - leadership, clarity and sustainable ways of working for the people running our schools.',
+  },
+  {
+    name: 'Te Uru Amokura | Springboard Trust',
+    detail: 'Facilitator on the Strategic Leadership for Principals Programme since 2023 - 10-month leadership journeys with education leaders, year after year.',
+  },
+];
+
+// Role-anonymised (Lisa's rule: real quotes, roles not names).
+const quote = {
+  text: 'We both left feeling really excited about what’s ahead and confident that we’re going to learn so much from working with you. For the first time in a long time, I feel like we’re going to have a clearer direction in what we’re trying to achieve.',
+  who: 'Leadership-team participant',
+};
+---
+<Base
+  title="Speaking & Keynotes"
+  description="Keynotes and conference facilitation with Lisa Shaw - Humans First leadership, the future of work, paddock to boardroom. Real stories, practical shifts, no theory for hire."
+  current="services"
+>
+  {/* Hero */}
+  <section class="hero">
+    <div class="container">
+      <p class="eyebrow">On the stage</p>
+      <h1 class="display hero-h1">Keynotes that move the <span class="accent">room.</span></h1>
+      <p class="body-lg hero-sub">
+        Story first, framework second, and the audience leaves with something
+        to do on Monday - not just something to feel. Comfortable in front of
+        boards, conferences, principals and paddocks alike.
+      </p>
+      <a href="/contact" class="btn btn-primary hero-cta">Book Lisa <span class="arr">&rarr;</span></a>
+    </div>
+  </section>
+
+  {/* Signature talks */}
+  <section class="section band-mist">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">Signature talks</p>
+        <h2 class="heading section-title">The provocations that travel.</h2>
+        <p class="body-lg section-intro">
+          Every talk is shaped to the room - these are the threads they’re
+          built from.
+        </p>
+      </div>
+      <div class="blocks">
+        {talks.map((t) => (
+          <div class="block">
+            <h3 class="heading block-name">{t.name}</h3>
+            <p class="body block-line">{t.line}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {/* The work, in the wild */}
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">Examples of the work</p>
+        <h2 class="heading section-title">Where you’ll find it.</h2>
+      </div>
+      <div class="gigs">
+        {engagements.map((e) => (
+          <div class="gig">
+            <h3 class="heading gig-name">{e.name}</h3>
+            <p class="body gig-detail">{e.detail}</p>
+          </div>
+        ))}
+      </div>
+      <figure class="quote">
+        <blockquote class="quote-text">{quote.text}</blockquote>
+        <figcaption class="quote-who">{quote.who}</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  {/* Beyond the stage - giving back */}
+  <section class="section band-mist">
+    <div class="container give">
+      <p class="eyebrow">Beyond the stage</p>
+      <h2 class="heading give-h">Some of the best rooms don’t pay.</h2>
+      <p class="body-lg">
+        Giving back is one of Lisa’s personal values, so a share of this work
+        is given, not sold - supporting education leaders through Te Uru
+        Amokura (Springboard Trust) and Evaluation Associates, volunteering in
+        youth development, and pro bono mahi for causes that line up with
+        ours. If your kaupapa fits and the budget doesn’t, ask anyway.
+      </p>
+    </div>
+  </section>
+
+  <IndigoBlock
+    eyebrow="On the stage"
+    heading="Got a room that needs shifting?"
+    body="Tell us about the event, the audience and what you want them walking out with. We’ll shape the talk to the room."
+    ctaHref="/contact"
+    ctaLabel="Book Lisa"
+  />
+</Base>
+
+<style>
+  .hero { padding-block: clamp(56px, 9vw, 116px) clamp(36px, 5vw, 64px); }
+  .hero-h1 { font-size: var(--t-h1); max-width: 16ch; }
+  .hero-sub { margin-top: 24px; max-width: 54ch; color: var(--c-body); }
+  .hero-cta { margin-top: 32px; }
+
+  .section-title { font-size: var(--t-h2); }
+  .section-intro { max-width: 50ch; color: var(--c-body); }
+
+  .blocks { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(16px, 2vw, 24px); }
+  .block { background: #fff; border: 1px solid var(--c-rule); border-radius: var(--radius); padding: clamp(24px, 3vw, 34px); display: flex; flex-direction: column; gap: 12px; }
+  .block-name { font-size: var(--t-body-lg); line-height: 1.3; color: var(--c-purple); }
+  .block-line { color: var(--c-body); }
+  @media (max-width: 860px) { .blocks { grid-template-columns: 1fr; } }
+
+  .gigs { display: grid; grid-template-columns: repeat(2, 1fr); gap: clamp(20px, 3vw, 40px); }
+  .gig { display: flex; flex-direction: column; gap: 8px; }
+  .gig-name { font-size: var(--t-h4); }
+  .gig-detail { color: var(--c-body); }
+  @media (max-width: 760px) { .gigs { grid-template-columns: 1fr; } }
+
+  .quote {
+    margin-top: clamp(32px, 4vw, 56px); max-width: 680px;
+    background: #fff; border: 1px solid var(--c-rule); border-radius: var(--radius);
+    padding: clamp(24px, 3vw, 34px); display: flex; flex-direction: column; gap: 16px;
+  }
+  .quote-text { font-size: var(--t-body); line-height: 1.6; color: var(--c-body); }
+  .quote-text::before { content: '\201C'; color: var(--c-lilac); font-family: var(--f-display); font-weight: 800; font-size: 40px; line-height: 0; display: block; height: 18px; }
+  .quote-who { font-family: var(--f-display); font-weight: 700; color: var(--c-purple); font-size: 15px; }
+
+  .give { max-width: 62ch; display: flex; flex-direction: column; gap: 16px; }
+  .give-h { font-size: var(--t-h3); }
+  .give .body-lg { color: var(--c-body); }
+</style>

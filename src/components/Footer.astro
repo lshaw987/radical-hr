@@ -12,6 +12,7 @@ const cols = [
       { href: '/retain',              label: 'Retain' },
       { href: '/strengths',           label: 'Strengths Coaching' },
       { href: '/recruitment-agency',  label: 'Recruitment' },
+      { href: '/speaking',            label: 'Speaking & Keynotes' },
     ],
   },
   {
@@ -40,11 +41,17 @@ const cols = [
     ],
   },
 ];
+// Business socials + Lisa's personal work channels. Her personal Instagram +
+// Facebook slots are ready - add { href, label } entries to `lisaSocials`
+// once Lisa supplies the handles (never guess URLs).
 const socials = [
   { href: 'https://www.linkedin.com/company/radical-hr/', label: 'LinkedIn' },
   { href: 'https://www.facebook.com/radicalHRx/',         label: 'Facebook' },
   { href: 'https://www.instagram.com/radicalhrx/',        label: 'Instagram' },
   { href: 'https://www.youtube.com/@RadicalHRx',          label: 'YouTube' },
+];
+const lisaSocials = [
+  { href: 'https://nz.linkedin.com/in/lisajshaw', label: 'LinkedIn' },
 ];
 ---
 <footer class="ft">
@@ -53,8 +60,14 @@ const socials = [
       <Wordmark tone="dark" />
       <p class="ft-tag">Humans First. Not paperwork first, not compliance first. Humans.</p>
       <a href="mailto:lisashaw@radicalhr.nz" class="ft-email">lisashaw@radicalhr.nz</a>
+      <a href="tel:+64292268862" class="ft-phone">029 226 8862</a>
       <div class="ft-social">
+        <span class="ft-social-label">Radical HR</span>
         {socials.map((s) => <a href={s.href} target="_blank" rel="noopener">{s.label}</a>)}
+      </div>
+      <div class="ft-social">
+        <span class="ft-social-label">Lisa</span>
+        {lisaSocials.map((s) => <a href={s.href} target="_blank" rel="noopener">{s.label}</a>)}
       </div>
     </div>
 
@@ -71,7 +84,7 @@ const socials = [
   </div>
 
   <div class="container ft-base">
-    <span>© {year} Radical HR Limited. Auckland, Aotearoa New Zealand.</span>
+    <span>Made with 💓 in Aotearoa, New Zealand · © {year} Radical HR Limited</span>
     <span class="ft-base-links">
       <a href="/privacy">Privacy</a>
       <a href="/terms">Terms</a>
@@ -95,7 +108,10 @@ const socials = [
   .ft-tag { margin-top: 18px; max-width: 30ch; color: rgba(255,255,255,0.66); font-size: 15px; line-height: 1.6; }
   .ft-email { display: inline-block; margin-top: 18px; color: var(--c-lilac); font-weight: 600; }
   .ft-email:hover { color: #fff; }
-  .ft-social { display: flex; flex-wrap: wrap; gap: 18px; margin-top: 22px; }
+  .ft-phone { display: block; margin-top: 6px; color: var(--c-lilac); font-weight: 600; }
+  .ft-phone:hover { color: #fff; }
+  .ft-social { display: flex; flex-wrap: wrap; align-items: baseline; gap: 18px; margin-top: 18px; }
+  .ft-social-label { font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.5); }
   .ft-social a { font-size: 14px; color: rgba(255,255,255,0.7); }
   .ft-social a:hover { color: #fff; }
 

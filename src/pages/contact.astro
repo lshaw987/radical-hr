@@ -27,6 +27,12 @@ const channels = [
     note: 'The best way to reach me. I read everything.',
   },
   {
+    label: 'Phone',
+    value: '029 226 8862',
+    href: 'tel:+64292268862',
+    note: 'Call or text. If I’m in a session, leave a message and I’ll come back to you.',
+  },
+  {
     label: 'LinkedIn',
     value: 'Lisa Shaw',
     href: 'https://nz.linkedin.com/in/lisajshaw',
@@ -110,7 +116,8 @@ const channels = [
   .hero-h1 { font-size: var(--t-h1); max-width: 14ch; }
   .hero-sub { margin-top: 24px; max-width: 54ch; color: var(--c-body); }
 
-  .channels { display: grid; grid-template-columns: repeat(2, 1fr); gap: clamp(16px, 2vw, 24px); }
+  .channels { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(16px, 2vw, 24px); }
+  @media (max-width: 900px) { .channels { grid-template-columns: 1fr; } }
   .channel {
     display: flex; flex-direction: column; gap: 8px;
     background: #fff; border: 1px solid var(--c-rule); border-radius: var(--radius);
