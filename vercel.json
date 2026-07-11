@@ -8,7 +8,6 @@
   "redirects": [
     { "source": "/home", "destination": "/", "permanent": true },
 
-    { "source": "/recruitment-agency", "destination": "/attract", "permanent": true },
     { "source": "/alignment", "destination": "/align", "permanent": true },
     { "source": "/lead-retain", "destination": "/lead", "permanent": true },
     { "source": "/leadership-retention", "destination": "/lead", "permanent": true },

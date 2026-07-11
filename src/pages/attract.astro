@@ -7,8 +7,8 @@ const pain = 'Almost every HR and people problem starts with poor recruitment. H
 
 const blocks = [
   { name: 'Innovative Hiring', line: 'We design a values-based approach to recruitment that finds great people who love the job, have the right experience, and align to the values and ethos of your organisation.' },
-  { name: 'Creative Attraction', line: 'Talent attraction is so much more than throwing an ad on a job board and hoping for the best. Our talent marketers help you attract the right people, creatively and cost-effectively.' },
-  { name: 'Unconventional Recruitment', line: 'Finding a job you love can feel like a needle in a haystack. Our end-to-end recruitment uses a research team to surface people who are passive in the market and have the transferable skills you’re really after.' },
+  { name: 'Creative Attraction', line: 'Talent attraction is so much more than throwing an ad on a job board and hoping for the best. We help you reach the right people creatively and cost-effectively - employer brand, storytelling, and a candidate experience people talk about.' },
+  { name: 'Unconventional Recruitment', line: 'The best person for the role is often not looking for it. Our end-to-end recruitment goes and finds them - people quietly off the market, with the transferable skills you’re really after.' },
 ];
 ---
 <Base
@@ -55,6 +55,8 @@ const blocks = [
       </div>
       <p class="body-sm honest">
         And if we can’t help you, we’ll be honest and upfront and tell you.
+        Want the full recruitment story? It’s over on
+        <a href="/recruitment-agency">recruitment, the Radical HR way</a>.
       </p>
     </div>
   </section>
@@ -85,6 +87,8 @@ const blocks = [
   .block-name { font-size: var(--t-h4); color: var(--c-purple); }
   .block-line { color: var(--c-body); }
   .honest { margin-top: 28px; }
+  .honest a { color: var(--c-purple); font-weight: 600; }
+  .honest a:hover { text-decoration: underline; }
 
   @media (max-width: 760px) { .blocks { grid-template-columns: 1fr; } }
 </style>

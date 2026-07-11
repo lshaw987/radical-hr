@@ -1,0 +1,145 @@
+---
+import Base from '../layouts/Base.astro';
+import IndigoBlock from '../components/IndigoBlock.astro';
+
+const formats = [
+  {
+    name: 'Individual Debrief & Coaching',
+    line: 'Your CliftonStrengths top 5 (or full 34), unpacked with a coach who uses them every day. What they look like at their best, where they trip you up, and how to aim them at the work that matters.',
+  },
+  {
+    name: 'Team Strengths Discovery',
+    line: 'The whole team’s strengths on one page. A hands-on session finding where the team is stacked, where it’s thin, who to lean on for what - and what you’ll actually do differently on Monday.',
+  },
+  {
+    name: 'Strengths-Led Leadership',
+    line: 'For leaders: use strengths to delegate better, build belonging, and coach your people into more of their best work. Pairs naturally with our leadership coaching and Delevate.',
+  },
+];
+
+// Role-anonymised (Lisa's rule: real quotes, roles not names).
+const quote = {
+  text: 'I found the course to be highly engaging and your presenting style to be a huge motivator. I enjoyed the way you were able to push us out of our comfort zones in a supportive and caring way.',
+  who: 'Strengths session participant',
+};
+---
+<Base
+  title="Strengths Coaching"
+  description="CliftonStrengths coaching for leaders and teams in NZ - find what you and your people naturally do best, then build the roles, the team and the leadership around it."
+  current="services"
+>
+  {/* Hero */}
+  <section class="hero">
+    <div class="container">
+      <p class="eyebrow">CliftonStrengths</p>
+      <h1 class="display hero-h1">Build on what’s <span class="accent">right</span> with your people.</h1>
+      <p class="body-lg hero-sub">
+        Most development plans obsess over gaps. We start from the other end -
+        find what you and your team naturally do best, then build the roles,
+        the team and the leadership around it.
+      </p>
+      <a href="/contact" class="btn btn-primary hero-cta">Talk strengths <span class="arr">&rarr;</span></a>
+    </div>
+  </section>
+
+  {/* Radical belief + the problem */}
+  <section class="section-tight">
+    <div class="container belief">
+      <div class="belief-main">
+        <p class="eyebrow">Our radical belief</p>
+        <p class="heading belief-line">People grow further building on their strengths than patching their weaknesses.</p>
+      </div>
+      <div class="belief-pain">
+        <p class="eyebrow">The problem</p>
+        <p class="body-lg">
+          Most feedback and development is deficit-first. It leaves capable
+          people feeling like a list of gaps - and leaders blind to the talent
+          already sitting in the room.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  {/* Formats */}
+  <section class="section band-mist">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">How it works</p>
+        <h2 class="heading section-title">Three ways in.</h2>
+      </div>
+      <div class="blocks">
+        {formats.map((f) => (
+          <div class="block">
+            <h3 class="heading block-name">{f.name}</h3>
+            <p class="body block-line">{f.line}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {/* Why it lands */}
+  <section class="section">
+    <div class="container why">
+      <p class="eyebrow">Why it lands</p>
+      <h2 class="heading why-h">Strengths give a team a shared language.</h2>
+      <p class="body-lg">
+        CliftonStrengths (Gallup’s assessment) names how each person naturally
+        thinks, works and relates. Once the differences have names, they become
+        something to use - talent you can deliberately point at the work,
+        instead of friction to manage around. That’s belonging doing real work:
+        people bringing what they’re best at, on purpose.
+      </p>
+      <p class="body-lg">
+        Lisa coaches with her own profile on the table - Achiever, Learner,
+        Individualisation, Relator, Responsibility - because the tool only
+        lands when it’s lived, not laminated.
+      </p>
+      <figure class="quote">
+        <blockquote class="quote-text">{quote.text}</blockquote>
+        <figcaption class="quote-who">{quote.who}</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <IndigoBlock
+    eyebrow="Strengths"
+    heading="Find out what your team does best."
+    body="One conversation to work out the right format - a debrief, a team day, or something bigger. Tell us about your team and we’ll take it from there."
+    ctaHref="/contact"
+    ctaLabel="Start a conversation"
+  />
+</Base>
+
+<style>
+  .hero { padding-block: clamp(56px, 9vw, 116px) clamp(36px, 5vw, 64px); }
+  .hero-h1 { font-size: var(--t-h1); max-width: 16ch; }
+  .hero-sub { margin-top: 24px; max-width: 54ch; color: var(--c-body); }
+  .hero-cta { margin-top: 32px; }
+
+  .belief { display: grid; grid-template-columns: 1.4fr 1fr; gap: clamp(28px, 5vw, 64px); align-items: start; }
+  .belief .eyebrow { margin-bottom: 14px; }
+  .belief-line { font-size: var(--t-h3); max-width: 24ch; }
+  .belief-pain .body-lg { color: var(--c-body); }
+  @media (max-width: 760px) { .belief { grid-template-columns: 1fr; gap: 24px; } }
+
+  .section-title { font-size: var(--t-h2); }
+  .blocks { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(16px, 2vw, 24px); }
+  .block { background: #fff; border: 1px solid var(--c-rule); border-radius: var(--radius); padding: clamp(24px, 3vw, 34px); display: flex; flex-direction: column; gap: 12px; }
+  .block-name { font-size: var(--t-h4); color: var(--c-purple); }
+  .block-line { color: var(--c-body); }
+  @media (max-width: 760px) { .blocks { grid-template-columns: 1fr; } }
+
+  .why { max-width: 64ch; display: flex; flex-direction: column; gap: 18px; }
+  .why-h { font-size: var(--t-h3); }
+  .why .body-lg { color: var(--c-body); }
+
+  .quote {
+    margin-top: 10px;
+    background: #fff; border: 1px solid var(--c-rule); border-radius: var(--radius);
+    padding: clamp(24px, 3vw, 34px); display: flex; flex-direction: column; gap: 16px;
+  }
+  .quote-text { font-size: var(--t-body); line-height: 1.6; color: var(--c-body); }
+  .quote-text::before { content: '\201C'; color: var(--c-lilac); font-family: var(--f-display); font-weight: 800; font-size: 40px; line-height: 0; display: block; height: 18px; }
+  .quote-who { font-family: var(--f-display); font-weight: 700; color: var(--c-purple); font-size: 15px; }
+</style>

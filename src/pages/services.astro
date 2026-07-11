@@ -11,8 +11,8 @@ const groups = [
     pillar: 'Lead',
     items: [
       { name: 'Executive & Leadership Coaching', line: 'One-to-one and team coaching to grow courageous, future-ready leaders. Practical, strengths-based, and grounded in having actually carried the weight.' },
-      { name: 'CliftonStrengths Coaching', line: 'Find what you and your team do best, then build around it. Strengths-based coaching that unlocks performance, belonging and real growth.', feature: true },
-      { name: 'Delevate', line: 'Lisa’s own model: Deciding → Directing → Delegating → Developing → Delevating. Move from carrying the weight to building a team strong enough to carry it together - protecting your hauora as you go.', signature: true },
+      { name: 'CliftonStrengths Coaching', line: 'Find what you and your team do best, then build around it. Strengths-based coaching that unlocks performance, belonging and real growth.', feature: true, href: '/strengths' },
+      { name: 'Delevate', line: 'Lisa’s own model for letting go - the journey from doing it all yourself to delevating. Move from control to trust, from busyness to impact, and build a team strong enough to carry the weight together - protecting your hauora as you go.', signature: true },
       { name: 'Leadership Hauora & Wellbeing', line: 'Hauora is richer than wellbeing - it’s the whole person. Sustainable leadership: energy, boundaries, decompression, and carrying the emotional load without burning out.', feature: true },
     ],
   },
@@ -37,7 +37,7 @@ const groups = [
     name: 'Talent & People',
     pillar: 'Attract',
     items: [
-      { name: 'Recruitment & Attraction', line: 'Values-based, end-to-end recruitment and employer-brand work. Find people who love the job and align to your ethos - not just fill a seat.' },
+      { name: 'Recruitment & Attraction', line: 'Values-based, end-to-end recruitment and employer-brand work. Find people who love the job and align to your ethos - not just fill a seat.', href: '/recruitment-agency' },
       { name: 'Employment Relations & People Matters', line: 'Confidential, hands-on support with sensitive people situations and restructuring - in line with NZ employment law and best-practice HR.' },
       { name: 'Fractional Strategic Support', line: 'Senior people, culture and strategy partnership for organisations that need the capability without a full-time hire.' },
     ],
@@ -79,14 +79,18 @@ const groups = [
           <h2 class="heading section-title">{g.name}</h2>
         </div>
         <div class="cards">
-          {g.items.map((s) => (
-            <div class={s.feature || s.signature ? 'card card-feature' : 'card'}>
-              {s.signature && <span class="tag tag-signature">Signature</span>}
-              {s.feature && !s.signature && <span class="tag">Often asked for</span>}
-              <h3 class="heading card-name">{s.name}</h3>
-              <p class="body card-line">{s.line}</p>
-            </div>
-          ))}
+          {g.items.map((s) => {
+            const Tag = s.href ? 'a' : 'div';
+            return (
+              <Tag href={s.href} class={s.feature || s.signature ? 'card card-feature' : 'card'}>
+                {s.signature && <span class="tag tag-signature">Signature</span>}
+                {s.feature && !s.signature && <span class="tag">Often asked for</span>}
+                <h3 class="heading card-name">{s.name}</h3>
+                <p class="body card-line">{s.line}</p>
+                {s.href && <span class="card-more">More <span class="arr">&rarr;</span></span>}
+              </Tag>
+            );
+          })}
         </div>
       </div>
     </section>
@@ -111,7 +115,7 @@ const groups = [
   <IndigoBlock
     eyebrow="We’re ready when you are"
     heading="Let’s find the right way to work together."
-    body="Tell me where you’re at and what you’re trying to shift. We’ll design the next step from there."
+    body="Tell us where you’re at and what you’re trying to shift. We’ll design the next step from there."
     ctaHref="/contact"
     ctaLabel="Start a conversation"
   />
@@ -137,6 +141,7 @@ const groups = [
   .card-feature { border-color: var(--c-lilac); }
   .card-name { font-size: var(--t-h4); color: var(--c-purple); }
   .card-line { color: var(--c-body); }
+  .card-more { margin-top: auto; font-weight: 600; font-size: 15px; color: var(--c-purple); }
 
   .tag {
     align-self: flex-start;

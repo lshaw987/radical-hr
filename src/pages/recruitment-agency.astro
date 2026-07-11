@@ -1,0 +1,137 @@
+---
+import Base from '../layouts/Base.astro';
+import IndigoBlock from '../components/IndigoBlock.astro';
+
+// SEO page: holds the WordPress-era /recruitment-agency search traffic with a
+// real page (the old vercel.json 301 to /attract is removed). Method grounded
+// in layer-1-context/recruitment-method.md; no client names, no fee rates.
+const steps = [
+  {
+    name: 'A role definition, not a job description',
+    line: 'Most job ads are a job description in a party hat. We define the role by the outcomes it must deliver - two very different things - so the right person can see themselves in it.',
+  },
+  {
+    name: 'Open, creative applications',
+    line: 'We leave “what to send” deliberately open. We get videos, pitch decks, and the kind of insightful, creative applications you never get from a CV pile.',
+  },
+  {
+    name: 'We go looking',
+    line: 'The best person is often not job-hunting. We source directly - people quietly off the market, with the transferable skills and values fit you’re really after.',
+  },
+  {
+    name: 'Structured, human interviews',
+    line: 'A structured conversation, not an interrogation. The candidate tells their story; the design surfaces how they actually think, lead, and behave under pressure - values and strengths first.',
+  },
+  {
+    name: 'References that matter, then a Humans First welcome',
+    line: 'Proper, in-depth reference checks. Then onboarding that starts before day one - because hiring doesn’t end at the offer, it ends when the person belongs.',
+  },
+];
+---
+<Base
+  title="Recruitment Agency"
+  description="A values-based recruitment agency in Auckland, New Zealand. End-to-end permanent and contingent recruitment that hires for values, strengths and team fit - not just the best CV in the pile."
+  current="attract"
+>
+  {/* Hero */}
+  <section class="hero">
+    <div class="container">
+      <p class="eyebrow">Recruitment, the Radical HR way</p>
+      <h1 class="display hero-h1">A recruitment agency? Sort of. <span class="accent">Radically different.</span></h1>
+      <p class="body-lg hero-sub">
+        We do real, end-to-end recruitment - and we do it values-first. People
+        who love the job, fit the team, and stay. Not just the best CV in the
+        pile.
+      </p>
+      <a href="/contact" class="btn btn-primary hero-cta">Talk about your role <span class="arr">&rarr;</span></a>
+    </div>
+  </section>
+
+  {/* Heritage / credibility */}
+  <section class="section-tight">
+    <div class="container heritage">
+      <p class="heading heritage-h">
+        Recruitment is where Radical HR began.
+      </p>
+      <p class="body-lg">
+        We’ve delivered placement at volume across New Zealand - white-collar
+        and blue-collar, boardroom to paddock - through a managed, end-to-end
+        pipeline. This is proven, delivered work, not advisory from the
+        sidelines. And it’s why we’re blunt about it: almost every HR and
+        people problem starts with poor recruitment. Hire for the wrong
+        reasons and you pay for it for years.
+      </p>
+    </div>
+  </section>
+
+  {/* The method */}
+  <section class="section band-mist">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">How we recruit</p>
+        <h2 class="heading section-title">Five moves. No CV lottery.</h2>
+      </div>
+      <div class="steps">
+        {steps.map((s, i) => (
+          <div class="step">
+            <span class="step-no">{String(i + 1).padStart(2, '0')}</span>
+            <h3 class="heading step-name">{s.name}</h3>
+            <p class="body step-line">{s.line}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {/* How we charge */}
+  <section class="section">
+    <div class="container fees">
+      <p class="eyebrow">How we charge</p>
+      <h2 class="heading fees-h">A fee when the hire happens.</h2>
+      <p class="body-lg">
+        Placement work is success-based - a placement fee when the right person
+        signs, not a retainer for trying. Attraction and employer-brand work is
+        quoted per engagement, plain-language letter and all. Either way, you
+        know the deal before we start.
+      </p>
+      <p class="body-lg">
+        Recruitment sits inside our <a href="/attract">Attract</a> pillar -
+        if the deeper problem is employer brand, candidate experience or how
+        the role is designed, we’ll say so and fix that first.
+      </p>
+    </div>
+  </section>
+
+  <IndigoBlock
+    eyebrow="Recruitment"
+    heading="Let’s find people who love the job."
+    body="Tell us about the role and the team it joins. We’ll be straight with you about the best way to fill it - and honest if we’re not the right fit."
+    ctaHref="/contact"
+    ctaLabel="Start a conversation"
+  />
+</Base>
+
+<style>
+  .hero { padding-block: clamp(56px, 9vw, 116px) clamp(36px, 5vw, 64px); }
+  .hero-h1 { font-size: var(--t-h1); max-width: 18ch; }
+  .hero-sub { margin-top: 24px; max-width: 54ch; color: var(--c-body); }
+  .hero-cta { margin-top: 32px; }
+
+  .heritage { display: flex; flex-direction: column; gap: 18px; max-width: 64ch; }
+  .heritage-h { font-size: var(--t-h3); max-width: 22ch; }
+  .heritage .body-lg { color: var(--c-body); }
+
+  .section-title { font-size: var(--t-h2); }
+  .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(20px, 3vw, 44px); }
+  .step { display: flex; flex-direction: column; gap: 12px; }
+  .step-no { font-family: var(--f-display); font-weight: 800; font-size: 40px; color: var(--c-lilac); line-height: 1; }
+  .step-name { font-size: var(--t-h4); }
+  .step-line { color: var(--c-body); }
+  @media (max-width: 860px) { .steps { grid-template-columns: 1fr; gap: 28px; } }
+
+  .fees { max-width: 62ch; display: flex; flex-direction: column; gap: 16px; }
+  .fees-h { font-size: var(--t-h3); }
+  .fees .body-lg { color: var(--c-body); }
+  .fees a { color: var(--c-purple); font-weight: 600; }
+  .fees a:hover { text-decoration: underline; }
+</style>

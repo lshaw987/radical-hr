@@ -36,15 +36,29 @@ identity). Confirmed by Lisa 2026-06-13.
 
 ### Open items before launch
 
-- **Newsletter form** - Radical HR uses **Campaign Monitor** (not Klaviyo - that's
-  MPower). `/newsletter` degrades to an email signup until the real form is
-  wired: set `FORM_ACTION` + `EMAIL_FIELD` at the top of `src/pages/newsletter.astro`
-  with the Campaign Monitor embed and the native form renders automatically.
+See **GO-LIVE.md** for the full launch runbook. Short version:
+
+- **Newsletter form** - Klaviyo (umbrella account `SKABCW`, same as MPower;
+  Campaign Monitor retired). The list **"Radical HR - Newsletter"** exists
+  (id `V6h7rJ`, single opt-in). Create an embedded sign-up form in the Klaviyo
+  UI pointing at that list, then paste its form id into
+  `src/pages/newsletter.astro` (`KLAVIYO_FORM_ID`). Until then the page
+  degrades to a clean email signup - not a launch blocker.
 - **Fonts** - still a STAND-IN pairing (Poppins + Inter). Swap to the real
   Radical HR typefaces in `tokens.css` + the `@import` in `global.css` once
   confirmed off the Canva kit. (Launching on the stand-ins is fine.)
 - **Legal pages** - Privacy + Terms are real plain-language NZ policies. Worth a
   lawyer's glance before or shortly after launch.
+
+### Done (2026-07-11)
+
+- **Full voice + safety pass** across every page (testimonials role-anonymised,
+  banned phrasings out, solo-honest copy, pronoun consistency).
+- **Two new pages:** `/strengths` (CliftonStrengths coaching) and
+  `/recruitment-agency` (SEO page holding the WordPress-era search traffic -
+  the old 301 to /attract was removed from vercel.json).
+- **Privacy policy** updated to name Klaviyo (was Campaign Monitor).
+- **GO-LIVE.md** added - the step-by-step launch runbook.
 
 ### Done (2026-06-14)
 

@@ -2,10 +2,13 @@
 import Base from '../layouts/Base.astro';
 
 // Radical HR newsletter runs on Klaviyo (the onsite script is loaded site-wide
-// in Base.astro, company SKABCW). To make the embedded form live, create a
-// signup form in Klaviyo for Radical HR and paste its form id below (the bit
-// after "klaviyo-form-", e.g. "ABC123"). Until KLAVIYO_FORM_ID is set, the page
-// shows a clean email-signup fallback so nothing broken ever ships.
+// in Base.astro, company SKABCW). The list exists: "Radical HR - Newsletter",
+// list id V6h7rJ, single opt-in (created 2026-07-11). Last step is Lisa's, in
+// the Klaviyo UI (forms can't be created via API): Sign-up forms -> create an
+// embedded form -> submit to list "Radical HR - Newsletter" -> set the RHR
+// sender to lisashaw@radicalhr.nz -> publish, then paste the form id below
+// (the bit after "klaviyo-form-", e.g. "ABC123"). Until KLAVIYO_FORM_ID is
+// set, the page shows a clean email-signup fallback so nothing broken ships.
 const KLAVIYO_FORM_ID = '';
 const formLive = KLAVIYO_FORM_ID.length > 0;
 
