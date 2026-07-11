@@ -15,7 +15,25 @@
     { "source": "/learn-grow", "destination": "/learn", "permanent": true },
     { "source": "/about-us", "destination": "/about", "permanent": true },
     { "source": "/contact-us", "destination": "/contact", "permanent": true },
-    { "source": "/partner-with-us", "destination": "/partner", "permanent": true }
+    { "source": "/partner-with-us", "destination": "/partner", "permanent": true },
+
+    { "source": "/blog/unleash-your-teams-potential-with-productivity-code", "destination": "/productivity", "permanent": true },
+
+    { "source": "/talent-attraction", "destination": "/attract", "permanent": true },
+    { "source": "/leadership-coaching", "destination": "/lead", "permanent": true },
+    { "source": "/team-development", "destination": "/align", "permanent": true },
+    { "source": "/values-based-recruitment", "destination": "/recruitment-agency", "permanent": true },
+    { "source": "/ai-powered-recruitment", "destination": "/recruitment-agency", "permanent": true },
+    { "source": "/a-job-you-love", "destination": "/recruitment-agency", "permanent": true },
+    { "source": "/professional-jobs", "destination": "/recruitment-agency", "permanent": true },
+    { "source": "/workshops", "destination": "/learn", "permanent": true },
+    { "source": "/events", "destination": "/learn", "permanent": true },
+    { "source": "/custom-training-workshops-and-webinars", "destination": "/learn", "permanent": true },
+    { "source": "/self-care-menu", "destination": "/blog/build-your-self-care-menu-before-you-need-it", "permanent": true },
+    { "source": "/working-with-me-training-session", "destination": "/blog/why-have-a-working-with-me-document", "permanent": true },
+    { "source": "/shout-out", "destination": "/", "permanent": true },
+    { "source": "/rasla", "destination": "/", "permanent": true },
+    { "source": "/chocolate-wrapper", "destination": "/", "permanent": true }
   ],
   "headers": [
     {

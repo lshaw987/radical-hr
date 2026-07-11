@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://radicalhr.co/sitemap-index.xml
+Sitemap: https://radicalhr.nz/sitemap-index.xml
