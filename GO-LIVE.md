@@ -10,8 +10,10 @@ DNS/Vercel changes).
 - **Code:** local `main` = `origin/preview` = the finalised build (rewrite +
   strengths + recruitment pages + Klaviyo notes). `origin/main` is stale -
   it must be fast-forwarded from the local `main`, not used as-is.
-- **Build:** static Astro, 18 pages, builds green. No server, no env vars
-  needed to run.
+- **Build:** static Astro, 53 pages (site pages + 34 migrated blog posts),
+  builds green. No server, no env vars needed to run. The old site's blog
+  URLs and book-review PDFs all keep working after cutover - content
+  migrated with matching slugs, PDFs rehosted under /reviews/.
 - **Klaviyo:** list **"Radical HR - Newsletter"** exists (id `V6h7rJ`, single
   opt-in) in the umbrella account `SKABCW`. The embedded form is the one
   thing the API can't create - see step 1. Until the form id is pasted, the
