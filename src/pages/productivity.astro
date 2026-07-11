@@ -1,0 +1,221 @@
+---
+import Base from '../layouts/Base.astro';
+import IndigoBlock from '../components/IndigoBlock.astro';
+
+// Purposeful Productivity: the CARE Methodology - Lisa's own, signed off
+// 2026-07-11 (layer-1-context/productivity-method-lisa.md is the source doc).
+// Website-level copy only: the four moves + the rhythms, no course content.
+// Stats kept slide-safe per layer-1-context/productivity-research-bank.md.
+const care = [
+  {
+    letter: 'C',
+    name: 'Capture',
+    line: 'Everything out of your head and into a system you trust - ideas, tasks, promises, worries. Your mind is for having ideas, not holding them (thank you, David Allen).',
+  },
+  {
+    letter: 'A',
+    name: 'Arrange',
+    line: 'Every item clarified to its very next action, and filed where it belongs. Most procrastination is a step that was never decided.',
+  },
+  {
+    letter: 'R',
+    name: 'Reflect',
+    line: 'The stage everyone else skips. A protected weekly reset, white space held on purpose, and room to think - so the noise gets separated from the signal.',
+  },
+  {
+    letter: 'E',
+    name: 'Engage',
+    line: 'The day runs on a plan, not on the inbox. Deep work protected, notifications off, the most important work first. Then switch off - properly.',
+  },
+];
+
+const rhythms = [
+  {
+    name: 'Daily',
+    line: 'Bookends. A short morning plan to set the day, and an end-of-day wind-down that closes the loops and ends work on purpose.',
+  },
+  {
+    name: 'Weekly',
+    line: 'The Friday reset - clear everything, look back honestly, decide what matters next week. Non-negotiable.',
+  },
+  {
+    name: 'Quarterly',
+    line: 'Line the quarter up against the year. Goals cascade down to the week and the day, so today’s list traces to something that matters.',
+  },
+  {
+    name: 'Annual',
+    line: 'Decompress, disconnect completely, come back gradually. If you never switch off, you tell your team their leave doesn’t matter either.',
+  },
+];
+
+const different = [
+  {
+    name: 'Hauora-led',
+    line: 'White space, growth time and switching off are part of the system - never the reward for finishing. Hauora is richer than wellbeing: whole person, whole life.',
+  },
+  {
+    name: 'Rhythm, not grind',
+    line: 'Design the cadences once and they carry you - no re-negotiating your whole life every Monday. A rhythm gets you back on after a bad week, without the shame.',
+  },
+  {
+    name: 'For leaders, modelled',
+    line: 'Your team reads your calendar, not the poster on the wall. Taught leader-first, because the leader’s behaviour is the permission slip.',
+  },
+  {
+    name: 'Brain-friendly',
+    line: 'Built on named research, not willpower. Real habits take about two months to stick - so we build for that, not for the 21-day myth.',
+  },
+];
+---
+<Base
+  title="Purposeful Productivity"
+  description="Purposeful Productivity: the CARE Methodology. Lisa Shaw’s own productivity method for leaders and teams - Capture, Arrange, Reflect, Engage - carried by rhythms, with your hauora intact."
+  current="services"
+>
+  {/* Hero */}
+  <section class="hero">
+    <div class="container">
+      <p class="eyebrow">Purposeful Productivity · the CARE Methodology</p>
+      <h1 class="display hero-h1">Do your best work on what matters <span class="accent">most.</span></h1>
+      <p class="body-lg hero-sub">
+        With less stress, and your hauora intact. Purposeful Productivity is
+        Lisa’s own methodology - built from a decade of doing the work, for
+        leaders and teams drowning in busywork.
+      </p>
+      <p class="hero-line">Productivity in the service of humans, not at its expense.</p>
+      <a href="/contact" class="btn btn-primary hero-cta">Talk productivity <span class="arr">&rarr;</span></a>
+    </div>
+  </section>
+
+  {/* Radical belief + the problem */}
+  <section class="section-tight">
+    <div class="container belief">
+      <div class="belief-main">
+        <p class="eyebrow">Our radical belief</p>
+        <p class="heading belief-line">Productivity should serve the human - never the other way around.</p>
+      </div>
+      <div class="belief-pain">
+        <p class="eyebrow">The problem</p>
+        <p class="body-lg">
+          “Busy” has become a badge of honour and a coping mechanism. Most
+          systems just help you do more, faster - they optimise the output and
+          quietly spend the human. They work right up until the person running
+          them breaks.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  {/* CARE */}
+  <section class="section band-mist">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">The core</p>
+        <h2 class="heading section-title">Four moves. CARE.</h2>
+      </div>
+      <div class="blocks blocks-4">
+        {care.map((c) => (
+          <div class="block">
+            <span class="block-letter">{c.letter}</span>
+            <h3 class="heading block-name">{c.name}</h3>
+            <p class="body block-line">{c.line}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {/* The rhythms */}
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">The spine</p>
+        <h2 class="heading section-title">Carried by rhythm, not grind.</h2>
+        <p class="body-lg section-intro">
+          The method runs on nested rhythms you design once. They do the heavy
+          lifting on the weeks you can’t.
+        </p>
+      </div>
+      <div class="blocks blocks-4">
+        {rhythms.map((r) => (
+          <div class="block">
+            <h3 class="heading block-name">{r.name}</h3>
+            <p class="body block-line">{r.line}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {/* Why it's different */}
+  <section class="section band-mist">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">Why it’s different</p>
+        <h2 class="heading section-title">Built different, on purpose.</h2>
+      </div>
+      <div class="blocks blocks-4">
+        {different.map((d) => (
+          <div class="block">
+            <h3 class="heading block-name">{d.name}</h3>
+            <p class="body block-line">{d.line}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {/* How it lands */}
+  <section class="section">
+    <div class="container how">
+      <p class="eyebrow">How it lands</p>
+      <h2 class="heading how-h">Workshops, programmes and coaching.</h2>
+      <p class="body-lg">
+        Keynotes and team workshops, leadership coaching with the methodology
+        woven through, or a full team programme - because the gold is a whole
+        team working the same way. Like everything we do: designed with you,
+        priced per engagement.
+      </p>
+      <a href="/contact" class="btn btn-ghost how-cta">Ask about a workshop <span class="arr">&rarr;</span></a>
+    </div>
+  </section>
+
+  <IndigoBlock
+    eyebrow="Purposeful Productivity"
+    heading="Ready to trade busy for purposeful?"
+    body="Start with a conversation about how your team actually works. Your calendar will tell us most of it."
+    ctaHref="/contact"
+    ctaLabel="Start a conversation"
+  />
+</Base>
+
+<style>
+  .hero { padding-block: clamp(56px, 9vw, 116px) clamp(36px, 5vw, 64px); }
+  .hero-h1 { font-size: var(--t-h1); max-width: 16ch; }
+  .hero-sub { margin-top: 24px; max-width: 54ch; color: var(--c-body); }
+  .hero-line { margin-top: 16px; font-family: var(--f-display); font-weight: 700; color: var(--c-purple); font-size: var(--t-body-lg); }
+  .hero-cta { margin-top: 32px; }
+
+  .belief { display: grid; grid-template-columns: 1.4fr 1fr; gap: clamp(28px, 5vw, 64px); align-items: start; }
+  .belief .eyebrow { margin-bottom: 14px; }
+  .belief-line { font-size: var(--t-h3); max-width: 24ch; }
+  .belief-pain .body-lg { color: var(--c-body); }
+  @media (max-width: 760px) { .belief { grid-template-columns: 1fr; gap: 24px; } }
+
+  .section-title { font-size: var(--t-h2); }
+  .section-intro { max-width: 50ch; color: var(--c-body); }
+
+  .blocks { display: grid; gap: clamp(16px, 2vw, 24px); }
+  .blocks-4 { grid-template-columns: repeat(4, 1fr); }
+  .block { background: #fff; border: 1px solid var(--c-rule); border-radius: var(--radius); padding: clamp(24px, 3vw, 34px); display: flex; flex-direction: column; gap: 12px; }
+  .block-letter { font-family: var(--f-display); font-weight: 800; font-size: 40px; color: var(--c-lilac); line-height: 1; }
+  .block-name { font-size: var(--t-h4); color: var(--c-purple); }
+  .block-line { color: var(--c-body); }
+  @media (max-width: 980px) { .blocks-4 { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 560px) { .blocks-4 { grid-template-columns: 1fr; } }
+
+  .how { max-width: 62ch; display: flex; flex-direction: column; gap: 16px; }
+  .how-h { font-size: var(--t-h3); }
+  .how .body-lg { color: var(--c-body); }
+  .how-cta { align-self: flex-start; margin-top: 4px; }
+</style>

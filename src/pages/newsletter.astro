@@ -72,8 +72,51 @@ const promises = [
     </div>
   </section>
 
-  {/* Reassurance strip */}
+  {/* Archive */}
   <section class="section band-mist">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">The back catalogue</p>
+        <h2 class="heading section-title">Past issues.</h2>
+        <p class="body-lg section-intro">
+          A taste of what lands in your inbox. Where an issue grew from (or
+          into) a blog post, the link takes you straight to it.
+        </p>
+      </div>
+      <ul class="archive">
+        {[
+          { title: 'The Clarity Gap', date: 'Nov 2025', href: '/blog/the-clarity-gap-why-its-costing-you-more-than-you-think' },
+          { title: 'Curiosity | The leadership superpower we keep forgetting to use', date: 'Nov 2025', href: '/blog/curiosity-the-leadership-superpower-we-keep-forgetting-to-use' },
+          { title: 'Meaning over Motion', date: 'Nov 2025', href: '/blog/meaning-over-motion-why-busy-isnt-the-badge-of-honour-we-think-it-is' },
+          { title: 'Rethinking Retention', date: 'Oct 2025', href: '/blog/rethinking-retention-mobility-as-your-secret-weapon' },
+          { title: 'Letting go and leading differently', date: 'Oct 2025', href: '/blog/delevate' },
+          { title: 'We need to stop using the term HR', date: 'Oct 2025', href: '/blog/the-term-hr-needs-to-radically-change' },
+          { title: 'Big moves, brave conversations, and a tiny moment of calm', date: 'Oct 2025' },
+          { title: 'Thriving Teams, Smarter Minds', date: 'May 2025' },
+          { title: 'Leading with Less Overwhelm', date: 'Apr 2025' },
+          { title: 'Leading with Kindness, Working with Intention', date: 'Apr 2025' },
+          { title: 'Leading with Intention: Insights to Anchor, Align & Act', date: 'Apr 2025' },
+          { title: 'Beyond Busyness: Leading with Clarity and Impact', date: 'Feb 2025' },
+          { title: 'Where’s Your Focus Going?', date: 'Feb 2025', href: '/blog/wheres-your-focus-going' },
+          { title: 'Ending Strong | Starting Fresh', date: 'Dec 2024' },
+          { title: 'Unlock Your Potential… Tools and insights for productivity and leadership', date: 'Dec 2024' },
+          { title: 'Think you’re not Radical? Here’s why you should be…', date: 'Oct 2024', href: '/blog/think-youre-not-radical-heres-why-your-hr-team-should-be' },
+          { title: 'Providing clarity… should be a leader’s highest priority', date: 'Jul 2024' },
+          { title: 'Why Values-Driven Recruitment Matters', date: 'Jun 2024', href: '/blog/why-values-should-drive-the-recruitment-process' },
+        ].map((i) => (
+          <li class="issue">
+            {i.href
+              ? <a href={i.href} class="issue-title">{i.title} <span class="arr">&rarr;</span></a>
+              : <span class="issue-title issue-plain">{i.title}</span>}
+            <span class="issue-date">{i.date}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  {/* Reassurance strip */}
+  <section class="section">
     <div class="container reassure">
       <p class="heading reassure-h">No noise. Just the thinking worth your time.</p>
       <p class="body-lg">
@@ -102,6 +145,18 @@ const promises = [
   .signup-btn { justify-content: center; margin-top: 4px; }
   .signup-fine { font-size: var(--t-body-sm); color: var(--c-lavender); }
   .signup-fallback .body { color: var(--c-body); }
+
+  .section-title { font-size: var(--t-h2); }
+  .section-intro { max-width: 52ch; color: var(--c-body); }
+  .archive { list-style: none; padding: 0; display: flex; flex-direction: column; max-width: 760px; }
+  .issue {
+    display: flex; align-items: baseline; justify-content: space-between; gap: 18px;
+    padding-block: 14px; border-bottom: 1px solid var(--c-rule);
+  }
+  .issue-title { font-weight: 600; color: var(--c-purple); }
+  .issue-title:hover { text-decoration: underline; }
+  .issue-plain { color: var(--c-indigo); text-decoration: none; }
+  .issue-date { font-size: var(--t-body-sm); color: var(--c-lavender); white-space: nowrap; }
 
   .reassure { max-width: 60ch; display: flex; flex-direction: column; gap: 16px; }
   .reassure-h { font-size: var(--t-h3); }

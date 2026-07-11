@@ -8,7 +8,7 @@ const pain = 'Most organisations forget that loyalty leads to retention - and ju
 const blocks = [
   { name: 'Thrive Framework', line: 'Everything people need to thrive - role clarity, hauora (whole-person wellbeing), team connection, pay alignment, intentional development, and organisational influence.' },
   { name: 'Unique Belonging', line: 'To belong, people need to safely bring 100% of their unique selves to work - their identity, their strengths, their personal values.' },
-  { name: 'Purposeful Productivity', line: 'People who stay believe what they do matters - and they have the tools to carry less stress and more focus, to achieve bigger results.' },
+  { name: 'Purposeful Productivity', line: 'People who stay believe what they do matters - and they have a way of working that protects their focus and their hauora. Lisa’s own CARE Methodology lives here.', href: '/productivity' },
 ];
 ---
 <Base
@@ -46,12 +46,16 @@ const blocks = [
   <section class="section band-mist">
     <div class="container">
       <div class="blocks">
-        {blocks.map((b) => (
-          <div class="block">
-            <h2 class="heading block-name">{b.name}</h2>
-            <p class="body block-line">{b.line}</p>
-          </div>
-        ))}
+        {blocks.map((b) => {
+          const Tag = b.href ? 'a' : 'div';
+          return (
+            <Tag href={b.href} class="block">
+              <h2 class="heading block-name">{b.name}</h2>
+              <p class="body block-line">{b.line}</p>
+              {b.href && <span class="block-more">More <span class="arr">&rarr;</span></span>}
+            </Tag>
+          );
+        })}
       </div>
     </div>
   </section>
@@ -81,6 +85,9 @@ const blocks = [
   .block { background: #fff; border: 1px solid var(--c-rule); border-radius: var(--radius); padding: clamp(24px, 3vw, 34px); display: flex; flex-direction: column; gap: 12px; }
   .block-name { font-size: var(--t-h4); color: var(--c-purple); }
   .block-line { color: var(--c-body); }
+  a.block { transition: transform .18s var(--ease-out), border-color .18s var(--ease-out), box-shadow .18s var(--ease-out); }
+  a.block:hover { transform: translateY(-3px); border-color: var(--c-lilac); box-shadow: 0 18px 40px rgba(101,40,234,0.08); }
+  .block-more { margin-top: auto; font-weight: 600; font-size: 15px; color: var(--c-purple); }
 
   @media (max-width: 760px) { .blocks { grid-template-columns: 1fr; } }
 </style>

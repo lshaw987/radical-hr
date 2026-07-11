@@ -31,6 +31,14 @@ const cols = [
       { href: '/contact',      label: 'Contact' },
     ],
   },
+  {
+    title: 'Sister companies',
+    links: [
+      { href: 'https://www.mpowerhq.nz', label: 'MPower', external: true },
+      { href: 'https://umpireroom.nz',   label: 'Umpire Room', external: true },
+      { href: '/about#ventures',         label: 'Workshop Dashboard' },
+    ],
+  },
 ];
 const socials = [
   { href: 'https://www.linkedin.com/company/radical-hr/', label: 'LinkedIn' },
@@ -54,7 +62,9 @@ const socials = [
       {cols.map((c) => (
         <div class="ft-col">
           <p class="ft-col-title">{c.title}</p>
-          {c.links.map((l) => <a href={l.href}>{l.label}</a>)}
+          {c.links.map((l) => (
+            <a href={l.href} target={l.external ? '_blank' : undefined} rel={l.external ? 'noopener' : undefined}>{l.label}</a>
+          ))}
         </div>
       ))}
     </div>
@@ -89,7 +99,7 @@ const socials = [
   .ft-social a { font-size: 14px; color: rgba(255,255,255,0.7); }
   .ft-social a:hover { color: #fff; }
 
-  .ft-cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+  .ft-cols { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; }
   .ft-col { display: flex; flex-direction: column; gap: 12px; }
   .ft-col-title {
     font-family: var(--f-display); font-weight: 700; color: #fff;

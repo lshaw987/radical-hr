@@ -121,6 +121,51 @@ const pillars = [
     </div>
   </section>
 
+  {/* Sister companies */}
+  <section class="section" id="ventures">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">Beyond the consultancy</p>
+        <h2 class="heading section-title">Our sister companies.</h2>
+        <p class="body-lg section-intro">
+          Radical HR is one of the things Lisa builds. The same Humans First
+          thread runs through all of them.
+        </p>
+      </div>
+      <div class="ventures">
+        <a href="https://www.mpowerhq.nz" target="_blank" rel="noopener" class="venture">
+          <h3 class="heading venture-name">MPower</h3>
+          <p class="venture-tag">Knowledge. Power. Yours.</p>
+          <p class="body venture-line">
+            Subscription communities putting practical capability where people
+            already are, in plain language - from the business side of farming
+            to education leaders.
+          </p>
+          <span class="venture-more">mpowerhq.nz <span class="arr">&rarr;</span></span>
+        </a>
+        <a href="https://umpireroom.nz" target="_blank" rel="noopener" class="venture">
+          <h3 class="heading venture-name">Umpire Room</h3>
+          <p class="venture-tag">Your umpires’ room, online.</p>
+          <p class="body venture-line">
+            Software for the people who run netball officiating - everything you
+            need to roster, grow and keep your umpires in one place.
+          </p>
+          <span class="venture-more">umpireroom.nz <span class="arr">&rarr;</span></span>
+        </a>
+        <div class="venture venture-teaser">
+          <h3 class="heading venture-name">Workshop Dashboard</h3>
+          <p class="venture-tag">In pilot now</p>
+          <p class="body venture-line">
+            An operating hub for multi-branch repair workshops - live numbers,
+            planning and the daily production meeting in one place. Watch this
+            space.
+          </p>
+          <span class="venture-more venture-soon">Coming soon</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <IndigoBlock
     eyebrow="We’re ready when you are"
     heading="Let’s build your extraordinary team together."
@@ -162,6 +207,23 @@ const pillars = [
     .lisa-photo { max-width: 320px; }
   }
   .social-tag { font-family: var(--f-display); font-weight: 700; color: var(--c-purple); font-size: var(--t-body-lg); margin-top: 4px; }
+
+  /* Sister companies */
+  .section-intro { max-width: 50ch; color: var(--c-body); }
+  .ventures { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(16px, 2vw, 24px); }
+  .venture {
+    display: flex; flex-direction: column; gap: 10px;
+    background: #fff; border: 1px solid var(--c-rule); border-radius: var(--radius);
+    padding: clamp(24px, 3vw, 34px);
+    transition: transform .18s var(--ease-out), border-color .18s var(--ease-out), box-shadow .18s var(--ease-out);
+  }
+  a.venture:hover { transform: translateY(-3px); border-color: var(--c-lilac); box-shadow: 0 18px 40px rgba(101,40,234,0.08); }
+  .venture-name { font-size: var(--t-h4); }
+  .venture-tag { font-family: var(--f-sans); font-size: var(--t-body-sm); font-weight: 600; letter-spacing: 0.04em; color: var(--c-purple); }
+  .venture-line { color: var(--c-body); }
+  .venture-more { margin-top: auto; padding-top: 8px; font-weight: 600; font-size: 15px; color: var(--c-purple); }
+  .venture-soon { color: var(--c-lavender); }
+  @media (max-width: 760px) { .ventures { grid-template-columns: 1fr; } }
 
   @media (max-width: 760px) {
     .prows { grid-template-columns: 1fr; gap: 28px; }

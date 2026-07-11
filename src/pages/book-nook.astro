@@ -2,31 +2,66 @@
 import Base from '../layouts/Base.astro';
 import IndigoBlock from '../components/IndigoBlock.astro';
 
-// Radical Readers is defined, not yet built (no launch date, format/price still
-// to confirm - see layer-4-brains/radical-hr/sub/radical-readers/context.md).
-// So this page introduces the idea and gathers interest by email, without
-// promising a format or price we haven't set.
+// The nine real reviews, migrated from the old site (PDFs now hosted here in
+// /public/reviews/ so they survive the WordPress retirement). Takes are only
+// written where they're grounded in Lisa's own captured framing - the review
+// PDF is the voice everywhere.
 const reads = [
+  {
+    title: 'Belonging',
+    author: 'Owen Eastwood',
+    take: 'Whakapapa, identity and the deep human need to belong. Quiet, paradox-driven, and it stays with you.',
+    pdf: '/reviews/Book-Review-Belonging.pdf',
+  },
   {
     title: 'Tribes',
     author: 'Seth Godin',
     take: 'Leadership as courage, not authority - and the quiet cost of “sheepwalking” through work that deserves more of us.',
+    pdf: '/reviews/Book-Review-Tribes-Seth-Godin.pdf',
   },
   {
     title: 'How to Change',
     author: 'Katy Milkman',
     take: 'Design beats willpower. The behavioural science of making change actually stick - for you and the people you lead.',
+    pdf: '/reviews/Book-Review-Katy-Milkman-how-to-change.pdf',
   },
   {
-    title: 'Belonging',
-    author: 'Owen Eastwood',
-    take: 'Whakapapa, identity and the deep human need to belong. Quiet, paradox-driven, and it stays with you.',
+    title: 'Atlas of the Heart',
+    author: 'Brené Brown',
+    pdf: '/reviews/Book-Review-Atlas-of-the-Heart.pdf',
+  },
+  {
+    title: 'A Minute to Think',
+    author: 'Juliet Funt',
+    take: 'The case for white space - the breathing room your best thinking has been waiting for.',
+    pdf: '/reviews/Book-Review-A-Minute-To-Think.pdf',
+  },
+  {
+    title: 'Getting Things Done',
+    author: 'David Allen',
+    take: 'The chassis under how we work: your mind is for having ideas, not holding them.',
+    pdf: '/reviews/Book-Review-Getting-Things-Done.pdf',
+  },
+  {
+    title: 'Our Iceberg is Melting',
+    author: 'John Kotter',
+    pdf: '/reviews/Book-Review-Our-Iceberg-is-Melting.pdf',
+  },
+  {
+    title: 'Playing Big',
+    author: 'Tara Mohr',
+    pdf: '/reviews/Book-Review-Playing-big.pdf',
+  },
+  {
+    title: 'Oh, the Places You’ll Go!',
+    author: 'Dr. Seuss',
+    pdf: '/reviews/Book-Review-Oh-the-Places-Youll-Go.pdf',
   },
 ];
 ---
 <Base
   title="Book Nook"
-  description="Radical Readers - a book club community under Radical HR. The books that shape how we lead, read together. Reviews framed as a mirror, not a manual."
+  description="The Book Nook - Lisa's honest book reviews, framed as a mirror, not a manual. And Radical Readers, the book club community, coming soon."
   current="learn"
 >
   {/* Hero */}
@@ -35,9 +70,9 @@ const reads = [
       <p class="eyebrow">Radical Readers</p>
       <h1 class="display hero-h1">The Book Nook.</h1>
       <p class="body-lg hero-sub">
-        A book club community for people who lead and want to keep growing -
-        reading the ideas that shape Humans First leadership, together. Coming
-        soon.
+        The books shaping how we lead, with honest reviews you can read right
+        now. And Radical Readers - the book club community where we read them
+        together - is coming soon.
       </p>
     </div>
   </section>
@@ -46,7 +81,7 @@ const reads = [
   <section class="section-tight">
     <div class="container philosophy">
       <p class="heading philosophy-h">
-        A good book isn’t a manual. <span class="accent">It’s a mirror.</span>
+        A good book is a mirror, <span class="accent">not a manual.</span>
       </p>
       <p class="body-lg">
         The best ones don’t tell you what to do - they remind you who you want to
@@ -57,20 +92,21 @@ const reads = [
     </div>
   </section>
 
-  {/* On the shelf */}
+  {/* The reviews */}
   <section class="section band-mist">
     <div class="container">
       <div class="section-head">
         <p class="eyebrow">On the shelf</p>
-        <h2 class="heading section-title">A few that have shaped the thinking.</h2>
+        <h2 class="heading section-title">The reviews.</h2>
       </div>
       <div class="reads">
         {reads.map((r) => (
-          <div class="read">
+          <a href={r.pdf} target="_blank" rel="noopener" class="read">
             <h3 class="heading read-title">{r.title}</h3>
             <p class="read-author">{r.author}</p>
-            <p class="body read-take">{r.take}</p>
-          </div>
+            {r.take && <p class="body read-take">{r.take}</p>}
+            <span class="read-more">Read Lisa’s review <span class="arr">&rarr;</span></span>
+          </a>
         ))}
       </div>
     </div>
@@ -78,8 +114,8 @@ const reads = [
 
   <IndigoBlock
     eyebrow="Want in early?"
-    heading="Be first into the Book Nook."
-    body="Radical Readers is being built. Tell me you’re keen and I’ll let you know the moment the doors open."
+    heading="Be first into Radical Readers."
+    body="The book club community is being built. Tell me you’re keen and I’ll let you know the moment the doors open."
     ctaHref="mailto:lisashaw@radicalhr.nz?subject=Radical%20Readers%20-%20count%20me%20in"
     ctaLabel="Register your interest"
   />
@@ -100,10 +136,14 @@ const reads = [
     display: flex; flex-direction: column; gap: 8px;
     background: #fff; border: 1px solid var(--c-rule); border-radius: var(--radius);
     padding: clamp(24px, 3vw, 34px);
+    transition: transform .18s var(--ease-out), border-color .18s var(--ease-out), box-shadow .18s var(--ease-out);
   }
+  .read:hover { transform: translateY(-3px); border-color: var(--c-lilac); box-shadow: 0 18px 40px rgba(101,40,234,0.08); }
   .read-title { font-size: var(--t-h4); }
   .read-author { font-family: var(--f-sans); font-size: var(--t-body-sm); font-weight: 600; letter-spacing: 0.04em; color: var(--c-purple); }
   .read-take { color: var(--c-body); margin-top: 4px; }
+  .read-more { margin-top: auto; padding-top: 10px; font-weight: 600; font-size: 15px; color: var(--c-purple); }
 
-  @media (max-width: 860px) { .reads { grid-template-columns: 1fr; } }
+  @media (max-width: 860px) { .reads { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 560px) { .reads { grid-template-columns: 1fr; } }
 </style>

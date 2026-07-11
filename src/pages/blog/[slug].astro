@@ -1,0 +1,58 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import IndigoBlock from '../../components/IndigoBlock.astro';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  return posts.map((post) => ({ params: { slug: post.slug }, props: { post } }));
+}
+
+const { post } = Astro.props;
+const { Content } = await post.render();
+const dateLabel = post.data.date
+  ? new Intl.DateTimeFormat('en-NZ', { day: 'numeric', month: 'long', year: 'numeric' }).format(post.data.date)
+  : null;
+---
+<Base title={post.data.title} description={post.data.description} current="learn">
+  <article class="post">
+    <div class="container post-inner">
+      <p class="eyebrow">{post.data.pillar ?? 'The blog'}</p>
+      <h1 class="display post-h1">{post.data.title}</h1>
+      {dateLabel && <p class="post-date">{dateLabel}</p>}
+      <div class="prose">
+        <Content />
+      </div>
+      <a href="/blog" class="btn btn-ghost post-back"><span class="arr">&larr;</span> All posts</a>
+    </div>
+  </article>
+
+  <IndigoBlock
+    eyebrow="Don’t miss the next one"
+    heading="Get new pieces in your inbox."
+    body="Subscribe to the newsletter and the writing comes to you - no clutter, unsubscribe any time."
+    ctaHref="/newsletter"
+    ctaLabel="Subscribe"
+  />
+</Base>
+
+<style>
+  .post { padding-block: clamp(48px, 8vw, 104px) clamp(48px, 7vw, 96px); }
+  .post-inner { max-width: 760px; }
+  .post-h1 { font-size: var(--t-h2); margin-top: 16px; line-height: 1.12; }
+  .post-date { margin-top: 16px; font-size: var(--t-body-sm); color: var(--c-lavender); }
+
+  .prose { margin-top: clamp(28px, 4vw, 48px); display: flex; flex-direction: column; gap: 4px; }
+  .prose :global(p) { color: var(--c-body); font-size: var(--t-body); line-height: 1.75; margin-block: 10px; }
+  .prose :global(h2) { font-family: var(--f-display); font-weight: 700; color: var(--c-indigo); font-size: var(--t-h4); margin-top: 30px; margin-bottom: 4px; letter-spacing: -0.01em; }
+  .prose :global(h3) { font-family: var(--f-display); font-weight: 700; color: var(--c-indigo); font-size: var(--t-body-lg); margin-top: 22px; }
+  .prose :global(ul), .prose :global(ol) { display: flex; flex-direction: column; gap: 8px; padding-left: 24px; margin-block: 12px; }
+  .prose :global(li) { color: var(--c-body); line-height: 1.7; }
+  .prose :global(blockquote) { border-left: 3px solid var(--c-lilac); padding-left: 18px; margin-block: 16px; color: var(--c-indigo); font-weight: 500; }
+  .prose :global(a) { color: var(--c-purple); font-weight: 600; }
+  .prose :global(a:hover) { text-decoration: underline; }
+  .prose :global(strong) { color: var(--c-indigo); }
+  .prose :global(hr) { border: 0; border-top: 1px solid var(--c-rule); margin-block: 24px; }
+
+  .post-back { margin-top: clamp(28px, 4vw, 44px); align-self: flex-start; }
+</style>
