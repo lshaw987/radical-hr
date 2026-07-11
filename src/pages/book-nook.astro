@@ -99,7 +99,7 @@ const reviews = (await getCollection('reviews')).sort((a, b) => a.data.order - b
   }
   .read-cover {
     width: clamp(110px, 12vw, 150px); height: auto;
-    border-radius: 8px;
+    border-radius: var(--radius-sm);
     box-shadow: 0 14px 30px rgba(30,20,109,0.22);
     transition: transform .18s var(--ease-out);
   }

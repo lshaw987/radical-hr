@@ -111,7 +111,7 @@ const values = [
     transition: transform .18s var(--ease-out), box-shadow .18s var(--ease-out);
   }
   .val-card:hover { transform: translateY(-3px); box-shadow: 0 18px 40px rgba(101,40,234,0.08); }
-  .val-card img { width: 100%; height: auto; display: block; border-radius: 8px; }
+  .val-card img { width: 100%; height: auto; display: block; border-radius: var(--radius-sm); }
 
   @media (max-width: 860px) { .vals { grid-template-columns: repeat(2, 1fr); } }
   @media (max-width: 540px) { .vals { grid-template-columns: 1fr; max-width: 360px; margin-inline: auto; } }

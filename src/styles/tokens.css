@@ -51,7 +51,13 @@
 
   /* Motion ----------------------------------------------------------------- */
   --ease-out: cubic-bezier(.2,.7,.3,1);
-  --radius:   16px;
+
+  /* Radius scale - circles & soft lines (design-language.md, locked 2026-07-11)
+     S chips/inputs · M cards · L feature panels + photos. Buttons are pills (999px).
+     Photos: rounded corners only, never circular crops. */
+  --radius-sm: 12px;
+  --radius:    16px;
+  --radius-lg: 24px;
 }
 
 @media (prefers-reduced-motion: reduce) {
