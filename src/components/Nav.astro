@@ -2,46 +2,66 @@
 interface Props { current?: string; }
 const { current } = Astro.props;
 
-// Three dropdown groups + the CTA. Top-level labels are real links (the hub
-// page); the menu reveals on hover/focus on desktop and shows as grouped
-// sections inside the burger panel on mobile. CSS-only - no JS.
+// Mega-menu nav: three dropdown groups + the CTA. Each item carries a short
+// description so a first-time visitor knows where a link goes before they
+// click. CSS-only - hover/focus on desktop, grouped sections in the burger
+// panel on mobile.
 const groups = [
   {
     label: 'What we do',
     href: '/services',
     keys: ['services', 'attract', 'align', 'lead', 'retain'],
-    items: [
-      { href: '/services',            label: 'All services' },
-      { href: '/attract',             label: 'Attract' },
-      { href: '/align',               label: 'Align' },
-      { href: '/lead',                label: 'Lead' },
-      { href: '/retain',              label: 'Retain' },
-      { href: '/strengths',           label: 'Strengths Coaching' },
-      { href: '/recruitment-agency',  label: 'Recruitment' },
-      { href: '/productivity',        label: 'Purposeful Productivity' },
-      { href: '/speaking',            label: 'Speaking & Keynotes' },
+    wide: true,
+    sections: [
+      {
+        title: 'The four pillars',
+        items: [
+          { href: '/attract', label: 'Attract', desc: 'Bring the right humans in' },
+          { href: '/align',   label: 'Align',   desc: 'Everyone moving the same way' },
+          { href: '/lead',    label: 'Lead',    desc: 'Leaders who multiply impact' },
+          { href: '/retain',  label: 'Retain',  desc: 'Keep your best people thriving' },
+        ],
+      },
+      {
+        title: 'How we help',
+        items: [
+          { href: '/services',           label: 'All services',            desc: 'The full picture, in one place' },
+          { href: '/strengths',          label: 'Strengths Coaching',      desc: 'Build on what people do best' },
+          { href: '/recruitment-agency', label: 'Recruitment',             desc: 'Values-first, end to end' },
+          { href: '/productivity',       label: 'Purposeful Productivity', desc: 'Lisa’s CARE Methodology' },
+          { href: '/speaking',           label: 'Speaking & Keynotes',     desc: 'Talks that move the room' },
+        ],
+      },
     ],
   },
   {
     label: 'Learn & Grow',
     href: '/learn',
     keys: ['learn'],
-    items: [
-      { href: '/blog',       label: 'Blog' },
-      { href: '/newsletter', label: 'Newsletter' },
-      { href: '/book-nook',  label: 'Book Nook' },
+    sections: [
+      {
+        items: [
+          { href: '/blog',       label: 'Blog',       desc: 'The thinking, out loud' },
+          { href: '/newsletter', label: 'Newsletter', desc: 'The good stuff, in your inbox' },
+          { href: '/book-nook',  label: 'Book Nook',  desc: 'Honest reviews - a mirror, not a manual' },
+        ],
+      },
     ],
   },
   {
     label: 'About',
     href: '/about',
     keys: ['about'],
-    items: [
-      { href: '/about',          label: 'About us' },
-      { href: '/values',         label: 'Values' },
-      { href: '/about#ventures', label: 'Sister companies' },
-      { href: '/partner',        label: 'Partner with us' },
-      { href: '/contact',        label: 'Contact' },
+    sections: [
+      {
+        items: [
+          { href: '/about',          label: 'About us',         desc: 'The story, and the human behind it' },
+          { href: '/values',         label: 'Values',           desc: 'What we stand for - lived, not laminated' },
+          { href: '/about#ventures', label: 'Sister companies', desc: 'MPower, Umpire Room and more' },
+          { href: '/partner',        label: 'Partner with us',  desc: 'Better together' },
+          { href: '/contact',        label: 'Contact',          desc: 'Start a conversation' },
+        ],
+      },
     ],
   },
 ];
@@ -59,15 +79,27 @@ const groups = [
 
     <nav class="nav-links" aria-label="Primary">
       {groups.map((g) => (
-        <div class={g.keys.includes(current ?? '') ? 'nav-group is-current-group' : 'nav-group'}>
+        <div class={[
+          'nav-group',
+          g.wide ? 'is-wide' : '',
+          g.keys.includes(current ?? '') ? 'is-current-group' : '',
+        ].filter(Boolean).join(' ')}>
           <a href={g.href} class="nav-top">
             {g.label}
             <svg class="chev" width="10" height="6" viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </a>
           <div class="grp-menu">
             <div class="grp-panel">
-              {g.items.map((l) => (
-                <a href={l.href} class={current === l.href.replace('/', '') ? 'grp-link is-current' : 'grp-link'}>{l.label}</a>
+              {g.sections.map((s) => (
+                <div class="grp-section">
+                  {s.title && <p class="grp-title">{s.title}</p>}
+                  {s.items.map((l) => (
+                    <a href={l.href} class={current === l.href.replace('/', '') ? 'grp-link is-current' : 'grp-link'}>
+                      <span class="grp-label">{l.label}</span>
+                      {l.desc && <span class="grp-desc">{l.desc}</span>}
+                    </a>
+                  ))}
+                </div>
               ))}
             </div>
           </div>
@@ -127,28 +159,40 @@ const groups = [
     transition: opacity .16s var(--ease-out), transform .16s var(--ease-out);
     z-index: 60;
   }
+  .is-wide .grp-menu { left: 50%; transform: translate(-50%, 6px); }
   .nav-group:hover .grp-menu,
   .nav-group:focus-within .grp-menu {
     opacity: 1; pointer-events: auto; transform: translateY(0);
   }
+  .is-wide:hover .grp-menu,
+  .is-wide:focus-within .grp-menu { transform: translate(-50%, 0); }
+
   .grp-panel {
-    min-width: 232px;
+    display: flex; gap: 8px;
     background: #fff;
     border: 1px solid var(--c-rule);
-    border-radius: 18px;
+    border-radius: 20px;
     box-shadow: 0 22px 50px rgba(30,20,109,0.12);
-    padding: 10px;
-    display: flex; flex-direction: column; gap: 2px;
+    padding: 14px;
+  }
+  .grp-section { display: flex; flex-direction: column; gap: 2px; min-width: 250px; }
+  .grp-title {
+    font-family: var(--f-display); font-weight: 700;
+    font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--c-lavender);
+    padding: 8px 14px 6px;
   }
   .grp-link {
-    display: block;
-    font-size: 15px; font-weight: 500; color: var(--c-body);
-    padding: 9px 14px; border-radius: 999px;
-    transition: color .13s var(--ease-out), background .13s var(--ease-out);
+    display: flex; flex-direction: column; gap: 1px;
+    padding: 9px 14px; border-radius: 14px;
+    transition: background .13s var(--ease-out);
     white-space: nowrap;
   }
-  .grp-link:hover { color: var(--c-purple); background: rgba(101,40,234,0.07); }
-  .grp-link.is-current { color: var(--c-purple); font-weight: 600; }
+  .grp-link:hover { background: rgba(101,40,234,0.07); }
+  .grp-label { font-size: 15px; font-weight: 600; color: var(--c-indigo); transition: color .13s var(--ease-out); }
+  .grp-link:hover .grp-label { color: var(--c-purple); }
+  .grp-link.is-current .grp-label { color: var(--c-purple); }
+  .grp-desc { font-size: 13px; color: var(--c-lavender); }
 
   .nav-cta { padding: 10px 18px; font-size: 15px; }
 
@@ -194,7 +238,7 @@ const groups = [
     /* Groups become labelled sections; menus always open */
     .nav-group { position: static; }
     .nav-top {
-      padding: 14px 4px 8px;
+      padding: 16px 4px 6px;
       font-family: var(--f-display); font-weight: 700;
       font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase;
       color: var(--c-lavender);
@@ -203,18 +247,22 @@ const groups = [
     }
     .chev { display: none; }
     .grp-menu {
-      position: static; opacity: 1; pointer-events: auto; transform: none;
+      position: static; opacity: 1; pointer-events: auto; transform: none !important;
       padding-top: 0;
     }
     .grp-panel {
+      flex-direction: column; gap: 0;
       border: 0; box-shadow: none; border-radius: 0; padding: 0;
-      background: transparent; min-width: 0; gap: 0;
+      background: transparent;
     }
+    .grp-section { min-width: 0; }
+    .grp-title { padding: 10px 8px 4px; }
     .grp-link {
-      padding: 12px 8px; font-size: 17px; border-radius: 12px;
+      padding: 11px 8px; border-radius: 12px;
       border-bottom: 1px solid var(--c-rule-soft);
       white-space: normal;
     }
+    .grp-label { font-size: 17px; }
     .nav-cta { margin-top: 18px; justify-content: center; }
   }
 </style>

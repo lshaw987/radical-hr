@@ -16,4 +16,18 @@ const blog = defineCollection({
   }),
 });
 
-export const collections = { blog };
+// Book reviews transcribed verbatim from Lisa's published review PDFs
+// (the PDFs stay hosted at /reviews/ as the download copy).
+const reviews = defineCollection({
+  type: 'content',
+  schema: z.object({
+    title: z.string(),
+    author: z.string(),
+    order: z.number(),
+    pdf: z.string().optional(),
+    cover: z.string().optional(),
+    incomplete: z.boolean().optional(),
+  }),
+});
+
+export const collections = { blog, reviews };
