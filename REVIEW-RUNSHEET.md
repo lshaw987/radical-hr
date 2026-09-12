@@ -44,6 +44,11 @@ IPv6 loopback; the browser handles it, `curl` needs `http://[::1]:4361`).
    Associates, youth development, pro bono mahi; no formal "social business" claim).
    Needs her sign-off incl. what the Evaluation Associates support actually is.
 
+## Added 2026-09-12 (session 5)
+
+- Items 1, 3 (both) and 7 done on Lisa's calls, restaged `3dd085d`. The GitHub credential was already present - no login step needed.
+- **NEW - /about sister companies:** Lisa's 2026-09-12 call makes MPower a sub-brand inside Radical HR, not a sister company. The section's MPower card needs rewording (rec: keep the three cards, retitle the section "The Radical HR family" is OUT - Lisa dislikes family framing; use "Also built here" and give MPower the line "Part of Radical HR. A subscription community..."). Her wording call at the second read.
+
 ## Then
 
 - **Go-live decision** - GO-LIVE.md steps 1-6 (Klaviyo form optional; verify Vercel
