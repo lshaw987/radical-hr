@@ -1,5 +1,4 @@
 ---
-import Wordmark from './Wordmark.astro';
 const year = 2026; // stamped - Date.now() is unavailable in this workspace
 const cols = [
   {
@@ -57,7 +56,7 @@ const lisaSocials = [
 <footer class="ft">
   <div class="container ft-inner">
     <div class="ft-brand">
-      <Wordmark tone="dark" />
+      <a href="/" class="ft-logo" aria-label="Radical HR - home"><img src="/images/logo-white.png" alt="Radical HR" width="180" height="23" /></a>
       <p class="ft-tag">Humans First. Not paperwork first, not compliance first. Humans.</p>
       <a href="mailto:lisashaw@radicalhr.nz" class="ft-email">lisashaw@radicalhr.nz</a>
       <a href="tel:+64292268862" class="ft-phone">029 226 8862</a>
@@ -105,6 +104,7 @@ const lisaSocials = [
     padding-bottom: 48px;
     border-bottom: 1px solid var(--c-rule-dark);
   }
+  .ft-logo img { height: 28px; width: auto; }
   .ft-tag { margin-top: 18px; max-width: 30ch; color: rgba(255,255,255,0.66); font-size: 15px; line-height: 1.6; }
   .ft-email { display: inline-block; margin-top: 18px; color: var(--c-lilac); font-weight: 600; }
   .ft-email:hover { color: #fff; }

@@ -1,16 +1,19 @@
 /* Radical HR global styles
    ------------------------
    Imported once from Base.astro. Reset + type primitives + utility classes
-   the whole site leans on. Component-specific styles live in their .astro files.
+   the whole site leans on, plus the v2 "Big energy" laws that every page
+   inherits without touching its own markup:
+     - every <section class="hero"> is a purple block with white type
+     - every .band-mist is a pale-lilac colour block
+     - every .eyebrow is a pill
+   Component-specific styles live in their .astro files.
 */
 
 @import './tokens.css';
 
-/* Fonts - STAND-IN pairing (Poppins display + Inter body), loaded from Google
-   Fonts with display=swap so the page never blocks on font download. Replace
-   with the real Radical HR typefaces when confirmed - update this line + the
-   --f-* vars in tokens.css. */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap');
+/* Fonts - Poppins, the one face, all weights the scale uses. display=swap so
+   the page never blocks on font download. */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
 
 /* Reset ------------------------------------------------------------------- */
 *, *::before, *::after { box-sizing: border-box; }
@@ -22,7 +25,7 @@ body {
   color: var(--c-body);
   font-family: var(--f-sans);
   font-size: var(--t-body);
-  line-height: 1.6;
+  line-height: 1.55;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   -webkit-text-size-adjust: 100%;
@@ -38,29 +41,39 @@ button { font: inherit; }
 .display {
   font-family: var(--f-display);
   font-weight: 800;
-  letter-spacing: -0.03em;
-  line-height: 1.02;
+  letter-spacing: -0.04em;
+  line-height: 0.96;
   color: var(--c-indigo);
   text-wrap: balance;
 }
 .heading {
   font-family: var(--f-display);
   font-weight: 700;
-  letter-spacing: -0.02em;
-  line-height: 1.12;
+  letter-spacing: -0.025em;
+  line-height: 1.06;
   color: var(--c-indigo);
   text-wrap: balance;
 }
+/* Eyebrow = a pill. On white: palest lilac with purple text. Inside a hero,
+   an indigo block or the closer it re-colours below. */
 .eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
   font-family: var(--f-sans);
   font-size: var(--t-label);
   font-weight: 600;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--c-lavender);
+  color: var(--c-purple);
+  background: var(--c-lilac-3);
+  border-radius: 999px;
+  padding: 8px 16px;
+  line-height: 1.2;
+  width: fit-content;
 }
-.body-lg { font-size: var(--t-body-lg); line-height: 1.55; }
-.body    { font-size: var(--t-body);    line-height: 1.65; }
+.body-lg { font-size: var(--t-body-lg); line-height: 1.5; }
+.body    { font-size: var(--t-body);    line-height: 1.6; }
 .body-sm { font-size: var(--t-body-sm); line-height: 1.55; color: var(--c-lavender); }
 
 .accent { color: var(--c-purple); }
@@ -72,17 +85,87 @@ button { font: inherit; }
   padding-inline: var(--gutter);
   width: 100%;
 }
-.section { padding-block: clamp(56px, 8vw, 128px); }
-.section-tight { padding-block: clamp(40px, 6vw, 88px); }
-.band-mist { background: var(--c-mist); }
+.section { padding-block: clamp(72px, 9vw, 128px); }
+.section-tight { padding-block: clamp(56px, 6.5vw, 96px); }
+
+/* The light colour block. Named band-mist for history - it is pale lilac now. */
+.band-mist { background: var(--c-lilac-2); }
+.band-mist .eyebrow { background: #fff; }
 
 .rule { height: 1px; background: var(--c-rule); border: 0; }
 
 .section-head {
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  margin-bottom: clamp(32px, 5vw, 56px);
+  align-items: flex-start;
+  gap: 18px;
+  margin-bottom: clamp(36px, 5vw, 64px);
+}
+
+/* The hero law ------------------------------------------------------------
+   Every page hero is a purple block: white display type, a white pill
+   eyebrow, an indigo primary button. Pages keep their own layout; the
+   colour and the scale come from here. Padding is !important on purpose -
+   each page's scoped .hero rule would otherwise win on specificity. */
+section.hero {
+  background: var(--c-purple);
+  color: #fff;
+  padding-block: clamp(64px, 9vw, 144px) clamp(56px, 7vw, 112px) !important;
+  position: relative;
+  overflow: hidden;
+}
+section.hero .display,
+section.hero .heading,
+section.hero h1,
+section.hero h2 { color: #fff; }
+section.hero p[class] { color: var(--c-on-purple); }
+section.hero p.eyebrow { color: var(--c-purple); background: #fff; margin-bottom: 26px; }
+section.hero p.hero-line { color: var(--c-lilac-2); }
+section.hero li, section.hero ul, section.hero ol { color: var(--c-on-purple); }
+section.hero .accent { color: var(--c-indigo); }
+section.hero .btn-primary { background: var(--c-indigo); color: #fff; }
+section.hero .btn-primary:hover { background: var(--c-indigo-2); }
+section.hero .btn-ghost { color: #fff; border-color: rgba(255,255,255,0.5); background: transparent; }
+section.hero .btn-ghost:hover { border-color: #fff; background: rgba(255,255,255,0.10); color: #fff; }
+section.hero a:not(.btn) { color: #fff; text-decoration: underline; text-decoration-color: rgba(255,255,255,0.5); }
+
+/* Indigo blocks (used by pages that want the deep block, e.g. home stakes) */
+.block-indigo { background: var(--c-indigo); color: #fff; }
+.block-indigo .display, .block-indigo .heading { color: #fff; }
+.block-indigo p[class] { color: var(--c-on-indigo); }
+.block-indigo .eyebrow { background: rgba(255,255,255,0.10); color: var(--c-lilac); }
+.block-indigo .accent { color: var(--c-lilac); }
+
+/* Purple blocks (mid-page, not the hero) */
+.block-purple { background: var(--c-purple); color: #fff; }
+.block-purple .display, .block-purple .heading { color: #fff; }
+.block-purple p[class] { color: var(--c-on-purple); }
+.block-purple .eyebrow { background: #fff; color: var(--c-purple); }
+.block-purple .accent { color: var(--c-indigo); }
+.block-purple .btn-primary { background: var(--c-indigo); }
+.block-purple .btn-primary:hover { background: var(--c-indigo-2); }
+
+/* Circles & pills ---------------------------------------------------------- */
+.circle {
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--f-display);
+  font-weight: 800;
+  line-height: 1;
+  flex-shrink: 0;
+}
+.pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 12px 22px;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: var(--t-body);
+  line-height: 1;
+  border: 2px solid rgba(255,255,255,0.5);
+  white-space: nowrap;
 }
 
 /* Buttons ----------------------------------------------------------------- */
@@ -90,13 +173,14 @@ button { font: inherit; }
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  padding: 14px 24px;
+  padding: 18px 30px;
   border-radius: 999px;
   font-family: var(--f-sans);
   font-weight: 600;
   font-size: var(--t-body);
+  line-height: 1;
   cursor: pointer;
-  border: 1.5px solid transparent;
+  border: 2px solid transparent;
   transition: transform .15s var(--ease-out), background .15s var(--ease-out),
               color .15s var(--ease-out), border-color .15s var(--ease-out);
 }
@@ -109,17 +193,17 @@ button { font: inherit; }
 .btn-ghost {
   background: transparent;
   color: var(--c-indigo);
-  border-color: var(--c-rule);
+  border-color: rgba(30,20,109,0.18);
 }
 .btn-ghost:hover { border-color: var(--c-purple); color: var(--c-purple); }
 
-/* Ghost button variant for dark (indigo) backgrounds */
+/* Ghost button variant for dark (indigo / purple) backgrounds */
 .btn-ghost-dark {
   background: transparent;
   color: #fff;
-  border-color: var(--c-rule-dark);
+  border-color: rgba(255,255,255,0.5);
 }
-.btn-ghost-dark:hover { border-color: #fff; background: rgba(255,255,255,0.06); }
+.btn-ghost-dark:hover { border-color: #fff; background: rgba(255,255,255,0.10); }
 
 /* Focus ring -------------------------------------------------------------- */
 :focus-visible {
@@ -127,3 +211,4 @@ button { font: inherit; }
   outline-offset: 3px;
   border-radius: 2px;
 }
+section.hero :focus-visible, .block-purple :focus-visible { outline-color: #fff; }
