@@ -131,10 +131,25 @@ section.hero-purple .btn-ghost { color: #fff; border-color: rgba(255,255,255,0.5
 section.hero-purple .btn-ghost:hover { border-color: #fff; background: rgba(255,255,255,0.10); color: #fff; }
 section.hero-purple a:not(.btn) { color: #fff; text-decoration: underline; text-decoration-color: rgba(255,255,255,0.5); }
 
+/* Split hero - copy left, a modest real photo right (pillar pages) */
+.hero-split { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: clamp(28px, 5vw, 72px); align-items: center; }
+.hero-split .hero-copy { display: flex; flex-direction: column; align-items: flex-start; }
+.hero-split .hero-photo { border-radius: var(--radius-lg); overflow: hidden; aspect-ratio: 4 / 3; box-shadow: 0 24px 50px rgba(101,40,234,0.12); }
+.hero-split .hero-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+@media (max-width: 860px) { .hero-split { grid-template-columns: 1fr; } .hero-split .hero-photo { max-width: 480px; } }
+
 /* Photo band - a full-width real photograph under a page hero (rounded, never circular) */
 .photo-band { padding-block: 0 clamp(48px, 6vw, 88px); }
 .photo-band img { width: 100%; aspect-ratio: 21 / 9; object-fit: cover; border-radius: var(--radius-xl); display: block; }
 @media (max-width: 760px) { .photo-band img { aspect-ratio: 4 / 3; border-radius: var(--radius-lg); } }
+
+/* Story block - an anonymised story from the work, one per pillar page */
+.story { background: var(--c-white); }
+.story-inner { max-width: 68ch; display: flex; flex-direction: column; align-items: flex-start; gap: 18px; }
+.story-h { font-size: var(--t-h3); }
+.story-inner p.body-lg, .story-inner p.body { color: var(--c-body); }
+.story-turn { font-weight: 600; color: var(--c-indigo) !important; }
+.story-note { font-size: var(--t-body-sm); color: var(--c-lavender); }
 
 /* Indigo blocks (used by pages that want the deep block, e.g. home stakes) */
 .block-indigo { background: var(--c-indigo); color: #fff; }

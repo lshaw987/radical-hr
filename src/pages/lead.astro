@@ -6,9 +6,9 @@ const belief = 'Organisations need to radically change how they equip leaders fo
 const pain = 'Most teams are managed, not led - because managers are never given the time and development to become leaders.';
 
 const blocks = [
-  { name: 'Vivid LEADERS', line: 'Leadership development built by people who’ve actually led teams and know the complexity first-hand. We equip leaders not merely to manage, but to lead in a way that makes a real difference.' },
-  { name: 'Compelling Communication', line: 'Leadership is language - taking complex ideas and plans and communicating them in a way that compels people to respond and deliver.' },
-  { name: 'Visionary Strategy', line: 'If a leader isn’t clear on the strategic priorities, there’s zero chance the team will be. We equip leaders to take the vision and strategy and make it living and clear, organisation-wide.' },
+  { name: 'Delevate', line: 'Lisa’s own leadership model: Deciding → Doing → Directing → Delegating → Developing → Delevating. Move from control to trust, from busyness to impact, and build a team strong enough to carry the weight together - protecting your hauora as you go.' },
+  { name: 'Strengths', line: 'CliftonStrengths coaching for leaders and teams. Find what you and your people do best, then build around it - performance, belonging and real growth, not another model to memorise.' },
+  { name: 'Coaching', line: 'Executive and leadership coaching, one-to-one and for leadership teams. Practical, strengths-based, and grounded in having actually carried the weight - never theory for hire.' },
 ];
 ---
 <Base
@@ -17,7 +17,8 @@ const blocks = [
   current="lead"
 >
   <section class="hero">
-    <div class="container">
+    <div class="container hero-split">
+      <div class="hero-copy">
       <p class="eyebrow">Pillar 03</p>
       <h1 class="display hero-h1">Build leaders who <span class="accent">multiply impact.</span></h1>
       <p class="body-lg hero-sub">
@@ -26,11 +27,10 @@ const blocks = [
         empower, not control, and lift everyone around them.
       </p>
       <a href="/contact" class="btn btn-primary hero-cta">Talk leadership <span class="arr">&rarr;</span></a>
-    </div>
-  </section>
-  <section class="photo-band">
-    <div class="container">
-      <img src="/images/lego-build.jpg" alt="A Lego build from a Lego Serious Play workshop." loading="lazy" />
+      </div>
+      <div class="hero-photo">
+        <img src="/images/lego-build.jpg" alt="A Lego build from a Lego Serious Play workshop." loading="eager" />
+      </div>
     </div>
   </section>
 
@@ -59,6 +59,19 @@ const blocks = [
           </div>
         ))}
       </div>
+    </div>
+  </section>
+
+
+  {/* A story from the work - DRAFT from the client roster, anonymised. Lisa to check every fact before go-live. */}
+  <section class="section story">
+    <div class="container story-inner">
+      <p class="eyebrow">From the work</p>
+      <h2 class="heading story-h">It started as a conference session. It became a leadership programme.</h2>
+      <p class="body-lg">An agribusiness advisory firm asked for CliftonStrengths at their annual conference - fifty-odd reports and a couple of sessions for the shareholders and the wider team.</p>
+      <p class="body">The sessions landed, and the real conversation started afterwards: how do the consultants grow into leaders, and how does the firm hold on to them while they do? That became an ongoing engagement - development pathways for the consultants, coaching for the people stepping up, and support for the leaders carrying the load.</p>
+      <p class="body story-turn">A year later we are still in the room. That is the pattern we like: start with something real and useful, and earn the bigger work.</p>
+      <p class="story-note">A real engagement. Details changed to protect the client.</p>
     </div>
   </section>
 

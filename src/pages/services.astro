@@ -82,7 +82,7 @@ const groups = [
 
   {/* Service groups */}
   {groups.map((g, i) => (
-    <section class={i % 2 === 1 ? 'section band-mist' : 'section'}>
+    <section class={i % 2 === 1 ? 'section band-mist' : 'section'} id={g.name === 'Ai, Done Humans First' ? 'ai' : undefined}>
       <div class="container">
         <div class="section-head">
           <p class="eyebrow">{g.pillar}</p>

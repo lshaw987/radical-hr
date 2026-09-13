@@ -9,6 +9,7 @@ const cols = [
       { href: '/align',               label: 'Align' },
       { href: '/lead',                label: 'Lead' },
       { href: '/retain',              label: 'Retain' },
+      { href: '/services#ai',         label: 'Ai, Done Humans First' },
       { href: '/strengths',           label: 'Strengths Coaching' },
       { href: '/recruitment-agency',  label: 'Recruitment' },
       { href: '/speaking',            label: 'Speaking & Keynotes' },
@@ -35,14 +36,20 @@ const cols = [
     title: 'Also built here',
     links: [
       { href: 'https://www.mpowerhq.nz', label: 'MPower', external: true },
+      { href: '/about#ventures',         label: 'Waypoint' },
       { href: 'https://umpireroom.nz',   label: 'Umpire Room', external: true },
-      { href: '/about#ventures',         label: 'Workshop Dashboard' },
     ],
   },
 ];
 // Business socials + Lisa's personal work channels. Her personal Instagram +
 // Facebook slots are ready - add { href, label } entries to `lisaSocials`
 // once Lisa supplies the handles (never guess URLs).
+const icons = {
+  LinkedIn: 'M6.94 8.5V19H3.5V8.5h3.44zM5.22 3.5a2 2 0 110 4 2 2 0 010-4zM20.5 19h-3.43v-5.1c0-1.22-.02-2.78-1.7-2.78-1.7 0-1.96 1.33-1.96 2.7V19H10V8.5h3.3v1.43h.05c.46-.87 1.58-1.78 3.25-1.78 3.48 0 4.12 2.29 4.12 5.27V19z',
+  Facebook: 'M13.5 21v-7.5h2.6l.4-3h-3V8.6c0-.87.24-1.46 1.49-1.46H16.6V4.46A21.5 21.5 0 0014.3 4.3c-2.3 0-3.87 1.4-3.87 3.98v2.22H7.8v3h2.63V21h3.07z',
+  Instagram: 'M12 7.3a4.7 4.7 0 100 9.4 4.7 4.7 0 000-9.4zm0 7.75a3.05 3.05 0 110-6.1 3.05 3.05 0 010 6.1zM17.9 7.1a1.1 1.1 0 11-2.2 0 1.1 1.1 0 012.2 0zM12 3.2c2.4 0 2.68.01 3.63.05 2.44.11 3.58 1.27 3.69 3.69.04.95.05 1.23.05 3.63s-.01 2.68-.05 3.63c-.11 2.42-1.25 3.58-3.69 3.69-.95.04-1.23.05-3.63.05s-2.68-.01-3.63-.05c-2.44-.11-3.58-1.27-3.69-3.69C4.64 14.25 4.63 13.97 4.63 11.57s.01-2.68.05-3.63c.11-2.42 1.25-3.58 3.69-3.69.95-.04 1.23-.05 3.63-.05zM12 1.55c-2.44 0-2.75.01-3.71.05C5.02 1.75 3.2 3.56 3.05 6.83 3 7.79 3 8.1 3 10.54s.01 2.75.05 3.71c.15 3.27 1.97 5.08 5.24 5.23.96.04 1.27.05 3.71.05s2.75-.01 3.71-.05c3.27-.15 5.08-1.96 5.23-5.23.04-.96.05-1.27.05-3.71s-.01-2.75-.05-3.71c-.15-3.27-1.96-5.08-5.23-5.23C14.75 1.56 14.44 1.55 12 1.55z',
+  YouTube: 'M21.6 7.2a2.5 2.5 0 00-1.76-1.77C18.3 5 12 5 12 5s-6.3 0-7.84.43A2.5 2.5 0 002.4 7.2 26 26 0 002 12a26 26 0 00.4 4.8 2.5 2.5 0 001.76 1.77C5.7 19 12 19 12 19s6.3 0 7.84-.43a2.5 2.5 0 001.76-1.77A26 26 0 0022 12a26 26 0 00-.4-4.8zM10 15V9l5.2 3L10 15z',
+};
 const socials = [
   { href: 'https://www.linkedin.com/company/radical-hr/', label: 'LinkedIn' },
   { href: 'https://www.facebook.com/radicalHRx/',         label: 'Facebook' },
@@ -61,12 +68,24 @@ const lisaSocials = [
       <a href="mailto:lisashaw@radicalhr.nz" class="ft-email">lisashaw@radicalhr.nz</a>
       <a href="tel:+64292268862" class="ft-phone">029 226 8862</a>
       <div class="ft-social">
-        <span class="ft-social-label">Radical HR</span>
-        {socials.map((s) => <a href={s.href} target="_blank" rel="noopener">{s.label}</a>)}
+        <span class="ft-social-label">Follow Radical HR</span>
+        <div class="ft-icons">
+          {socials.map((s) => (
+            <a href={s.href} target="_blank" rel="noopener" class="ft-icon" aria-label={`Radical HR on ${s.label}`} title={s.label}>
+              <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d={icons[s.label]} fill="currentColor"></path></svg>
+            </a>
+          ))}
+        </div>
       </div>
       <div class="ft-social">
         <span class="ft-social-label">Lisa</span>
-        {lisaSocials.map((s) => <a href={s.href} target="_blank" rel="noopener">{s.label}</a>)}
+        <div class="ft-icons">
+          {lisaSocials.map((s) => (
+            <a href={s.href} target="_blank" rel="noopener" class="ft-icon" aria-label={`Lisa Shaw on ${s.label}`} title={s.label}>
+              <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d={icons[s.label]} fill="currentColor"></path></svg>
+            </a>
+          ))}
+        </div>
       </div>
     </div>
 
@@ -110,10 +129,16 @@ const lisaSocials = [
   .ft-email:hover { color: #fff; }
   .ft-phone { display: block; margin-top: 6px; color: var(--c-lilac); font-weight: 600; }
   .ft-phone:hover { color: #fff; }
-  .ft-social { display: flex; flex-wrap: wrap; align-items: baseline; gap: 18px; margin-top: 18px; }
+  .ft-social { display: flex; flex-direction: column; gap: 10px; margin-top: 22px; }
   .ft-social-label { font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.5); }
-  .ft-social a { font-size: 14px; color: rgba(255,255,255,0.7); }
-  .ft-social a:hover { color: #fff; }
+  .ft-icons { display: flex; gap: 10px; }
+  .ft-icon {
+    width: 44px; height: 44px; border-radius: 999px;
+    display: inline-flex; align-items: center; justify-content: center;
+    background: rgba(255,255,255,0.10); color: #fff;
+    transition: background .15s var(--ease-out), transform .15s var(--ease-out);
+  }
+  .ft-icon:hover { background: var(--c-purple); transform: translateY(-2px); }
 
   .ft-cols { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; }
   .ft-col { display: flex; flex-direction: column; gap: 12px; }

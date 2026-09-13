@@ -43,6 +43,22 @@ const blocks = [
     </div>
   </section>
 
+  {/* Strategy - added 13 Sept at Lisa's ask */}
+  <section class="section-tight">
+    <div class="container strategy">
+      <p class="eyebrow">Strategy</p>
+      <h2 class="heading strategy-h">A plan on a page, not a 75-page deck.</h2>
+      <p class="body-lg">
+        We facilitate boards and leadership teams to a strategy people can say
+        out loud. Where you’re going, the few things that matter most, and who
+        owns what. Then we cascade it - organisation, team, individual - so
+        every person can name the part they play. Offsites, values work and
+        quarterly rhythms that keep it living, not laminated.
+      </p>
+      <a href="/services" class="btn btn-ghost">Strategy facilitation &amp; offsites <span class="arr">&rarr;</span></a>
+    </div>
+  </section>
+
   <section class="section band-mist">
     <div class="container">
       <div class="blocks">
@@ -56,6 +72,19 @@ const blocks = [
     </div>
   </section>
 
+
+  {/* A story from the work - DRAFT from the client roster, anonymised. Lisa to check every fact before go-live. */}
+  <section class="section story">
+    <div class="container story-inner">
+      <p class="eyebrow">From the work</p>
+      <h2 class="heading story-h">The strategy nobody could say out loud.</h2>
+      <p class="body-lg">A multi-site trades business with a strong owner and a busy floor. Everyone was working hard, and nobody could tell you what the business was trying to become by 2027. The plan lived in the owner’s head and a spreadsheet.</p>
+      <p class="body">We ran the leadership team through a strategy sitting and landed it on one page - where the business is going, the handful of moves that matter, and who owns each. Then team days at every branch so the crews heard it from the people running them, not a poster. The numbers behind it went on a screen the whole team can see every morning.</p>
+      <p class="body story-turn">Twelve months on, the branch managers run their own weekly rhythm against that page. The owner spends more time in the business’s future and less in its inbox.</p>
+      <p class="story-note">A real engagement. Details changed to protect the client.</p>
+    </div>
+  </section>
+
   <IndigoBlock
     eyebrow="Pillar 02"
     heading="Strategy on a page, not a 75-page deck."
@@ -66,6 +95,9 @@ const blocks = [
 </Base>
 
 <style>
+  .strategy { max-width: 64ch; display: flex; flex-direction: column; align-items: flex-start; gap: 18px; }
+  .strategy-h { font-size: var(--t-h3); }
+  .strategy .body-lg { color: var(--c-body); }
   .hero { padding-block: clamp(56px, 9vw, 116px) clamp(36px, 5vw, 64px); }
   .hero-h1 { font-size: var(--t-h1); max-width: 15ch; }
   .hero-sub { margin-top: 24px; max-width: 54ch; color: var(--c-body); }
