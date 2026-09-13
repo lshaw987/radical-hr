@@ -11,6 +11,8 @@ export default defineConfig({
   // Static output by default - any static host (Netlify / Cloudflare Pages /
   // Vercel) serves dist/ straight off a CDN. No adapter needed.
   integrations: [sitemap()],
+  // /partner became /work-with-us (Lisa, 2026-09-13) - keep the old URL alive
+  redirects: { '/partner': '/work-with-us' },
   build: {
     inlineStylesheets: 'auto',
   },

@@ -148,6 +148,7 @@ const pillars = [
       </div>
       <div class="ventures">
         <a href="https://www.mpowerhq.nz" target="_blank" rel="noopener" class="venture">
+          <div class="venture-shot"><img src="/images/site-mpower.jpg" alt="The MPower website." loading="lazy" /></div>
           <h3 class="heading venture-name">MPower</h3>
           <p class="venture-tag">Knowledge. Power. Yours.</p>
           <p class="body venture-line">
@@ -158,6 +159,7 @@ const pillars = [
           <span class="venture-more">mpowerhq.nz <span class="arr">&rarr;</span></span>
         </a>
         <div class="venture venture-teaser">
+          <div class="venture-shot"><img src="/images/site-waypoint.jpg" alt="" loading="lazy" /></div>
           <h3 class="heading venture-name">Waypoint</h3>
           <p class="venture-tag">Coming soon</p>
           <p class="body venture-line">
@@ -167,11 +169,13 @@ const pillars = [
           <span class="venture-more venture-soon">Watch this space</span>
         </div>
         <a href="https://umpireroom.nz" target="_blank" rel="noopener" class="venture">
+          <div class="venture-shot"><img src="/images/site-umpireroom.jpg" alt="The Umpire Room website." loading="lazy" /></div>
           <h3 class="heading venture-name">Umpire Room</h3>
-          <p class="venture-tag">Your umpires’ room, online.</p>
+          <p class="venture-tag">Built for netball umpiring. Ready for any code.</p>
           <p class="body venture-line">
-            Software for the people who run netball officiating - everything you
-            need to roster, grow and keep your umpires in one place.
+            Software for the people who run officials - roster, grow and keep
+            your umpires in one place. Netball first, and built so any code
+            that runs referees or umpires can use it.
           </p>
           <span class="venture-more">umpireroom.nz <span class="arr">&rarr;</span></span>
         </a>
@@ -234,6 +238,8 @@ const pillars = [
     transition: transform .18s var(--ease-out), border-color .18s var(--ease-out), box-shadow .18s var(--ease-out);
   }
   a.venture:hover { transform: translateY(-3px); border-color: var(--c-lilac); box-shadow: 0 18px 40px rgba(101,40,234,0.08); }
+  .venture-shot { aspect-ratio: 16 / 10; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--c-rule); margin-bottom: 8px; }
+  .venture-shot img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; }
   .venture-name { font-size: var(--t-h4); }
   .venture-tag { font-family: var(--f-sans); font-size: var(--t-body-sm); font-weight: 600; letter-spacing: 0.04em; color: var(--c-purple); }
   .venture-line { color: var(--c-body); }

@@ -1,0 +1,212 @@
+---
+import Base from '../layouts/Base.astro';
+import IndigoBlock from '../components/IndigoBlock.astro';
+
+// "Work with us" - replaces /partner (Lisa, 13 Sept: "partner with us is
+// confusing as I talk about clients as partners"). One clear page: the ways
+// to work together, how it starts, what it costs, what to expect. The old
+// delivery-partner / referrer content sits at the bottom under its own name.
+// Facts from layer-1-context/services.md and the Services page - no prices
+// except the one Lisa fixed (Ai Reality Session).
+const ways = [
+  { name: 'Coaching', line: 'One-to-one or for a leadership team. Executive and leadership coaching, CliftonStrengths, Delevate. Practical and strengths-based.', href: '/lead' },
+  { name: 'A team day or workshop', line: 'Values, strengths, alignment, Purposeful Productivity. Hands-on, in the room, ending in commitment rather than conversation.', href: '/services' },
+  { name: 'Strategy facilitation and offsites', line: 'Boards and leadership teams to a plan on a page - and the cascade so every person can name their part.', href: '/align' },
+  { name: 'Fractional strategic support', line: 'Senior people, culture and strategy partnership on a rhythm that suits you, without a full-time hire.', href: '/services' },
+  { name: 'Recruitment and attraction', line: 'Values-first, end to end - from the role definition to the person in the seat and their first month.', href: '/recruitment-agency' },
+  { name: 'Speaking and conference facilitation', line: 'Keynotes and facilitation for boards, conferences, principals and paddocks. Story first, framework second.', href: '/speaking' },
+  { name: 'Ai, done Humans First', line: 'Start with the Ai Reality Session - half a day on site, then a written roadmap. Fixed price. Then Ai Brain builds and Ai-assisted operations if it makes sense.', href: '/services#ai' },
+];
+
+const steps = [
+  { name: 'Connect', line: 'A real conversation, no charge, no pitch. Where you are, what’s working, what’s in the way. If we’re not the right fit, we’ll say so and point you somewhere better.' },
+  { name: 'Co-Design', line: 'We shape the work together - the scope, the rhythm, the price - and put it in a plain-English engagement letter. Designed with you, not handed to you.' },
+  { name: 'Create Impact', line: 'Then we make it real. People engaged, leaders equipped, a culture built to last. And we stay honest about what’s working as we go.' },
+];
+
+const expect = [
+  { name: 'Honesty over polish', line: 'You’ll get the truth, delivered kindly. If something isn’t working, you’ll hear it from us first.' },
+  { name: 'Lived, not theory', line: 'Everything we bring has been done in a real business, with real people and real consequences.' },
+  { name: 'You own it', line: 'We co-design and we build capability. The aim is a team that doesn’t need us, not one that does.' },
+  { name: 'Done over perfect', line: 'Plan on a page, not a 75-page deck. Momentum matters more than polish.' },
+];
+
+const partners = [
+  { name: 'Delivery partners', line: 'Facilitators, coaches and consultants who share the Humans First way of working. We co-deliver with people we trust to carry the same standard into the room.' },
+  { name: 'Referrers', line: 'You know a leader or team who needs this and it’s not your lane. Send them our way. We’ll look after them, and be honest with you if we’re not the right fit.' },
+  { name: 'Causes and community', line: 'Giving back is built into how we work. If your kaupapa lines up, let’s talk.' },
+];
+---
+<Base
+  title="Work with us"
+  description="How to work with Radical HR - the ways to engage, how it starts, what it costs, and what to expect. Every client is a partner."
+  current="about"
+>
+  {/* Hero */}
+  <section class="hero">
+    <div class="container">
+      <p class="eyebrow">Every client is a partner</p>
+      <h1 class="display hero-h1">Work with us.</h1>
+      <p class="body-lg hero-sub">
+        Here’s how it works - the ways we can work together, how it starts,
+        what it costs, and what you can expect from us. No jargon, no
+        surprises.
+      </p>
+      <a href="/contact" class="btn btn-primary hero-cta">Start a conversation <span class="arr">&rarr;</span></a>
+    </div>
+  </section>
+
+  {/* Ways to work together */}
+  <section class="section band-mist">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">Ways to work together</p>
+        <h2 class="heading section-title">Pick the shape that fits.</h2>
+      </div>
+      <div class="ways">
+        {ways.map((w) => (
+          <a href={w.href} class="way">
+            <h3 class="heading way-name">{w.name}</h3>
+            <p class="body way-line">{w.line}</p>
+            <span class="way-more">More <span class="arr">&rarr;</span></span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {/* How it starts */}
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">How it starts</p>
+        <h2 class="heading section-title">Three steps. No surprises.</h2>
+      </div>
+      <div class="steps">
+        {steps.map((s, i) => (
+          <div class="step">
+            <div class="step-head">
+              <span class="circle step-no">{i + 1}</span>
+              <h3 class="heading step-name">{s.name}</h3>
+            </div>
+            <p class="body step-line">{s.line}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {/* What it costs */}
+  <section class="section band-mist">
+    <div class="container cost">
+      <div class="cost-main">
+        <p class="eyebrow">What it costs</p>
+        <h2 class="heading cost-h">Priced per engagement. Written in plain English.</h2>
+      </div>
+      <div class="cost-body">
+        <p class="body-lg">
+          Every piece of work is shaped to your situation, so pricing is quoted
+          per engagement - a project, a day, or an hourly rate - once we’ve had
+          the first conversation. Our engagement letters are kept plain. No
+          legalese, no lock-ins.
+        </p>
+        <p class="body-lg">
+          The one fixed price on the menu is the Ai Reality Session. Everything
+          else is a conversation first.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  {/* What to expect */}
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">What to expect</p>
+        <h2 class="heading section-title">What working with us feels like.</h2>
+      </div>
+      <div class="expect">
+        {expect.map((e) => (
+          <div class="exp">
+            <h3 class="heading exp-name">{e.name}</h3>
+            <p class="body exp-line">{e.line}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {/* Not a client? */}
+  <section class="section band-mist">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">Not a client, still keen?</p>
+        <h2 class="heading section-title">Delivery partners, referrers and causes.</h2>
+      </div>
+      <div class="ways ways-3">
+        {partners.map((w) => (
+          <div class="way">
+            <h3 class="heading way-name">{w.name}</h3>
+            <p class="body way-line">{w.line}</p>
+          </div>
+        ))}
+      </div>
+      <p class="body look">
+        What we look for: lived experience over theory, honesty over polish,
+        people who play the ball not the player. If that’s you, the rest we can
+        figure out over a coffee.
+      </p>
+    </div>
+  </section>
+
+  <IndigoBlock
+    eyebrow="We’re ready when you are"
+    heading="Tell us where you’re at."
+    body="One leader, one team, or the whole organisation. The first conversation is free, and honest."
+    ctaHref="/contact"
+    ctaLabel="Start a conversation"
+  />
+</Base>
+
+<style>
+  .hero-h1 { font-size: var(--t-h1); }
+  .hero-sub { margin-top: 20px; max-width: 52ch; color: var(--c-body); }
+  .hero-cta { margin-top: 28px; }
+  .section-title { font-size: var(--t-h2); max-width: 20ch; }
+
+  .ways { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(16px, 2vw, 24px); }
+  .ways-3 { grid-template-columns: repeat(3, 1fr); }
+  .way {
+    display: flex; flex-direction: column; gap: 12px;
+    background: #fff; border-radius: var(--radius-lg);
+    padding: clamp(24px, 3vw, 34px);
+    transition: transform .18s var(--ease-out), box-shadow .18s var(--ease-out);
+  }
+  a.way:hover { transform: translateY(-3px); box-shadow: 0 18px 40px rgba(101,40,234,0.10); }
+  .way-name { font-size: var(--t-h4); color: var(--c-purple); }
+  .way-line { color: var(--c-body); }
+  .way-more { margin-top: auto; font-weight: 600; font-size: var(--t-body-sm); color: var(--c-purple); }
+
+  .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(24px, 3vw, 40px); }
+  .step { display: flex; flex-direction: column; align-items: flex-start; gap: 16px; }
+  .step-head { display: flex; align-items: center; gap: 16px; }
+  .step-no { width: clamp(56px, 5vw, 72px); height: clamp(56px, 5vw, 72px); font-size: clamp(22px, 2vw, 30px); background: var(--c-purple); color: #fff; }
+  .step-name { font-size: var(--t-h4); margin: 0; }
+  .step-line { color: var(--c-body); }
+
+  .cost { display: grid; grid-template-columns: 1fr 1.2fr; gap: clamp(28px, 5vw, 72px); align-items: start; }
+  .cost-main { display: flex; flex-direction: column; align-items: flex-start; gap: 18px; }
+  .cost-h { font-size: var(--t-h3); max-width: 18ch; }
+  .cost-body { display: flex; flex-direction: column; gap: 18px; }
+  .cost-body .body-lg { color: var(--c-body); }
+
+  .expect { display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(16px, 2vw, 24px); }
+  .exp { display: flex; flex-direction: column; gap: 10px; padding: clamp(20px, 2.5vw, 28px); border-radius: var(--radius-lg); background: var(--c-lilac-3); }
+  .exp-name { font-size: var(--t-h4); }
+  .exp-line { color: var(--c-body); }
+
+  .look { margin-top: 28px; max-width: 64ch; color: var(--c-body); }
+
+  @media (max-width: 960px) { .ways, .expect { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 760px) { .ways, .ways-3, .expect, .steps { grid-template-columns: 1fr; } .cost { grid-template-columns: 1fr; } }
+</style>
