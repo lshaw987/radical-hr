@@ -10,7 +10,7 @@ Rules: real photos only (Lisa's image guidelines in the Radical HR design langua
 | 2 | About - after "My why" | FILLED 13 Sept: lisa-presenting.jpg (Springboard) |
 | 3 | Align - hero | FILLED 13 Sept: planning-board.jpg (stand-in - a real strategy-session photo would be better) |
 | 4 | Retain - hero | FILLED 13 Sept: belonging-beach.jpg (Lisa's Images folder, #42 - her pick) |
-| 5 | Attract - before the closer | FILLED 13 Sept: onboard-tiles.jpg (Unsplash, Gilles Roux) |
+| 5 | Attract - before the closer | FILLED 13 Sept: start-now-tiles.jpg (Unsplash, Sincerely Media - replaced the onboard tiles, which also spelled FIRE and RESIGN) |
 | 6 | Services - hero | FILLED 13 Sept: habits-cards.jpg (stand-in) |
 | 7 | Speaking - hero | FILLED 13 Sept: etipu-keynote.jpg (E Tipu 2025) |
 | 8 | Speaking - facilitation section | FILLED 13 Sept: lisa-presenting.jpg |
