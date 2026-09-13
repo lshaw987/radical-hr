@@ -15,7 +15,8 @@
     { "source": "/learn-grow", "destination": "/learn", "permanent": true },
     { "source": "/about-us", "destination": "/about", "permanent": true },
     { "source": "/contact-us", "destination": "/contact", "permanent": true },
-    { "source": "/partner-with-us", "destination": "/partner", "permanent": true },
+    { "source": "/partner-with-us", "destination": "/work-with-us", "permanent": true },
+    { "source": "/partner", "destination": "/work-with-us", "permanent": true },
 
     { "source": "/blog/unleash-your-teams-potential-with-productivity-code", "destination": "/productivity", "permanent": true },
 
