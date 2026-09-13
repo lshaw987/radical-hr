@@ -7,14 +7,14 @@ Rules: real photos only (Lisa's image guidelines in the Radical HR design langua
 | # | Page | What the photo should show |
 |---|---|---|
 | 1 | Home - under the stakes block | A team mid-workshop - real people, real energy, natural light (the April 2026 client team-day photos fit, with the client's OK) |
-| 2 | About - after "My why" | Lisa facilitating a room - mid-sentence, people engaged |
-| 3 | Align - hero | A strategy session - the plan on a page on the wall, people around it |
+| 2 | About - after "My why" | FILLED 13 Sept: lisa-presenting.jpg (Springboard) |
+| 3 | Align - hero | FILLED 13 Sept: planning-board.jpg (stand-in - a real strategy-session photo would be better) |
 | 4 | Retain - hero | A team together - a real moment of belonging |
 | 5 | Attract - before the closer | A new starter's first week - welcomed, not processed |
-| 6 | Services - hero | Lisa working with a leadership team at the table |
-| 7 | Speaking - hero | Lisa on stage, or at the front of a room |
-| 8 | Speaking - facilitation section | Lisa facilitating a PD day - tables of leaders, working |
-| 9 | Work with us - bespoke block | Lisa and a client co-designing at a table |
-| 10 | Contact - hero | Lisa, warm and approachable - a coffee-conversation feel |
+| 6 | Services - hero | FILLED 13 Sept: habits-cards.jpg (stand-in) |
+| 7 | Speaking - hero | FILLED 13 Sept: etipu-keynote.jpg (E Tipu 2025) |
+| 8 | Speaking - facilitation section | FILLED 13 Sept: lisa-presenting.jpg |
+| 9 | Work with us - bespoke block | FILLED 13 Sept: blank-page-pens.jpg |
+| 10 | Contact - hero | FILLED 13 Sept: pirongia.jpg (Waikato) |
 
-Photos 2, 6, 7, 8, 9 and 10 need Lisa in them - none exist in OneDrive, SharePoint or the phone backup (full sweep 13 Sept). Next facilitation session: someone else holds the phone.
+Still open (13 Sept): #1 Home team mid-workshop, #4 Retain belonging, #5 Attract new starter - Lisa to find on Unsplash. Source of the filled ones: `Radical HR All - Images` (SharePoint-synced, cloud-only) picks 30/31/37/39/40/41.
