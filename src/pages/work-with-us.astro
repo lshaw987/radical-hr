@@ -76,6 +76,26 @@ const partners = [
     </div>
   </section>
 
+  {/* Bespoke - Lisa, 13 Sept */}
+  <section class="section bespoke-wrap">
+    <div class="container bespoke">
+      <div class="bespoke-main">
+        <p class="eyebrow">Something bespoke</p>
+        <h2 class="heading bespoke-h">Tell us your problem. We’ll design the solution.</h2>
+      </div>
+      <div class="bespoke-body">
+        <p class="body-lg">
+          Not everything fits a menu. If you’ve got a knotty people problem, a
+          team that’s stuck, a restructure you’re dreading, or a system that’s
+          quietly eating everyone’s week - bring it. We’ll get curious, work out
+          what’s really going on, and co-design something that fits your
+          people, your pace and your budget.
+        </p>
+        <a href="/contact" class="btn btn-primary">Tell us what’s going on <span class="arr">&rarr;</span></a>
+      </div>
+    </div>
+  </section>
+
   {/* How it starts */}
   <section class="section">
     <div class="container">
@@ -206,6 +226,12 @@ const partners = [
   .exp-name { font-size: var(--t-h4); }
   .exp-line { color: var(--c-body); }
 
+  .bespoke { display: grid; grid-template-columns: 1fr 1.2fr; gap: clamp(28px, 5vw, 72px); align-items: center; background: var(--c-lilac-3); border-radius: var(--radius-xl); padding: clamp(32px, 5vw, 64px); }
+  .bespoke-main { display: flex; flex-direction: column; align-items: flex-start; gap: 18px; }
+  .bespoke-h { font-size: var(--t-h3); max-width: 16ch; }
+  .bespoke-body { display: flex; flex-direction: column; align-items: flex-start; gap: 22px; }
+  .bespoke-body .body-lg { color: var(--c-body); }
+  @media (max-width: 760px) { .bespoke { grid-template-columns: 1fr; } }
   .look { margin-top: 28px; max-width: 64ch; color: var(--c-body); }
 
   @media (max-width: 960px) { .ways, .expect { grid-template-columns: repeat(2, 1fr); } }
