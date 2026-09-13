@@ -1,7 +1,7 @@
 ---
-title: "The Quiet Weight Leaders Carry | The Delevate Model"
+title: "The Quiet Weight Leaders Carry | The Delevate™ Model"
 description: "Most leaders don't burn out because they're bad at what they do. They burn out because they won't let go."
-pillar: "Delevate"
+pillar: "Delevate™"
 order: 5
 date: 2025-10-20
 ---
@@ -56,39 +56,15 @@ It's about creating space for others to lead.
 It's messy. It's uncomfortable. It's deeply human.
 And it's worth it.
 
-**Introducing Delevate: A Different Way to Lead**
+**Introducing Delevate™: A Different Way to Lead**
 
 I've spent years in coaching conversations with brilliant, capable, exhausted leaders. They're not struggling because they can't lead. They're struggling because they're carrying too much. They're burnt out and not know how to start to change.
 
-That's why I created **Delevate** – a model to reframe delegation into something more intentional, more human, and far more powerful.
+That's why I created **Delevate™** – a model to reframe delegation into something more intentional, more human, and far more powerful.
 
-The **Delevate Model** maps a journey from control to trust
+The **Delevate™ Model** maps a journey from control to trust - from holding everything yourself to building a team that carries it with you, one intentional step at a time. The full model is what we work through together in workshops and coaching.
 
-1. **Decide**
-
-Ask the hard questions first. *Should* we even be doing this? Could it be automated, simplified, or stopped altogether?
-
-2. **Do**
-
-Focus on the mahi only *you* should be doing. Protect your energy for where you add the most value.
-
-3. **Direct**
-
-Lead with clarity and intent. Give context, not just step-by-step instructions.
-
-4. **Delegate**
-
-This isn't about dumping tasks. It's about transferring trust, responsibility, and ownership in a way that grows capability. Show people the "why" so they can own the "how."
-
-5. **Develop**
-
-Coach, guide, and share. True leadership leverage comes from investing in people so they can take the reins.
-
-6. **Delevate**
-
-This is the shift. You step back. They step up. You move from doing to enabling. You elevate your leadership by creating space for others to lead.
-
-*"Delevate isn't about doing less… it's about creating more impact by letting go of what doesn't need to sit with you."*
+*"Delevate™ isn't about doing less… it's about creating more impact by letting go of what doesn't need to sit with you."*
 
 **Why Letting Go Matters**
 
@@ -113,7 +89,7 @@ This isn't about doing more. It's about leading differently.
 
 Real leadership is designing for impact, not busyness. Creating cultures where people can grow, where trust is real, and where leaders stop waiting for "the right time" to delegate and start doing it intentionally.
 
-That's exactly what **Delevate Workshops and Coaching** are built for:
+That's exactly what **Delevate™ Workshops and Coaching** are built for:
 
 * Building capability without burnout
 * Strengthening trust and hauora across teams
@@ -134,3 +110,7 @@ Because extraordinary teams aren't built through control.
 They're built through trust, growth, and courageous leadership.
 
 *"I had to learn how to get out of the way of my people. If that resonates… maybe it's time you Delevate too."*
+
+---
+
+*Delevate™ and the Delevate™ Model © Radical HR Limited 2025-2026. All rights reserved.*
