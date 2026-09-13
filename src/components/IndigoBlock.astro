@@ -1,16 +1,13 @@
 ---
-/* The page closer - the recurring "start a conversation" block.
-   v2 (Option D, 2026-09-13): purple ground, poster-scale display type, a
-   white pill button, and the ring of words around an indigo circle on the
-   right - the logo's geometry as a sign-off. The component keeps its
-   historical name so no page import changes. */
+/* The page closer - the recurring "start a conversation" block. Deep indigo,
+   centred, poster-scale type (the ring-of-words version was dropped 13 Sept -
+   Lisa: too much purple, no spinning circles). */
 interface Props {
   eyebrow?: string;
   heading: string;
   body?: string;
   ctaHref?: string;
   ctaLabel?: string;
-  ring?: string;
 }
 const {
   eyebrow = 'Humans First',
@@ -18,59 +15,43 @@ const {
   body,
   ctaHref = '/contact',
   ctaLabel = 'Start a conversation',
-  ring = 'WE’RE READY WHEN YOU ARE · ',
 } = Astro.props;
-const ringText = ring.repeat(3);
 ---
 <section class="ib">
   <div class="container ib-inner">
-    <div class="ib-copy">
-      <p class="ib-eyebrow">{eyebrow}</p>
-      <h2 class="ib-heading"><slot name="heading">{heading}</slot></h2>
-      {body && <p class="ib-body">{body}</p>}
-      <a href={ctaHref} class="btn btn-light ib-cta">
-        {ctaLabel}<span class="arr">&rarr;</span>
-      </a>
-    </div>
-    <div class="ib-ring" aria-hidden="true">
-      <svg viewBox="0 0 460 460" width="460" height="460">
-        <defs><path id="ib-ring-path" d="M230,230 m-200,0 a200,200 0 1,1 400,0 a200,200 0 1,1 -400,0"></path></defs>
-        <circle cx="230" cy="230" r="120" fill="#1E146D"></circle>
-        <text font-family="Poppins, sans-serif" font-weight="700" font-size="27" letter-spacing="6" fill="#FFFFFF"><textPath href="#ib-ring-path">{ringText}</textPath></text>
-      </svg>
-    </div>
+    <p class="ib-eyebrow">{eyebrow}</p>
+    <h2 class="ib-heading"><slot name="heading">{heading}</slot></h2>
+    {body && <p class="ib-body">{body}</p>}
+    <a href={ctaHref} class="btn btn-light ib-cta">
+      {ctaLabel}<span class="arr">&rarr;</span>
+    </a>
   </div>
 </section>
 
 <style>
-  .ib { background: var(--c-purple); color: #fff; overflow: hidden; }
+  .ib { background: var(--c-indigo); color: #fff; }
   .ib-inner {
-    padding-block: clamp(80px, 9vw, 128px);
-    display: grid;
-    grid-template-columns: 1.3fr 1fr;
-    gap: clamp(32px, 5vw, 64px);
+    padding-block: clamp(80px, 9vw, 136px);
+    max-width: 920px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
     align-items: center;
+    gap: 26px;
   }
-  .ib-copy { display: flex; flex-direction: column; align-items: flex-start; gap: 26px; }
   .ib-eyebrow {
     display: inline-flex; align-items: center;
     font-size: var(--t-label); font-weight: 600; letter-spacing: 0.1em;
-    text-transform: uppercase; color: var(--c-purple); background: #fff;
+    text-transform: uppercase; color: var(--c-lilac); background: rgba(255,255,255,0.10);
     border-radius: 999px; padding: 8px 16px; line-height: 1.2;
   }
   .ib-heading {
     font-family: var(--f-display); font-weight: 800;
     font-size: var(--t-h2); line-height: 0.98; letter-spacing: -0.04em;
-    color: #fff; text-wrap: balance; max-width: 14ch;
+    color: #fff; text-wrap: balance; max-width: 16ch;
   }
-  .ib-body { font-size: var(--t-body-lg); color: var(--c-lilac-2); max-width: 46ch; }
+  .ib-body { font-size: var(--t-body-lg); color: var(--c-on-indigo); max-width: 50ch; }
   .ib-cta { margin-top: 6px; }
-  .btn-light { background: #fff; color: var(--c-purple); }
-  .btn-light:hover { background: var(--c-lilac-2); color: var(--c-purple); transform: translateY(-1px); }
-  .ib-ring { display: flex; justify-content: center; }
-  .ib-ring svg { width: min(460px, 100%); height: auto; }
-  @media (max-width: 860px) {
-    .ib-inner { grid-template-columns: 1fr; }
-    .ib-ring svg { width: min(320px, 80%); margin-inline: auto; }
-  }
+  .btn-light { background: #fff; color: var(--c-indigo); }
+  .btn-light:hover { background: var(--c-lilac-2); color: var(--c-indigo); transform: translateY(-1px); }
 </style>

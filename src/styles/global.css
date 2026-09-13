@@ -103,31 +103,38 @@ button { font: inherit; }
 }
 
 /* The hero law ------------------------------------------------------------
-   Every page hero is a purple block: white display type, a white pill
-   eyebrow, an indigo primary button. Pages keep their own layout; the
-   colour and the scale come from here. Padding is !important on purpose -
-   each page's scoped .hero rule would otherwise win on specificity. */
+   Every page hero is big, white and quiet (Lisa, 13 Sept: "too much purple").
+   Only a hero that opts in with .hero-purple is a purple block - the home
+   page. Padding is !important on purpose - each page's scoped .hero rule
+   would otherwise win on specificity. */
 section.hero {
-  background: var(--c-purple);
-  color: #fff;
   padding-block: clamp(64px, 9vw, 144px) clamp(56px, 7vw, 112px) !important;
   position: relative;
   overflow: hidden;
 }
-section.hero .display,
-section.hero .heading,
-section.hero h1,
-section.hero h2 { color: #fff; }
-section.hero p[class] { color: var(--c-on-purple); }
-section.hero p.eyebrow { color: var(--c-purple); background: #fff; margin-bottom: 26px; }
-section.hero p.hero-line { color: var(--c-lilac-2); }
-section.hero li, section.hero ul, section.hero ol { color: var(--c-on-purple); }
-section.hero .accent { color: var(--c-indigo); }
-section.hero .btn-primary { background: var(--c-indigo); color: #fff; }
-section.hero .btn-primary:hover { background: var(--c-indigo-2); }
-section.hero .btn-ghost { color: #fff; border-color: rgba(255,255,255,0.5); background: transparent; }
-section.hero .btn-ghost:hover { border-color: #fff; background: rgba(255,255,255,0.10); color: #fff; }
-section.hero a:not(.btn) { color: #fff; text-decoration: underline; text-decoration-color: rgba(255,255,255,0.5); }
+section.hero-purple {
+  background: var(--c-purple);
+  color: #fff;
+}
+section.hero-purple .display,
+section.hero-purple .heading,
+section.hero-purple h1,
+section.hero-purple h2 { color: #fff; }
+section.hero-purple p[class] { color: var(--c-on-purple); }
+section.hero-purple p.eyebrow { color: var(--c-purple); background: #fff; margin-bottom: 26px; }
+section.hero-purple p.hero-line { color: var(--c-lilac-2); }
+section.hero-purple li, section.hero ul, section.hero ol { color: var(--c-on-purple); }
+section.hero-purple .accent { color: var(--c-indigo); }
+section.hero-purple .btn-primary { background: var(--c-indigo); color: #fff; }
+section.hero-purple .btn-primary:hover { background: var(--c-indigo-2); }
+section.hero-purple .btn-ghost { color: #fff; border-color: rgba(255,255,255,0.5); background: transparent; }
+section.hero-purple .btn-ghost:hover { border-color: #fff; background: rgba(255,255,255,0.10); color: #fff; }
+section.hero-purple a:not(.btn) { color: #fff; text-decoration: underline; text-decoration-color: rgba(255,255,255,0.5); }
+
+/* Photo band - a full-width real photograph under a page hero (rounded, never circular) */
+.photo-band { padding-block: 0 clamp(48px, 6vw, 88px); }
+.photo-band img { width: 100%; aspect-ratio: 21 / 9; object-fit: cover; border-radius: var(--radius-xl); display: block; }
+@media (max-width: 760px) { .photo-band img { aspect-ratio: 4 / 3; border-radius: var(--radius-lg); } }
 
 /* Indigo blocks (used by pages that want the deep block, e.g. home stakes) */
 .block-indigo { background: var(--c-indigo); color: #fff; }
@@ -211,4 +218,4 @@ section.hero a:not(.btn) { color: #fff; text-decoration: underline; text-decorat
   outline-offset: 3px;
   border-radius: 2px;
 }
-section.hero :focus-visible, .block-purple :focus-visible { outline-color: #fff; }
+section.hero-purple :focus-visible, .block-purple :focus-visible { outline-color: #fff; }

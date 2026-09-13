@@ -41,22 +41,20 @@ const pillars = [
 const steps = [
   {
     name: 'Connect',
-    line: 'We start with a conversation. No jargon, no generic templates - just real korero about where you are, what’s working, and what’s getting in the way.',
+    line: 'It starts with a conversation. No jargon, no templates. Real korero about where you are, what’s working and what’s in the way.',
     tone: 'purple',
   },
   {
     name: 'Co-Design',
-    line: 'Together, we map a clear and practical plan. Strategy, leadership, or culture - we design it with you, not for you. Then we make it real.',
+    line: 'We map a clear, practical plan together. Strategy, leadership or culture, designed with you, not for you.',
     tone: 'indigo',
   },
   {
     name: 'Create Impact',
-    line: 'Your people engaged, your leaders equipped, and your culture built to last.',
+    line: 'Then we make it real. People engaged, leaders equipped, a culture built to last.',
     tone: 'white',
   },
 ];
-
-const tags = ['Attract', 'Align', 'Lead', 'Retain', 'Leadership', 'Strategy', 'Culture', 'Ai', 'Boardroom', 'Paddock', 'Strengths', 'Hauora'];
 
 // Role-anonymised on purpose (Lisa's rule: real quotes, roles not names -
 // never de-anonymise). Sources in layer-1-context/personal-brand.md.
@@ -75,7 +73,6 @@ const quotes = [
   },
 ];
 const [lead, ...rest] = quotes;
-const ringText = 'HUMANS FIRST · EXTRAORDINARY TEAMS · FUTURE READY · '.repeat(2);
 ---
 <Base
   title="Radical HR"
@@ -86,9 +83,19 @@ const ringText = 'HUMANS FIRST · EXTRAORDINARY TEAMS · FUTURE READY · '.repea
   <section class="hero hero-home">
     <div class="container hero-grid">
       <div class="hero-copy">
-        <h1 class="display hero-word">Humans<br />First.</h1>
-        <p class="heading hero-tag">
+        <p class="eyebrow">Humans First</p>
+        <h1 class="display hero-h1">
           Reimagining the future of <span class="accent">extraordinary</span> teams
+        </h1>
+        <p class="body-lg hero-sub">
+          We help organisations attract, align, lead and retain extraordinary
+          teams by putting humans first. Leadership, strategy, culture and Ai,
+          all built around people. Not policies. Not paperwork. Not buzzwords.
+        </p>
+        <p class="hero-line">
+          When culture becomes wallpaper, great people walk. When strategy
+          stays in a document, nobody follows it. When leadership stays stuck,
+          potential is lost.
         </p>
         <div class="hero-cta">
           <a href="/contact" class="btn btn-primary">Start a conversation <span class="arr">&rarr;</span></a>
@@ -97,32 +104,19 @@ const ringText = 'HUMANS FIRST · EXTRAORDINARY TEAMS · FUTURE READY · '.repea
       </div>
       <div class="hero-visual" aria-hidden="true">
         <div class="hero-blob"></div>
-        <svg class="hero-ring" viewBox="0 0 560 560">
-          <defs><path id="home-ring" d="M280,280 m-250,0 a250,250 0 1,1 500,0 a250,250 0 1,1 -500,0"></path></defs>
-          <text font-family="Poppins, sans-serif" font-weight="700" font-size="30" letter-spacing="6" fill="#FFFFFF"><textPath href="#home-ring">{ringText}</textPath></text>
-        </svg>
         <div class="hero-photo">
-          <img src="/images/lisa.png" alt="" loading="eager" />
+          <img src="/images/lisa-brick.jpg" alt="" loading="eager" />
         </div>
       </div>
-    </div>
-    <div class="container tags" aria-hidden="true">
-      {tags.map((t, i) => <span class={`pill tag tag-${i % 4}`}>{t}</span>)}
     </div>
   </section>
 
   {/* ---------- The statement (white) ---------- */}
   <section class="section statement">
     <div class="container statement-inner">
-      <p class="statement-kicker">We help organisations attract, align, lead and retain extraordinary teams by putting humans first.</p>
+      <p class="statement-kicker">A Humans First consultancy. And a bit of a movement.</p>
       <p class="display statement-line">
-        Leadership, strategy, culture and Ai, all built around people.
-        <span class="accent">Not policies. Not paperwork. Not buzzwords.</span>
-      </p>
-      <p class="body-lg statement-sub">
-        When culture becomes wallpaper, great people walk. When strategy
-        stays in a document, nobody follows it. When leadership stays stuck,
-        potential is lost.
+        People aren’t resources. <span class="accent">They’re the reason organisations succeed.</span>
       </p>
     </div>
   </section>
@@ -132,10 +126,9 @@ const ringText = 'HUMANS FIRST · EXTRAORDINARY TEAMS · FUTURE READY · '.repea
     <div class="container lede">
       <div class="circle lede-circle">Intentionally.<br />Courageously.<br />Together.</div>
       <p class="heading lede-text">
-        When you put humans at the heart of everything - the strategy, the
-        leadership, and the way you use Ai - teams work smarter, lead stronger,
-        and deliver lasting impact. Radical HR exists to help organisations
-        design for that future.
+        Put humans at the heart of everything - the strategy, the leadership,
+        the way you use Ai - and teams work smarter, lead stronger and deliver
+        impact that lasts. We exist to help you design for that future.
       </p>
     </div>
   </section>
@@ -153,10 +146,10 @@ const ringText = 'HUMANS FIRST · EXTRAORDINARY TEAMS · FUTURE READY · '.repea
           <p class="body-lg">You want a culture that’s real, not wallpaper. Leaders who inspire, not just manage. A team that’s aligned, energised and ready for what’s next.</p>
         </div>
         <div class="stake">
-          <p class="body-lg">Unfortunately, too many organisations are stuck inside systems built for yesterday, or even worse - last century! Values sit on the wall instead of living in the work. Leaders carry the load alone, and have never been taught how to lead. Great people burn out instead of thriving.</p>
+          <p class="body-lg">Too many organisations are stuck in systems built for yesterday. Or last century! Values live on the wall, not in the work. Leaders carry the load alone and were never taught how to lead. Great people burn out.</p>
         </div>
         <div class="stake stake-turn">
-          <p class="body-lg">That’s where Radical HR comes in. We’ve led through this, fixed it, and helped teams become extraordinary.</p>
+          <p class="body-lg">That’s where we come in. We’ve led through it, fixed it, and helped teams become extraordinary.</p>
         </div>
       </div>
     </div>
@@ -182,14 +175,13 @@ const ringText = 'HUMANS FIRST · EXTRAORDINARY TEAMS · FUTURE READY · '.repea
       </div>
       <p class="body-lg pillars-intro">
         Extraordinary teams are never a fluke. They’re intentional.
-        Strategic. Human. Our work is built around four pillars that shape
-        every piece of mahi we do.
+        Strategic. Human. Four pillars shape every piece of mahi we do.
       </p>
     </div>
   </section>
 
   {/* ---------- Founder (purple) ---------- */}
-  <section class="section block-purple">
+  <section class="section band-mist">
     <div class="container founder">
       <div class="founder-photo">
         <img src="/images/lisa.png" alt="Lisa Shaw, Founder of Radical HR." loading="lazy" />
@@ -198,22 +190,20 @@ const ringText = 'HUMANS FIRST · EXTRAORDINARY TEAMS · FUTURE READY · '.repea
         <p class="eyebrow">Lived, not theory</p>
         <h2 class="display founder-h">The person behind Humans First.</h2>
         <p class="body-lg">
-          Radical HR is led by Lisa Shaw - founder, fractional exec, and a
-          recovering accountant who traded spreadsheets for systems that scale
-          impact. She’s run businesses, made payroll with no cash in the bank,
-          sat on boards, and made the hard calls.
+          Radical HR is led by Lisa Shaw. Founder, fractional exec, recovering
+          accountant. She’s run businesses, made payroll with no cash in the
+          bank, sat on boards and made the hard calls.
         </p>
         <p class="body founder-sub">
-          The work is grounded in having actually carried the weight - comfortable
-          in both the boardroom and the paddock. Not theory for hire.
+          Comfortable in the boardroom and the paddock. Not theory for hire.
         </p>
-        <a href="/about" class="btn btn-primary founder-cta">Meet Lisa <span class="arr">&rarr;</span></a>
+        <a href="/about" class="btn btn-ghost founder-cta">Meet Lisa <span class="arr">&rarr;</span></a>
       </div>
     </div>
   </section>
 
   {/* ---------- Three-step approach (pale lilac) ---------- */}
-  <section id="approach" class="section band-mist">
+  <section id="approach" class="section">
     <div class="container">
       <div class="section-head">
         <p class="eyebrow">How we work</p>
@@ -232,7 +222,7 @@ const ringText = 'HUMANS FIRST · EXTRAORDINARY TEAMS · FUTURE READY · '.repea
   </section>
 
   {/* ---------- Provocation (white) ---------- */}
-  <section class="section thesis-wrap">
+  <section class="section band-mist thesis-wrap">
     <div class="container thesis">
       <p class="eyebrow">The provocation</p>
       <h2 class="display thesis-q">
@@ -247,7 +237,7 @@ const ringText = 'HUMANS FIRST · EXTRAORDINARY TEAMS · FUTURE READY · '.repea
   </section>
 
   {/* ---------- Testimonials (indigo) ---------- */}
-  <section class="section block-indigo">
+  <section class="section">
     <div class="container quotes">
       <p class="eyebrow">What leaders are saying</p>
       <figure class="quote-lead">
@@ -270,7 +260,7 @@ const ringText = 'HUMANS FIRST · EXTRAORDINARY TEAMS · FUTURE READY · '.repea
   <IndigoBlock
     eyebrow="We’re ready when you are"
     heading="Let’s build your extraordinary team together."
-    body="The future you want isn’t out of reach - it’s waiting to be designed. Start with a conversation. No pitch, no jargon. Just where you’re at and where you want to get to."
+    body="Start with a conversation. No pitch, no jargon. Just where you’re at and where you want to get to."
     ctaHref="/contact"
     ctaLabel="Start a conversation"
   />
@@ -278,42 +268,35 @@ const ringText = 'HUMANS FIRST · EXTRAORDINARY TEAMS · FUTURE READY · '.repea
 
 <style>
   /* Hero: the poster */
-  .hero-home { padding-bottom: clamp(40px, 5vw, 72px) !important; }
+  .hero-home { padding-bottom: clamp(48px, 6vw, 88px) !important; }
   .hero-grid {
     display: grid;
     grid-template-columns: 1.1fr 0.9fr;
     gap: clamp(24px, 4vw, 64px);
     align-items: center;
   }
-  .hero-copy { display: flex; flex-direction: column; align-items: flex-start; gap: clamp(20px, 2.5vw, 32px); position: relative; z-index: 1; }
-  .hero-word { font-size: var(--t-poster); line-height: 0.9; }
-  .hero-tag { font-size: clamp(24px, 2.6vw + 8px, 40px); max-width: 16ch; color: #fff; }
+  .hero-copy { display: flex; flex-direction: column; align-items: flex-start; gap: clamp(18px, 2vw, 26px); position: relative; z-index: 1; }
+  .hero-h1 { font-size: clamp(48px, 5.2vw + 20px, 96px); max-width: 13ch; }
+  .hero-sub { max-width: 50ch; }
+  .hero-line { max-width: 48ch; font-size: var(--t-body); font-weight: 500; color: var(--c-lavender); }
   .hero-cta { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 8px; }
 
-  .hero-visual { position: relative; aspect-ratio: 1; max-width: 560px; width: 100%; margin-inline: auto; }
+  .hero-visual { position: relative; aspect-ratio: 1; max-width: 600px; width: 100%; margin-inline: auto; }
   .hero-blob {
-    position: absolute; right: -18%; top: -6%; width: 120%; height: 120%;
-    border-radius: 999px; background: var(--c-lilac); opacity: 0.35;
+    position: absolute; right: -8%; bottom: -10%; width: 72%; height: 72%;
+    border-radius: 999px; background: var(--c-lilac-2);
   }
-  .hero-ring { position: absolute; inset: 0; width: 100%; height: 100%; animation: spin 60s linear infinite; }
-  @keyframes spin { to { transform: rotate(360deg); } }
   .hero-photo {
-    position: absolute; left: 18%; top: 16%; width: 64%; height: 70%;
+    position: absolute; left: 0; top: 0; width: 82%; height: 94%;
     border-radius: var(--radius-xl); overflow: hidden;
-    box-shadow: 0 40px 80px rgba(30,20,109,0.4);
+    box-shadow: 0 30px 60px rgba(101,40,234,0.16);
   }
   .hero-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
 
-  .tags { display: flex; gap: 12px; flex-wrap: wrap; margin-top: clamp(32px, 4vw, 56px); }
-  .tag { color: #fff; }
-  .tag-0 { background: #fff; color: var(--c-purple); border-color: #fff; }
-  .tag-2 { background: var(--c-indigo); border-color: var(--c-indigo); }
-  .tag-3 { background: var(--c-lilac); color: var(--c-indigo); border-color: var(--c-lilac); }
 
   @media (max-width: 860px) {
     .hero-grid { grid-template-columns: 1fr; }
     .hero-visual { max-width: 420px; }
-    .tags .pill { font-size: var(--t-body-sm); padding: 10px 16px; }
   }
 
   /* Statement */
@@ -379,7 +362,7 @@ const ringText = 'HUMANS FIRST · EXTRAORDINARY TEAMS · FUTURE READY · '.repea
   .founder-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
   .founder-body { display: flex; flex-direction: column; align-items: flex-start; gap: 22px; }
   .founder-h { font-size: var(--t-h2); }
-  .founder-sub { color: var(--c-lilac-2) !important; }
+  .founder-sub { color: var(--c-body); }
   .founder-cta { margin-top: 6px; }
   @media (max-width: 860px) { .founder { grid-template-columns: 1fr; } .founder-photo { max-width: 480px; } }
 
@@ -389,7 +372,7 @@ const ringText = 'HUMANS FIRST · EXTRAORDINARY TEAMS · FUTURE READY · '.repea
   .step-no { width: clamp(88px, 10vw, 160px); height: clamp(88px, 10vw, 160px); font-size: clamp(36px, 4.5vw, 72px); }
   .step-purple { background: var(--c-purple); color: #fff; }
   .step-indigo { background: var(--c-indigo); color: #fff; }
-  .step-white  { background: #fff; color: var(--c-purple); }
+  .step-white  { background: var(--c-lilac-2); color: var(--c-purple); }
   .step-name { font-size: var(--t-h3); }
   .step-line { color: var(--c-body); }
   @media (max-width: 860px) { .steps { grid-template-columns: 1fr; gap: 40px; } }
@@ -404,14 +387,14 @@ const ringText = 'HUMANS FIRST · EXTRAORDINARY TEAMS · FUTURE READY · '.repea
   .quotes { display: flex; flex-direction: column; align-items: flex-start; gap: clamp(28px, 3vw, 40px); }
   .quote-lead { display: flex; flex-direction: column; gap: 24px; }
   .quote-mark { font-family: var(--f-display); font-weight: 800; font-size: clamp(96px, 10vw, 160px); line-height: 0.5; color: var(--c-lilac); }
-  .quote-lead-text { font-size: clamp(26px, 2.6vw + 8px, 52px); line-height: 1.2; max-width: 24ch; color: #fff; }
-  .quote-who { font-size: var(--t-body); font-weight: 600; color: var(--c-lilac); }
+  .quote-lead-text { font-size: clamp(26px, 2.6vw + 8px, 52px); line-height: 1.2; max-width: 24ch; color: var(--c-indigo); }
+  .quote-who { font-size: var(--t-body); font-weight: 600; color: var(--c-purple); }
   .quotes-rest {
     display: grid; grid-template-columns: repeat(2, 1fr); gap: clamp(24px, 3vw, 40px);
     width: 100%; margin-top: 16px; padding-top: clamp(28px, 3vw, 40px);
-    border-top: 1px solid var(--c-rule-dark);
+    border-top: 1px solid var(--c-rule);
   }
   .quote { display: flex; flex-direction: column; gap: 12px; }
-  .quote-text { color: var(--c-on-indigo); }
+  .quote-text { color: var(--c-body); }
   @media (max-width: 760px) { .quotes-rest { grid-template-columns: 1fr; } }
 </style>
