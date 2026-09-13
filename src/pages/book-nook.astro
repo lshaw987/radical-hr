@@ -9,18 +9,18 @@ const reviews = (await getCollection('reviews')).sort((a, b) => a.data.order - b
 ---
 <Base
   title="Book Nook"
-  description="The Book Nook - Lisa's honest book reviews, framed as a mirror, not a manual. And Radical Readers, the book club community, coming soon."
+  description="The Book Nook - Lisa's honest book reviews, framed as a mirror, not a manual. Read them together in the MPower book club."
   current="learn"
 >
   {/* Hero */}
   <section class="hero">
     <div class="container">
-      <p class="eyebrow">Radical Readers</p>
+      <p class="eyebrow">The Book Nook</p>
       <h1 class="display hero-h1">The Book Nook.</h1>
       <p class="body-lg hero-sub">
         The books shaping how we lead, with honest reviews you can read right
-        now. And Radical Readers - the book club community where we read them
-        together - is coming soon.
+        now. Want to read them together? Every MPower member has access to a
+        book club - in person, virtually, or in your own time. You choose.
       </p>
     </div>
   </section>
@@ -67,11 +67,11 @@ const reviews = (await getCollection('reviews')).sort((a, b) => a.data.order - b
   </section>
 
   <IndigoBlock
-    eyebrow="Want in early?"
-    heading="Be first into Radical Readers."
-    body="The book club community is being built. Tell me you’re keen and I’ll let you know the moment the doors open."
-    ctaHref="mailto:lisashaw@radicalhr.nz?subject=Radical%20Readers%20-%20count%20me%20in"
-    ctaLabel="Register your interest"
+    eyebrow="Read together"
+    heading="Join the MPower book club."
+    body="Every MPower member has access to a book club - in person, virtually, or in your own time. You choose."
+    ctaHref="https://www.mpowerhq.nz"
+    ctaLabel="Find out about MPower"
   />
 </Base>
 

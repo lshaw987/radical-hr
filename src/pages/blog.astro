@@ -2,10 +2,13 @@
 import { getCollection } from 'astro:content';
 import Base from '../layouts/Base.astro';
 import IndigoBlock from '../components/IndigoBlock.astro';
+import { blogImage } from '../data/blogImages';
 
 // Real posts, migrated verbatim from the old WordPress site. Ordered as the
 // old blog listed them (order 1 = newest). Slugs match the old URLs.
 const posts = (await getCollection('blog')).sort((a, b) => a.data.order - b.data.order);
+const [featured, ...rest] = posts;
+const fImg = blogImage(featured.slug);
 ---
 <Base
   title="Blog"
@@ -24,18 +27,40 @@ const posts = (await getCollection('blog')).sort((a, b) => a.data.order - b.data
     </div>
   </section>
 
+  {/* Featured - the latest piece */}
+  <section class="section-tight">
+    <div class="container">
+      <a href={`/blog/${featured.slug}`} class="featured">
+        {fImg && <div class="featured-photo"><img src={fImg.src} alt={fImg.alt} loading="eager" /></div>}
+        <div class="featured-body">
+          <p class="eyebrow">Latest</p>
+          {featured.data.pillar && <span class="chip">{featured.data.pillar}</span>}
+          <h2 class="heading featured-title">{featured.data.title}</h2>
+          {featured.data.description && <p class="body-lg featured-line">{featured.data.description}</p>}
+          <span class="postcard-more">Read <span class="arr">&rarr;</span></span>
+        </div>
+      </a>
+    </div>
+  </section>
+
   {/* Posts */}
   <section class="section band-mist">
     <div class="container">
       <div class="posts">
-        {posts.map((p) => (
-          <a href={`/blog/${p.slug}`} class="postcard">
-            {p.data.pillar && <span class="chip">{p.data.pillar}</span>}
-            <h2 class="heading postcard-title">{p.data.title}</h2>
-            {p.data.description && <p class="body postcard-line">{p.data.description}</p>}
-            <span class="postcard-more">Read <span class="arr">&rarr;</span></span>
-          </a>
-        ))}
+        {rest.map((p) => {
+          const img = blogImage(p.slug);
+          return (
+            <a href={`/blog/${p.slug}`} class="postcard">
+              {img && <div class="postcard-photo"><img src={img.src} alt={img.alt} loading="lazy" /></div>}
+              <div class="postcard-body">
+                {p.data.pillar && <span class="chip">{p.data.pillar}</span>}
+                <h2 class="heading postcard-title">{p.data.title}</h2>
+                {p.data.description && <p class="body postcard-line">{p.data.description}</p>}
+                <span class="postcard-more">Read <span class="arr">&rarr;</span></span>
+              </div>
+            </a>
+          );
+        })}
       </div>
     </div>
   </section>
@@ -55,13 +80,29 @@ const posts = (await getCollection('blog')).sort((a, b) => a.data.order - b.data
   .hero-sub { margin-top: 24px; max-width: 54ch; color: var(--c-body); }
 
   .posts { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(16px, 2vw, 24px); }
+  .featured {
+    display: grid; grid-template-columns: 1.1fr 0.9fr; gap: clamp(24px, 4vw, 56px); align-items: center;
+    background: #fff; border-radius: var(--radius-lg); overflow: hidden;
+    box-shadow: 0 18px 40px rgba(101,40,234,0.08);
+    transition: transform .18s var(--ease-out);
+  }
+  .featured:hover { transform: translateY(-3px); }
+  .featured-photo { aspect-ratio: 4 / 3; }
+  .featured-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .featured-body { display: flex; flex-direction: column; align-items: flex-start; gap: 14px; padding: clamp(24px, 3vw, 44px) clamp(24px, 3vw, 44px) clamp(24px, 3vw, 44px) 0; }
+  .featured-title { font-size: var(--t-h3); }
+  .featured-line { color: var(--c-body); }
+  @media (max-width: 860px) { .featured { grid-template-columns: 1fr; } .featured-body { padding: 0 24px 28px; } }
+
   .postcard {
-    display: flex; flex-direction: column; gap: 12px;
-    background: #fff; border: 1px solid var(--c-rule); border-radius: var(--radius);
-    padding: clamp(22px, 3vw, 32px);
+    display: flex; flex-direction: column;
+    background: #fff; border-radius: var(--radius-lg); overflow: hidden;
     transition: transform .18s var(--ease-out), border-color .18s var(--ease-out), box-shadow .18s var(--ease-out);
   }
-  .postcard:hover { transform: translateY(-3px); border-color: var(--c-lilac); box-shadow: 0 18px 40px rgba(101,40,234,0.08); }
+  .postcard:hover { transform: translateY(-3px); box-shadow: 0 18px 40px rgba(101,40,234,0.10); }
+  .postcard-photo { aspect-ratio: 16 / 10; }
+  .postcard-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .postcard-body { display: flex; flex-direction: column; gap: 12px; padding: clamp(20px, 2.5vw, 28px); flex: 1; }
   .chip {
     align-self: flex-start;
     font-family: var(--f-sans); font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;

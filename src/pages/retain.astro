@@ -6,6 +6,7 @@ const belief = 'Letting people be their unique selves, in a job they love, is wh
 const pain = 'Most organisations forget that loyalty leads to retention - and justify almost every resignation rather than solving the real, underlying challenge.';
 
 const blocks = [
+  { name: 'Leadership Hauora', line: 'Hauora is richer than wellbeing - it’s the whole person. Energy, boundaries, decompression, and carrying the emotional load without burning out. People stay where they can be whole, and leaders set that tone first.' },
   { name: 'Thrive Framework', line: 'Everything people need to thrive - role clarity, hauora (whole-person wellbeing), team connection, pay alignment, intentional development, and organisational influence.' },
   { name: 'Unique Belonging', line: 'To belong, people need to safely bring 100% of their unique selves to work - their identity, their strengths, their personal values.' },
   { name: 'Purposeful Productivity', line: 'People who stay believe what they do matters - and they have a way of working that protects their focus and their hauora. Lisa’s own CARE Methodology lives here.', href: '/productivity' },
@@ -61,14 +62,16 @@ const blocks = [
   </section>
 
 
+
+
   {/* A story from the work - DRAFT from the client roster, anonymised. Lisa to check every fact before go-live. */}
   <section class="section story">
     <div class="container story-inner">
       <p class="eyebrow">From the work</p>
-      <h2 class="heading story-h">Values the crew wrote, and a wall they actually use.</h2>
-      <p class="body-lg">A multi-branch workshop business with a loyal core and a revolving door at the edges. The values were on the wall. Nobody could recite them, and nobody was being caught doing them.</p>
-      <p class="body">We rewrote the values with the crew, in their words, with the non-negotiables spelled out. Then we built them into the week - shout-outs from the floor, a recognition wall people scan with their phones, and leaders trained to have the stay conversation long before the exit one.</p>
-      <p class="body story-turn">Recognition became a daily habit instead of an annual awards night. The conversations about leaving started happening while there was still time to fix the reason.</p>
+      <h2 class="heading story-h">From carrying it all to leading it well.</h2>
+      <p class="body-lg">A regional association of school principals. Small schools, big communities, and leaders who carry every part of it - the roll, the board, the families, the staffroom. Good people were leaving the job, not because they stopped caring, but because nobody had shown them how to carry it without breaking.</p>
+      <p class="body">We ran two linked half-days at their conference. Day one was about leading yourself - hauora, energy, boundaries, the calendar as a culture audit. Day two was about growing the team - Delevate, and the stay conversation, the one you have long before the exit one. Each principal left with a personal, lay-flat book of their own story and the people in it.</p>
+      <p class="body story-turn">They asked us back before the first day was over. The conversations about staying now happen while there is still time to change the reason.</p>
       <p class="story-note">A real engagement. Details changed to protect the client.</p>
     </div>
   </section>
@@ -94,7 +97,7 @@ const blocks = [
   .belief-pain .body-lg { color: var(--c-body); }
   @media (max-width: 760px) { .belief { grid-template-columns: 1fr; gap: 24px; } }
 
-  .blocks { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(16px, 2vw, 24px); }
+  .blocks { display: grid; grid-template-columns: repeat(2, 1fr); gap: clamp(16px, 2vw, 24px); }
   .block { background: #fff; border: 1px solid var(--c-rule); border-radius: var(--radius); padding: clamp(24px, 3vw, 34px); display: flex; flex-direction: column; gap: 12px; }
   .block-name { font-size: var(--t-h4); color: var(--c-purple); }
   .block-line { color: var(--c-body); }

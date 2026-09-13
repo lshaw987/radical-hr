@@ -2,6 +2,7 @@
 import { getCollection } from 'astro:content';
 import Base from '../../layouts/Base.astro';
 import IndigoBlock from '../../components/IndigoBlock.astro';
+import { blogImage } from '../../data/blogImages';
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog');
@@ -10,6 +11,7 @@ export async function getStaticPaths() {
 
 const { post } = Astro.props;
 const { Content } = await post.render();
+const img = blogImage(post.slug);
 const dateLabel = post.data.date
   ? new Intl.DateTimeFormat('en-NZ', { day: 'numeric', month: 'long', year: 'numeric' }).format(post.data.date)
   : null;
@@ -20,6 +22,7 @@ const dateLabel = post.data.date
       <p class="eyebrow">{post.data.pillar ?? 'The blog'}</p>
       <h1 class="display post-h1">{post.data.title}</h1>
       {dateLabel && <p class="post-date">{dateLabel}</p>}
+      {img && <div class="post-photo"><img src={img.src} alt={img.alt} loading="eager" /></div>}
       <div class="prose">
         <Content />
       </div>
@@ -41,6 +44,8 @@ const dateLabel = post.data.date
   .post-inner { max-width: 760px; }
   .post-h1 { font-size: var(--t-h2); margin-top: 16px; line-height: 1.12; }
   .post-date { margin-top: 16px; font-size: var(--t-body-sm); color: var(--c-lavender); }
+  .post-photo { margin-top: clamp(24px, 3vw, 36px); border-radius: var(--radius-lg); overflow: hidden; aspect-ratio: 16 / 9; }
+  .post-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
   .prose { margin-top: clamp(28px, 4vw, 48px); display: flex; flex-direction: column; gap: 4px; }
   .prose :global(p) { color: var(--c-body); font-size: var(--t-body); line-height: 1.75; margin-block: 10px; }

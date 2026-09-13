@@ -2,16 +2,16 @@
 import Base from '../layouts/Base.astro';
 import IndigoBlock from '../components/IndigoBlock.astro';
 
-// The five value cards are the real Radical HR assets (title + icon + copy
-// baked into each image). Pulled from the live site. NOTE for Lisa: the
-// "Adding Value, Always" file has the wrong subtitle baked in (repeats the
-// Future by Design line) plus minor typos - fix in Canva, then re-export.
+// The five values as live text (Lisa, 13 Sept: the baked-image cards were
+// "ick"). Icons are cropped from the real values banner. Taglines are the
+// canonical ones from the spine; the one-line "role" is Lisa's own frame for
+// the set (heart / mindset / method / forward energy / measure).
 const values = [
-  { src: '/images/value-1-humans-first.png', alt: 'Humans First - humans are the core of extraordinary teams.' },
-  { src: '/images/value-2-curiosity.png',   alt: 'Courageous Curiosity - be curious enough to ask, be courageous enough to act.' },
-  { src: '/images/value-3-growth.png',      alt: 'Empowered Growth - empowered people empower others.' },
-  { src: '/images/value-4-future.png',      alt: 'Future by Design - we don’t wait for the future, we design it.' },
-  { src: '/images/value-5-value.png',       alt: 'Adding Value, Always - every action must matter.' },
+  { icon: '/images/value-icon-humans-first.png', name: 'Humans First', role: 'The heart', tag: 'Humans are the core of extraordinary teams.', line: 'People aren’t resources. They’re the reason organisations succeed. Every piece of work starts and ends with the humans in it.' },
+  { icon: '/images/value-icon-curiosity.png', name: 'Courageous Curiosity', role: 'The mindset', tag: 'Be curious enough to ask. Be courageous enough to act.', line: 'Curiosity is the mindset, courage is the behaviour, learning and change are the outcome. Without courage, curiosity stays theory.' },
+  { icon: '/images/value-icon-growth.png', name: 'Empowered Growth', role: 'The method', tag: 'Empowered people empower others.', line: 'We build capability, not dependence. Leaders who grow the people around them, and teams strong enough to carry the weight together.' },
+  { icon: '/images/value-icon-future.png', name: 'Future by Design', role: 'The forward energy', tag: 'We don’t wait for the future - we design it.', line: 'The future of work is human. We help people shape it on purpose, rather than have it happen to them.' },
+  { icon: '/images/value-icon-value.png', name: 'Adding Value, Always', role: 'The measure', tag: 'Every action must matter.', line: 'If it doesn’t make a real difference for the people and the organisation, we don’t do it. Value given before value asked.' },
 ];
 ---
 <Base
@@ -21,14 +21,19 @@ const values = [
 >
   {/* Hero */}
   <section class="hero">
-    <div class="container">
-      <p class="eyebrow">What we stand for</p>
-      <h1 class="display hero-h1">Our values</h1>
-      <p class="body-lg hero-sub">
-        More than words. They’re the principles that shape how we think, partner,
-        and grow - guiding every conversation, every decision, and every act of
-        courage and care.
-      </p>
+    <div class="container hero-split">
+      <div class="hero-copy">
+        <p class="eyebrow">What we stand for</p>
+        <h1 class="display hero-h1">Our values</h1>
+        <p class="body-lg hero-sub">
+          More than words. They’re the principles that shape how we think, partner,
+          and grow - guiding every conversation, every decision, and every act of
+          courage and care.
+        </p>
+      </div>
+      <div class="hero-icons" aria-hidden="true">
+        {values.map((v) => <img src={v.icon} alt="" loading="eager" />)}
+      </div>
     </div>
   </section>
 
@@ -51,25 +56,26 @@ const values = [
     </div>
   </section>
 
-  {/* The five, at a glance */}
-  <section class="section-tight">
-    <div class="container">
-      <img
-        class="values-strip"
-        src="/images/values-banner.png"
-        alt="The five Radical HR values: Humans First, Courageous Curiosity, Empowered Growth, Future by Design, Adding Value Always."
-        loading="lazy"
-      />
-    </div>
-  </section>
-
-  {/* The five values - real card assets */}
+  {/* The five values */}
   <section class="section band-mist">
     <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">The five</p>
+        <h2 class="heading section-title">One heart, one mindset, one method, one direction, one measure.</h2>
+      </div>
       <div class="vals">
-        {values.map((v) => (
-          <div class="val-card">
-            <img src={v.src} alt={v.alt} loading="lazy" />
+        {values.map((v, i) => (
+          <div class="val">
+            <div class="val-icon"><img src={v.icon} alt="" loading="lazy" /></div>
+            <div class="val-body">
+              <div class="val-top">
+                <span class="val-no">0{i + 1}</span>
+                <span class="val-role">{v.role}</span>
+              </div>
+              <h3 class="heading val-name">{v.name}</h3>
+              <p class="val-tag">{v.tag}</p>
+              <p class="body val-line">{v.line}</p>
+            </div>
           </div>
         ))}
       </div>
@@ -86,33 +92,32 @@ const values = [
 </Base>
 
 <style>
-  .hero { padding-block: clamp(56px, 9vw, 116px) clamp(28px, 4vw, 56px); }
   .hero-h1 { font-size: var(--t-h1); }
-  .hero-sub { margin-top: 24px; max-width: 52ch; color: var(--c-body); }
+  .hero-sub { margin-top: 20px; max-width: 46ch; color: var(--c-body); }
+  .hero-icons { display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; align-items: center; }
+  .hero-icons img { width: clamp(64px, 6.5vw, 96px); height: auto; }
 
-  .statement { display: flex; flex-direction: column; gap: 20px; max-width: 64ch; }
-  .statement-h { font-size: var(--t-h3); line-height: 1.2; }
+  .statement { max-width: 64ch; display: flex; flex-direction: column; gap: 18px; }
+  .statement-h { font-size: var(--t-h3); }
   .statement .body-lg { color: var(--c-body); }
-  .statement-turn { font-family: var(--f-display); font-weight: 700; color: var(--c-indigo) !important; font-size: var(--t-body-lg) !important; }
+  .statement-turn { font-weight: 600; color: var(--c-indigo) !important; }
 
-  .values-strip { width: 100%; max-width: 980px; height: auto; display: block; margin-inline: auto; }
-
-  .vals {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: clamp(16px, 2vw, 28px);
+  .section-title { font-size: var(--t-h2); max-width: 18ch; }
+  .vals { display: flex; flex-direction: column; gap: clamp(16px, 2vw, 24px); }
+  .val {
+    display: grid; grid-template-columns: 160px 1fr; gap: clamp(20px, 3vw, 40px); align-items: center;
+    background: #fff; border-radius: var(--radius-lg); padding: clamp(20px, 3vw, 36px);
   }
-  .val-card {
-    background: #fff;
-    border: 1px solid var(--c-rule);
-    border-radius: var(--radius);
-    padding: clamp(12px, 1.5vw, 20px);
-    overflow: hidden;
-    transition: transform .18s var(--ease-out), box-shadow .18s var(--ease-out);
+  .val-icon img { width: 100%; height: auto; }
+  .val-body { display: flex; flex-direction: column; gap: 8px; }
+  .val-top { display: flex; align-items: center; gap: 12px; }
+  .val-no { font-family: var(--f-display); font-weight: 700; font-size: 13px; letter-spacing: 0.1em; color: var(--c-purple); }
+  .val-role { font-size: var(--t-label); font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--c-purple); background: var(--c-lilac-3); border-radius: 999px; padding: 6px 12px; }
+  .val-name { font-size: var(--t-h3); }
+  .val-tag { font-family: var(--f-display); font-weight: 600; font-size: var(--t-body-lg); color: var(--c-indigo); font-style: italic; }
+  .val-line { color: var(--c-body); max-width: 60ch; }
+  @media (max-width: 760px) {
+    .val { grid-template-columns: 1fr; }
+    .val-icon { max-width: 140px; }
   }
-  .val-card:hover { transform: translateY(-3px); box-shadow: 0 18px 40px rgba(101,40,234,0.08); }
-  .val-card img { width: 100%; height: auto; display: block; border-radius: var(--radius-sm); }
-
-  @media (max-width: 860px) { .vals { grid-template-columns: repeat(2, 1fr); } }
-  @media (max-width: 540px) { .vals { grid-template-columns: 1fr; max-width: 360px; margin-inline: auto; } }
 </style>
