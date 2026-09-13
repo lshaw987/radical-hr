@@ -143,7 +143,7 @@ const [lead, ...rest] = quotes;
         <div class="stake">
           <p class="body-lg">You want a culture that’s real, not wallpaper. Leaders who inspire, not just manage. A team that’s aligned, energised and ready for what’s next.</p>
         </div>
-        <div class="stake">
+        <div class="stake stake-mid">
           <p class="body-lg">Too many organisations are stuck in systems built for yesterday. Or last century! Values live on the wall, not in the work. Leaders carry the load alone and were never taught how to lead. Great people burn out.</p>
         </div>
         <div class="stake stake-turn">
@@ -335,7 +335,8 @@ const [lead, ...rest] = quotes;
   .stakes-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(16px, 2vw, 32px); width: 100%; }
   .stake { background: #fff; border-radius: var(--radius-lg); padding: clamp(28px, 3vw, 40px); }
   .stake .body-lg { font-size: var(--t-body-lg); color: var(--c-body); }
-  .stake-turn { background: var(--c-lilac-2); }
+  .stake-mid { background: var(--c-purple); }
+  .stake-mid .body-lg { color: #fff; }
   .stake-turn .body-lg { color: var(--c-indigo); font-weight: 700; }
   @media (max-width: 860px) { .stakes-cards { grid-template-columns: 1fr; } }
 
