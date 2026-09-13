@@ -1,12 +1,13 @@
 ---
 import Base from '../layouts/Base.astro';
+import PullQuote from '../components/PullQuote.astro';
 import IndigoBlock from '../components/IndigoBlock.astro';
 
 const belief = 'Organisations need to radically change how they equip leaders for the future.';
 const pain = 'Most teams are managed, not led - because managers are never given the time and development to become leaders.';
 
 const blocks = [
-  { name: 'Delevate', line: 'Lisa’s own leadership model: Deciding → Doing → Directing → Delegating → Developing → Delevating. Move from control to trust, from busyness to impact, and build a team strong enough to carry the weight together - protecting your hauora as you go.' },
+  { name: 'Delevate', line: 'Lisa’s own model for letting go well. Move from control to trust, from busyness to impact, and build a team strong enough to carry the weight together - protecting your hauora as you go.' },
   { name: 'Strengths', line: 'CliftonStrengths coaching for leaders and teams. Find what you and your people do best, then build around it - performance, belonging and real growth, not another model to memorise.' },
   { name: 'Coaching', line: 'Executive and leadership coaching, one-to-one and for leadership teams. Practical, strengths-based, and grounded in having actually carried the weight - never theory for hire.' },
 ];
@@ -49,6 +50,8 @@ const blocks = [
     </div>
   </section>
 
+  <PullQuote q="teamNeverTaught" />
+
   <section class="section band-mist">
     <div class="container">
       <div class="blocks">
@@ -63,17 +66,19 @@ const blocks = [
   </section>
 
 
-  {/* A story from the work - DRAFT from the client roster, anonymised. Lisa to check every fact before go-live. */}
+  {/* A story from the work - anonymised, facts only (Lisa 13 Sept: "can't tell a story about something that never happened"). */}
   <section class="section story">
     <div class="container story-inner">
       <p class="eyebrow">From the work</p>
-      <h2 class="heading story-h">It started as a conference session. It became a leadership programme.</h2>
-      <p class="body-lg">An agribusiness advisory firm asked for CliftonStrengths at their annual conference - fifty-odd reports and a couple of sessions for the shareholders and the wider team.</p>
-      <p class="body">The sessions landed, and the real conversation started afterwards: how do the consultants grow into leaders, and how does the firm hold on to them while they do? That became an ongoing engagement - development pathways for the consultants, coaching for the people stepping up, and support for the leaders carrying the load.</p>
-      <p class="body story-turn">A year later we are still in the room. That is the pattern we like: start with something real and useful, and earn the bigger work.</p>
-      <p class="story-note">A real engagement. Details changed to protect the client.</p>
+      <h2 class="heading story-h">It started with strengths. It grew into leadership work.</h2>
+      <p class="body-lg">An agribusiness advisory firm asked for CliftonStrengths for their people - around fifty strengths reports, and sessions for the shareholders and the wider team.</p>
+      <p class="body">The sessions landed, and a bigger conversation followed: how the firm grows its consultants, and how it supports the people leading them. That became an ongoing engagement - consultant progression and development, and leadership support.</p>
+      <p class="body story-turn">A year on, we’re still doing the work together. Start with something real and useful, and earn the bigger work.</p>
+      <p class="story-note">A real engagement, anonymised to protect the client.</p>
     </div>
   </section>
+
+  <PullQuote q="dirAccount" tone="lilac" />
 
   <IndigoBlock
     eyebrow="Pillar 03"

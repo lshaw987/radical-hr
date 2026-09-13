@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+import PhotoSlot from '../components/PhotoSlot.astro';
 import IndigoBlock from '../components/IndigoBlock.astro';
 
 // v2 "Big energy" home (Option D on the design canvas - Lisa's pick,
@@ -58,19 +59,13 @@ const steps = [
 
 // Role-anonymised on purpose (Lisa's rule: real quotes, roles not names -
 // never de-anonymise). Sources in layer-1-context/personal-brand.md.
+import { quotes as Q } from '../data/quotes';
 const quotes = [
-  {
-    text: 'I have really enjoyed your facilitation. You do an amazing job of making the principals feel comfortable and able to be vulnerable with how they are going. Your amazing list of resources is another highlight for me.',
-    who: 'Leadership programme participant · education',
-  },
-  {
-    text: 'I found the course to be highly engaging and your presenting style to be a huge motivator. I enjoyed the way you were able to push us out of our comfort zones in a supportive and caring way.',
-    who: 'Strengths session participant',
-  },
-  {
-    text: 'Your little tips and tricks have been amazing for me - efficient ways of being organised overall, and how to streamline admin processes in a school.',
-    who: 'School leader',
-  },
+  Q.dirRisk,
+  { text: 'I have really enjoyed your facilitation. You do an amazing job of making the principals feel comfortable and able to be vulnerable with how they are going.', who: 'Leadership programme participant · education' },
+  Q.dirExplain,
+  Q.gmPeople,
+  { text: 'I found the course to be highly engaging and your presenting style to be a huge motivator. I enjoyed the way you were able to push us out of our comfort zones in a supportive and caring way.', who: 'Strengths session participant' },
 ];
 const [lead, ...rest] = quotes;
 ---
@@ -158,6 +153,11 @@ const [lead, ...rest] = quotes;
     </div>
   </section>
 
+  {/* ---------- Photo placeholder ---------- */}
+  <section class="section-tight">
+    <div class="container"><PhotoSlot label="A team mid-workshop - real people, real energy, natural light" ratio="21 / 9" /></div>
+  </section>
+
   {/* ---------- Four pillars: the Venn (white) ---------- */}
   <section id="pillars" class="section">
     <div class="container">
@@ -196,6 +196,10 @@ const [lead, ...rest] = quotes;
           Radical HR is led by Lisa Shaw. Founder, fractional exec, recovering
           accountant. She’s run businesses, sat on boards, and once told a CEO
           she wasn’t needed anymore. The hard calls, made with heart.
+        </p>
+        <p class="body founder-sub">
+          Her why is simple: she learned most of it the hard way, because nobody
+          took the time to teach her - so now she does.
         </p>
         <p class="body founder-sub">
           Real experience, warmly shared. Based in Aotearoa New Zealand, working

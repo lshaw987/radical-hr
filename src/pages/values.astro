@@ -7,11 +7,11 @@ import IndigoBlock from '../components/IndigoBlock.astro';
 // canonical ones from the spine; the one-line "role" is Lisa's own frame for
 // the set (heart / mindset / method / forward energy / measure).
 const values = [
-  { icon: '/images/value-icon-humans-first.png', name: 'Humans First', role: 'The heart', tag: 'Humans are the core of extraordinary teams.', line: 'People aren’t resources. They’re the reason organisations succeed. Every piece of work starts and ends with the humans in it.' },
-  { icon: '/images/value-icon-curiosity.png', name: 'Courageous Curiosity', role: 'The mindset', tag: 'Be curious enough to ask. Be courageous enough to act.', line: 'Curiosity is the mindset, courage is the behaviour, learning and change are the outcome. Without courage, curiosity stays theory.' },
-  { icon: '/images/value-icon-growth.png', name: 'Empowered Growth', role: 'The method', tag: 'Empowered people empower others.', line: 'We build capability, not dependence. Leaders who grow the people around them, and teams strong enough to carry the weight together.' },
-  { icon: '/images/value-icon-future.png', name: 'Future by Design', role: 'The forward energy', tag: 'We don’t wait for the future - we design it.', line: 'The future of work is human. We help people shape it on purpose, rather than have it happen to them.' },
-  { icon: '/images/value-icon-value.png', name: 'Adding Value, Always', role: 'The measure', tag: 'Every action must matter.', line: 'If it doesn’t make a real difference for the people and the organisation, we don’t do it. Value given before value asked.' },
+  { icon: '/images/value-mark-humans-first.png', name: 'Humans First', role: 'The heart', tag: 'Humans are the core of extraordinary teams.', line: 'People aren’t resources. They’re the reason organisations succeed. Every piece of work starts and ends with the humans in it.' },
+  { icon: '/images/value-mark-curiosity.png', name: 'Courageous Curiosity', role: 'The mindset', tag: 'Be curious enough to ask. Be courageous enough to act.', line: 'Curiosity is the mindset, courage is the behaviour, learning and change are the outcome. Without courage, curiosity stays theory.' },
+  { icon: '/images/value-mark-growth.png', name: 'Empowered Growth', role: 'The method', tag: 'Empowered people empower others.', line: 'We build capability, not dependence. Leaders who grow the people around them, and teams strong enough to carry the weight together.' },
+  { icon: '/images/value-mark-future.png', name: 'Future by Design', role: 'The forward energy', tag: 'We don’t wait for the future - we design it.', line: 'The future of work is human. We help people shape it on purpose, rather than have it happen to them.' },
+  { icon: '/images/value-mark-value.png', name: 'Adding Value, Always', role: 'The measure', tag: 'Every action must matter.', line: 'If it doesn’t make a real difference for the people and the organisation, we don’t do it. Value given before value asked.' },
 ];
 ---
 <Base
@@ -21,19 +21,14 @@ const values = [
 >
   {/* Hero */}
   <section class="hero">
-    <div class="container hero-split">
-      <div class="hero-copy">
-        <p class="eyebrow">What we stand for</p>
-        <h1 class="display hero-h1">Our values</h1>
-        <p class="body-lg hero-sub">
-          More than words. They’re the principles that shape how we think, partner,
-          and grow - guiding every conversation, every decision, and every act of
-          courage and care.
-        </p>
-      </div>
-      <div class="hero-icons" aria-hidden="true">
-        {values.map((v) => <img src={v.icon} alt="" loading="eager" />)}
-      </div>
+    <div class="container">
+      <p class="eyebrow">What we stand for</p>
+      <h1 class="display hero-h1">Our values</h1>
+      <p class="body-lg hero-sub">
+        More than words. They’re the principles that shape how we think, partner,
+        and grow - guiding every conversation, every decision, and every act of
+        courage and care.
+      </p>
     </div>
   </section>
 
@@ -59,23 +54,18 @@ const values = [
   {/* The five values */}
   <section class="section band-mist">
     <div class="container">
-      <div class="section-head">
+      <div class="section-head five-head">
         <p class="eyebrow">The five</p>
-        <h2 class="heading section-title">One heart, one mindset, one method, one direction, one measure.</h2>
+        <h2 class="heading section-title">What you can count on from us.</h2>
       </div>
       <div class="vals">
-        {values.map((v, i) => (
+        {values.map((v) => (
           <div class="val">
             <div class="val-icon"><img src={v.icon} alt="" loading="lazy" /></div>
-            <div class="val-body">
-              <div class="val-top">
-                <span class="val-no">0{i + 1}</span>
-                <span class="val-role">{v.role}</span>
-              </div>
-              <h3 class="heading val-name">{v.name}</h3>
-              <p class="val-tag">{v.tag}</p>
-              <p class="body val-line">{v.line}</p>
-            </div>
+            <p class="val-role">{v.role}</p>
+            <h3 class="heading val-name">{v.name}</h3>
+            <p class="val-tag">{v.tag}</p>
+            <p class="body val-line">{v.line}</p>
           </div>
         ))}
       </div>
@@ -93,31 +83,22 @@ const values = [
 
 <style>
   .hero-h1 { font-size: var(--t-h1); }
-  .hero-sub { margin-top: 20px; max-width: 46ch; color: var(--c-body); }
-  .hero-icons { display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; align-items: center; }
-  .hero-icons img { width: clamp(64px, 6.5vw, 96px); height: auto; }
+  .hero-sub { margin-top: 20px; max-width: 52ch; color: var(--c-body); }
 
   .statement { max-width: 64ch; display: flex; flex-direction: column; gap: 18px; }
   .statement-h { font-size: var(--t-h3); }
   .statement .body-lg { color: var(--c-body); }
   .statement-turn { font-weight: 600; color: var(--c-indigo) !important; }
 
+  .five-head { align-items: center; text-align: center; margin-inline: auto; }
   .section-title { font-size: var(--t-h2); max-width: 18ch; }
-  .vals { display: flex; flex-direction: column; gap: clamp(16px, 2vw, 24px); }
-  .val {
-    display: grid; grid-template-columns: 160px 1fr; gap: clamp(20px, 3vw, 40px); align-items: center;
-    background: #fff; border-radius: var(--radius-lg); padding: clamp(20px, 3vw, 36px);
-  }
-  .val-icon img { width: 100%; height: auto; }
-  .val-body { display: flex; flex-direction: column; gap: 8px; }
-  .val-top { display: flex; align-items: center; gap: 12px; }
-  .val-no { font-family: var(--f-display); font-weight: 700; font-size: 13px; letter-spacing: 0.1em; color: var(--c-purple); }
-  .val-role { font-size: var(--t-label); font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--c-purple); background: var(--c-lilac-3); border-radius: 999px; padding: 6px 12px; }
-  .val-name { font-size: var(--t-h3); }
-  .val-tag { font-family: var(--f-display); font-weight: 600; font-size: var(--t-body-lg); color: var(--c-indigo); font-style: italic; }
-  .val-line { color: var(--c-body); max-width: 60ch; }
-  @media (max-width: 760px) {
-    .val { grid-template-columns: 1fr; }
-    .val-icon { max-width: 140px; }
-  }
+  .vals { display: flex; flex-wrap: wrap; justify-content: center; gap: clamp(32px, 4vw, 56px) clamp(24px, 3vw, 40px); }
+  .val { flex: 0 1 300px; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 8px; }
+  .val-icon { position: relative; width: clamp(104px, 10vw, 136px); aspect-ratio: 1; margin: 0 28px 12px 0; }
+  .val-icon::before { content: ''; position: absolute; inset: 0; transform: translateX(26%); border-radius: 999px; background: var(--c-lilac); opacity: 0.7; }
+  .val-icon img { position: relative; width: 100%; height: 100%; border-radius: 999px; display: block; }
+  .val-role { font-size: var(--t-label); font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--c-purple); }
+  .val-name { font-size: var(--t-h4); }
+  .val-tag { font-family: var(--f-display); font-weight: 600; font-size: var(--t-body); color: var(--c-indigo); }
+  .val-line { color: var(--c-body); font-size: var(--t-body-sm); max-width: 34ch; }
 </style>

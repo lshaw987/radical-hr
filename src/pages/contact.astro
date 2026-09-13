@@ -1,5 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
+import PhotoSlot from '../components/PhotoSlot.astro';
+import PullQuote from '../components/PullQuote.astro';
 
 const steps = [
   {
@@ -47,7 +49,8 @@ const channels = [
 >
   {/* Hero */}
   <section class="hero">
-    <div class="container">
+    <div class="container hero-split">
+      <div class="hero-copy">
       <p class="eyebrow">No pitch, no jargon</p>
       <h1 class="display hero-h1">Let’s start a conversation.</h1>
       <p class="body-lg hero-sub">
@@ -55,6 +58,8 @@ const channels = [
         team, or the whole organisation. The work doesn’t wait on a perfect
         brief - so don’t overthink the first message.
       </p>
+      </div>
+      <div class="hero-photo-slot"><PhotoSlot label="Lisa, warm and approachable - a coffee-conversation feel" ratio="4 / 5" /></div>
     </div>
   </section>
 
@@ -92,6 +97,8 @@ const channels = [
     </div>
   </section>
 
+  <PullQuote q="teamLighter" tone="lilac" />
+
   {/* Reassurance closer */}
   <section class="section">
     <div class="container closer">
@@ -106,7 +113,7 @@ const channels = [
       <a href="mailto:lisashaw@radicalhr.nz" class="btn btn-primary closer-cta">
         Email me <span class="arr">&rarr;</span>
       </a>
-      <p class="body-sm closer-loc">Based in Auckland, Aotearoa New Zealand. Working across NZ and globally - in person, or online wherever you are.</p>
+      <p class="body-sm closer-loc">Based in Hamilton, Aotearoa New Zealand. Working across NZ and globally - in person, or online wherever you are.</p>
     </div>
   </section>
 </Base>

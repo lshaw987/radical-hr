@@ -1,5 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
+import PhotoSlot from '../components/PhotoSlot.astro';
+import PullQuote from '../components/PullQuote.astro';
 import IndigoBlock from '../components/IndigoBlock.astro';
 
 const belief = 'Organisations need to radically simplify their strategy and priorities to align teams for the future.';
@@ -17,7 +19,8 @@ const blocks = [
   current="align"
 >
   <section class="hero">
-    <div class="container">
+    <div class="container hero-split">
+      <div class="hero-copy">
       <p class="eyebrow">Pillar 02</p>
       <h1 class="display hero-h1">Get everyone moving the <span class="accent">same way.</span></h1>
       <p class="body-lg hero-sub">
@@ -26,6 +29,8 @@ const blocks = [
         strategy, and values that actually mean something.
       </p>
       <a href="/contact" class="btn btn-primary hero-cta">Talk alignment <span class="arr">&rarr;</span></a>
+      </div>
+      <div class="hero-photo-slot"><PhotoSlot label="A strategy session - the plan on a page on the wall, people around it" ratio="4 / 3" /></div>
     </div>
   </section>
 
@@ -73,15 +78,17 @@ const blocks = [
   </section>
 
 
-  {/* A story from the work - DRAFT from the client roster, anonymised. Lisa to check every fact before go-live. */}
+  <PullQuote q="teamSameGoal" tone="lilac" />
+
+  {/* A story from the work - anonymised, facts only (Lisa 13 Sept: "can't tell a story about something that never happened"). */}
   <section class="section story">
     <div class="container story-inner">
       <p class="eyebrow">From the work</p>
-      <h2 class="heading story-h">Values the crew wrote, and a wall they actually use.</h2>
-      <p class="body-lg">A growing multi-branch business with a loyal, hard-working team. The values were on the wall. Nobody could recite them, and nobody was being caught doing them.</p>
-      <p class="body">We rewrote the values with the crew, in their words, with the non-negotiables spelled out. Then we built them into the week - shout-outs from the floor, a recognition wall people scan with their phones, and leaders trained to have the stay conversation long before the exit one.</p>
-      <p class="body story-turn">Recognition became a daily habit instead of an annual awards night. The conversations about leaving started happening while there was still time to fix the reason.</p>
-      <p class="story-note">A real engagement. Details changed to protect the client.</p>
+      <h2 class="heading story-h">The owners who wanted to know why nobody was buying in.</h2>
+      <p class="body-lg">A fifty-year-old, family-owned business across several sites. Two owners who knew their trade inside out, and a team that wasn’t on the same page. In our first week one of them said it plainly: we can do our jobs blindfolded, but we can’t get the buy-in.</p>
+      <p class="body">Over two strategy days the owners wrote their own hard questions on the wall. Six words came out of the room and became the six pillars everything now answers to. Then a team day for everyone, where the owners wrote a line of thanks for every single person and read it out. Each week after, one pillar went out to the whole team with fifteen minutes to reflect - and people wrote back.</p>
+      <p class="body story-turn">Four months later a branch manager stopped writing up the whiteboard and started planning his team’s day in the new system instead. Nobody asked him to. That’s alignment - when people choose the direction for themselves.</p>
+      <p class="story-note">A real engagement, anonymised to protect the client.</p>
     </div>
   </section>
 

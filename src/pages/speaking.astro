@@ -1,5 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
+import PhotoSlot from '../components/PhotoSlot.astro';
+import PullQuote from '../components/PullQuote.astro';
 import IndigoBlock from '../components/IndigoBlock.astro';
 
 // Real, public engagements only (source: layer-1-context/personal-brand.md).
@@ -22,6 +24,13 @@ const talks = [
   },
 ];
 
+const facilitation = [
+  { name: 'Conference facilitation', line: 'Holding a room of 40 or 400 - keeping the energy up, the conversation honest, and the takeaways practical.' },
+  { name: 'Strategy days and offsites', line: 'Boards and leadership teams to a plan on a page, with the hard conversations had in the room rather than after it.' },
+  { name: 'Professional development days', line: 'Interactive PD for principals and leaders, with pre-thinking before and microlearnings after, so it sticks.' },
+  { name: 'Leadership programmes', line: 'Multi-month journeys with cohorts of leaders - facilitation, coaching and a community that keeps each other honest.' },
+];
+
 const engagements = [
   {
     name: 'E Tipu 2025',
@@ -41,7 +50,15 @@ const engagements = [
   },
   {
     name: 'NZRASLA',
-    detail: 'Strategic planning with a new curriculum - facilitating the leadership team to a clear plan on a page while the curriculum changed underneath them.',
+    detail: 'Strategic planning with a new curriculum - a customised, interactive facilitation session for around 80 principals, with pre-thinking before and microlearnings after.',
+  },
+  {
+    name: 'Springboard Trust annual planning',
+    detail: 'An annual planning workshop for school leaders that scored an NPS of 95 - the top score in the country for that workshop.',
+  },
+  {
+    name: 'AWDT Next Level',
+    detail: 'Alumni panellist on leadership and governance pathways for agri women stepping into their next role.',
   },
 ];
 
@@ -52,21 +69,25 @@ const quote = {
 };
 ---
 <Base
-  title="Speaking & Keynotes"
-  description="Keynotes and conference facilitation with Lisa Shaw - Humans First leadership, the future of work, paddock to boardroom. Real stories, practical shifts, no theory for hire."
+  title="Speaking & Facilitation"
+  description="Lisa Shaw is a sought-after keynote speaker and facilitator - conferences, strategy days, PD days and leadership programmes. Humans First, story first, practical shifts."
   current="services"
 >
   {/* Hero */}
   <section class="hero">
-    <div class="container">
-      <p class="eyebrow">On the stage</p>
-      <h1 class="display hero-h1">Keynotes that move the <span class="accent">room.</span></h1>
+    <div class="container hero-split">
+      <div class="hero-copy">
+      <p class="eyebrow">Speaking &amp; facilitation</p>
+      <h1 class="display hero-h1">Rooms that leave <span class="accent">different.</span></h1>
       <p class="body-lg hero-sub">
-        Story first, framework second, and the audience leaves with something
-        to do on Monday - not just something to feel. Comfortable in front of
-        boards, conferences, principals and paddocks alike.
+        Lisa is a sought-after keynote speaker and facilitator - on conference
+        stages, in principals’ PD days, board strategy sessions and
+        paddock-side workshops. Story first, framework second, and people walk
+        out with something to do on Monday, not just something to feel.
       </p>
       <a href="/contact" class="btn btn-primary hero-cta">Book Lisa <span class="arr">&rarr;</span></a>
+      </div>
+      <div class="hero-photo-slot"><PhotoSlot label="Lisa on stage, or at the front of a room" ratio="4 / 3" /></div>
     </div>
   </section>
 
@@ -92,6 +113,33 @@ const quote = {
     </div>
   </section>
 
+  {/* Facilitation */}
+  <section class="section">
+    <div class="container fac">
+      <div class="section-head">
+        <p class="eyebrow">Facilitation</p>
+        <h2 class="heading section-title">Not just the stage. The whole room.</h2>
+        <p class="body-lg section-intro">
+          Keynotes open the door. Facilitation is where the shift happens -
+          and it’s the work Lisa gets asked back for.
+        </p>
+      </div>
+      <div class="fac-grid">
+        <div class="blocks">
+          {facilitation.map((f) => (
+            <div class="block">
+              <h3 class="heading block-name">{f.name}</h3>
+              <p class="body block-line">{f.line}</p>
+            </div>
+          ))}
+        </div>
+        <PhotoSlot label="Lisa facilitating a PD day - tables of leaders, working" ratio="4 / 5" />
+      </div>
+    </div>
+  </section>
+
+  <PullQuote q="observer" tone="lilac" />
+
   {/* The work, in the wild */}
   <section class="section">
     <div class="container">
@@ -113,6 +161,8 @@ const quote = {
       </figure>
     </div>
   </section>
+
+  <PullQuote q="sltBestPD" />
 
   {/* Beyond the stage - giving back */}
   <section class="section band-mist">
@@ -153,6 +203,8 @@ const quote = {
   .block-line { color: var(--c-body); }
   @media (max-width: 860px) { .blocks { grid-template-columns: 1fr; } }
 
+  .fac-grid { display: grid; grid-template-columns: 1.4fr 0.6fr; gap: clamp(20px, 3vw, 40px); align-items: start; }
+  @media (max-width: 860px) { .fac-grid { grid-template-columns: 1fr; } }
   .gigs { display: grid; grid-template-columns: repeat(2, 1fr); gap: clamp(20px, 3vw, 40px); }
   .gig { display: flex; flex-direction: column; gap: 8px; }
   .gig-name { font-size: var(--t-h4); }

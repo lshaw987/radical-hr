@@ -1,5 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
+import PhotoSlot from '../components/PhotoSlot.astro';
+import PullQuote from '../components/PullQuote.astro';
 import IndigoBlock from '../components/IndigoBlock.astro';
 
 // Concrete offers, grouped into client-friendly clusters and tied to the four
@@ -13,7 +15,7 @@ const groups = [
     items: [
       { name: 'Executive & Leadership Coaching', line: 'One-to-one and team coaching to grow courageous, future-ready leaders. Practical, strengths-based, and grounded in having actually carried the weight.' },
       { name: 'CliftonStrengths Coaching', line: 'Find what you and your team do best, then build around it. Strengths-based coaching that unlocks performance, belonging and real growth.', feature: true, href: '/strengths' },
-      { name: 'Delevate', line: 'Lisa’s own model: Deciding → Doing → Directing → Delegating → Developing → Delevating. Move from control to trust, from busyness to impact, and build a team strong enough to carry the weight together - protecting your hauora as you go.', signature: true },
+      { name: 'Delevate', line: 'Lisa’s own model for letting go well. Move from control to trust, from busyness to impact, and build a team strong enough to carry the weight together - protecting your hauora as you go.', signature: true },
       { name: 'Leadership Hauora & Wellbeing', line: 'Hauora is richer than wellbeing - it’s the whole person. Sustainable leadership: energy, boundaries, decompression, and carrying the emotional load without burning out.', feature: true },
     ],
   },
@@ -68,7 +70,8 @@ const groups = [
 >
   {/* Hero */}
   <section class="hero">
-    <div class="container">
+    <div class="container hero-split">
+      <div class="hero-copy">
       <p class="eyebrow">How we help</p>
       <h1 class="display hero-h1">The work, not the wallpaper.</h1>
       <p class="body-lg hero-sub">
@@ -77,6 +80,8 @@ const groups = [
         strategy, culture and the human stuff in between.
       </p>
       <a href="/contact" class="btn btn-primary hero-cta">Start a conversation <span class="arr">&rarr;</span></a>
+      </div>
+      <div class="hero-photo-slot"><PhotoSlot label="Lisa working with a leadership team at the table" ratio="4 / 3" /></div>
     </div>
   </section>
 
@@ -105,6 +110,9 @@ const groups = [
       </div>
     </section>
   ))}
+
+  <PullQuote q="chairChange" />
+  <PullQuote q="ceoStructure" tone="lilac" />
 
   {/* How engagements work */}
   <section class="section">

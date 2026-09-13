@@ -1,0 +1,23 @@
+---
+/* Photo placeholder (Lisa, 13 Sept: "put in placeholders and I'll help you
+   find them"). Every slot is listed in PHOTO-SLOTS.md. MUST be swapped or
+   removed before go-live - search the source for <PhotoSlot. */
+interface Props { label: string; ratio?: string; }
+const { label, ratio = '4 / 3' } = Astro.props;
+---
+<div class="slot" style={`aspect-ratio: ${ratio};`} role="img" aria-label={`Photo to come: ${label}`}>
+  <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8.5A2.5 2.5 0 0 1 6.5 6h2l1.5-2h4l1.5 2h2A2.5 2.5 0 0 1 20 8.5V17a2.5 2.5 0 0 1-2.5 2.5h-11A2.5 2.5 0 0 1 4 17z"></path><circle cx="12" cy="12.5" r="3.5"></circle></svg>
+  <span class="slot-tag">Photo to come</span>
+  <span class="slot-label">{label}</span>
+</div>
+
+<style>
+  .slot {
+    width: 100%; border-radius: var(--radius-lg);
+    border: 2px dashed var(--c-lilac); background: var(--c-lilac-3);
+    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px;
+    padding: 24px; text-align: center; color: var(--c-purple);
+  }
+  .slot-tag { font-size: var(--t-label); font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; }
+  .slot-label { font-size: var(--t-body-sm); color: var(--c-indigo); max-width: 32ch; }
+</style>
