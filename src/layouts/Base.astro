@@ -55,6 +55,10 @@ const KLAVIYO_COMPANY_ID = 'SKABCW';
       <script defer src={`https://static.klaviyo.com/onsite/js/klaviyo.js?company_id=${KLAVIYO_COMPANY_ID}`}></script>
     )}
 
+    {/* Metricool website tracking (Radical HR brand, connected 2026-09-21).
+        Snippet kept verbatim from Metricool so their verify check matches. */}
+    <script is:inline>function loadScript(a){var b=document.getElementsByTagName("head")[0],c=document.createElement("script");c.type="text/javascript",c.src="https://tracker.metricool.com/resources/be.js",c.onreadystatechange=a,c.onload=a,b.appendChild(c)}loadScript(function(){beTracker.t({hash:"3ad1546f3df6cb94dac03c1759761cf6"})});</script>
+
     <slot name="head" />
   </head>
   <body>
